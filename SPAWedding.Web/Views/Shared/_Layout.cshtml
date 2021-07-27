@@ -2,264 +2,99 @@
 <html dir="rtl" lang="fa-IR">
 
 <head>
-    <title>Seven7 | @ViewData["Title"]</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Molla - Bootstrap eCommerce Template">
-    <meta name="author" content="p-themes">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/Content/client/pic/Logo_drug_store.png">
-    <meta name="apple-mobile-web-app-title" content="Molla">
-    <meta name="application-name" content="Molla">
-    <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content="/Content/client/assets/images/icons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="/Content/client/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/Content/client/assets/css/bootstrap-rtl.min.css">
-    <link rel="stylesheet" href="/Content/client/assets/css/plugins/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="/Content/client/assets/css/plugins/magnific-popup/magnific-popup.css">
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="/Content/client/assets/css/style.css">
-    <link rel="stylesheet" href="/Content/client/assets/css/skins/skin-demo-22.css">
-    <link rel="stylesheet" href="/Content/client/assets/css/demos/demo-22.css">
-    <link rel="stylesheet" href="/Content/client/assets/css/my-style.css">
-    <link rel="stylesheet" href="/Content/client/assets/css/plugins/nouislider/nouislider.css">
+    <!-- Document Title  -->
+    <title>آموزشگاه زیبایی | @ViewData["Title"]</title>
 
+    <link rel="shortcut icon" href="img/favicon.ico" type="/content/client/image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="/content/client/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/content/client/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/content/client/img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/content/client/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/content/client/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/content/client/img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/content/client/img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/content/client/img/apple-touch-icon-180x180.png">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/content/client/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/content/client/css/fancyBox.css">
+    <link rel="stylesheet" href="/content/client/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/content/client/css/animate.css">
+
+    <link rel="stylesheet" href="/content/client/css/options-menu.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/content/client/css/main.css" type="text/css">
+    <!-- Color CSS -->
+    <link rel="stylesheet" href="/content/client/css/color/magical.css" type="text/css">
+
+    <!--Aditional-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
-
 
 </head>
 <body class="">
-    <div class="page-wrapper">
-        <!-- Header start -->
-        @Html.Action("HeaderSection", "Home", new { area = "" })
-        <div class="spacer"></div>
-        <!-- Header end -->
-        @RenderBody()
-        <!-- Footer section start -->
-        @Html.Action("FooterSection", "Home", new { area = "" })
-        <!-- Footer section end -->
 
+    <!-- header-bg -->
+
+    <div id="loader">
+        <div class="spinner"></div>
     </div>
 
-    @*<div class="container newsletter-popup-container mfp-hide" id="newsletter-popup-form">
-            <div class="row justify-content-center">
-                <div class="col-10">
-                    <div class="row no-gutters bg-white newsletter-popup-content">
-                        <div class="col-xl-3-5col col-lg-7 banner-content-wrap">
-                            <div class="banner-content text-center">
-                                <img src="/Content/client/assets/images/popup/newsletter/logo.png" class="logo" alt="logo" width="60"
-                                     height="15">
-                                <h2 class="banner-title">دریافت <span>25<light>%</light></span> تخفیف</h2>
-                                <p>
-                                    با عضویت در خبرنامه فروشگاه ما، یک تخفیف 25 درضدی دریافت کنید و از جدیدترین تخفیف ها مطلع
-                                    شوید
-                                </p>
-                                <form action="#">
-                                    <div class="input-group input-group-round">
-                                        <input type="email" class="form-control form-control-white" placeholder="ایمیل شما"
-                                               aria-label="Email Adress" required>
-                                        <div class="input-group-append">
-                                            <button class="btn" type="submit"><span>تایید</span></button>
-                                        </div><!-- .End .input-group-append -->
-                                    </div><!-- .End .input-group -->
-                                </form>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="register-policy-2" required>
-                                    <label class="custom-control-label" for="register-policy-2">
-                                        این پنجره را دوباره
-                                        نشان نده
-                                    </label>
-                                </div><!-- End .custom-checkbox -->
-                            </div>
-                        </div>
-                        <div class="col-xl-2-5col col-lg-5 ">
-                            <img src="/Content/client/assets/images/popup/newsletter/img-1.jpg" class="newsletter-img" alt="newsletter">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
+    <!-- Header start -->
+    @Html.Action("HeaderSection", "Home", new { area = "" })
+    <!-- Header end -->
+    @RenderBody()
+    <!-- Footer section start -->
+    @Html.Action("FooterSection", "Home", new { area = "" })
+    <!-- Footer section end -->
+   
+    <!-- SCROLL UP -->
+    <a href="#" class="scrollup">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- / SCROLL UP -->
 
-    @*<div class="loading" id="loading" style="display: none"></div>
-        <style>
-            .loading {
-                position: fixed;
-                z-index: 999999999;
-                height: 2em;
-                width: 2em;
-                overflow: visible;
-                margin: auto;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-            }
+    <!-- JavaScript core
+    ================================================== -->
 
-                /* Transparent Overlay */
-                .loading:before {
-                    content: '';
-                    display: block;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0,0,0,0.3);
-                }
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
-                /* :not(:required) hides these rules from IE9 and below */
-                .loading:not(:required) {
-                    /* hide "loading..." text */
-                    font: 0/0 a;
-                    color: transparent;
-                    text-shadow: none;
-                    background-color: transparent;
-                    border: 0;
-                }
 
-                    .loading:not(:required):after {
-                        content: '';
-                        display: block;
-                        font-size: 10px;
-                        width: 1em;
-                        height: 1em;
-                        margin-top: -0.5em;
-                        -webkit-animation: spinner 1500ms infinite linear;
-                        -moz-animation: spinner 1500ms infinite linear;
-                        -ms-animation: spinner 1500ms infinite linear;
-                        -o-animation: spinner 1500ms infinite linear;
-                        animation: spinner 1500ms infinite linear;
-                        border-radius: 0.5em;
-                        -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-                        box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-                    }
+    <script src="/content/client/js/jquery.js"></script>
+    <script src="/content/client/js/modernizr.js"></script>
+    <script src="/content/client/js/fancyBox.js"></script>
+    <script src="/content/client/js/jquery.validate.min.js"></script>
+    <script src="/content/client/js/owl.carousel.min.js"></script>
+    <script src="/content/client/js/countdown.js"></script>
+    <script src="/content/client/js/masonry.min.js"></script>
+    <script src="/content/client/js/jquery.waypoints.min.js"></script>
+    <script src="/content/client/js/jquery.lighterbox.0.0.3.min.js"></script>
+    <script src="/content/client/js/instagramLite.min.js"></script>
+    <script src="/content/client/js/options-menu.js"></script>
 
-            /* Animation */
+    <script src="/content/client/js/main.js"></script>
 
-            @@-webkit-keyframes spinner {
-                0% {
-                    -webkit-transform: rotate(0deg);
-                    -moz-transform: rotate(0deg);
-                    -ms-transform: rotate(0deg);
-                    -o-transform: rotate(0deg);
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    -webkit-transform: rotate(360deg);
-                    -moz-transform: rotate(360deg);
-                    -ms-transform: rotate(360deg);
-                    -o-transform: rotate(360deg);
-                    transform: rotate(360deg);
-                }
-            }
-
-            @@-moz-keyframes spinner {
-                0% {
-                    -webkit-transform: rotate(0deg);
-                    -moz-transform: rotate(0deg);
-                    -ms-transform: rotate(0deg);
-                    -o-transform: rotate(0deg);
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    -webkit-transform: rotate(360deg);
-                    -moz-transform: rotate(360deg);
-                    -ms-transform: rotate(360deg);
-                    -o-transform: rotate(360deg);
-                    transform: rotate(360deg);
-                }
-            }
-
-            @@-o-keyframes spinner {
-                0% {
-                    -webkit-transform: rotate(0deg);
-                    -moz-transform: rotate(0deg);
-                    -ms-transform: rotate(0deg);
-                    -o-transform: rotate(0deg);
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    -webkit-transform: rotate(360deg);
-                    -moz-transform: rotate(360deg);
-                    -ms-transform: rotate(360deg);
-                    -o-transform: rotate(360deg);
-                    transform: rotate(360deg);
-                }
-            }
-
-            @@keyframes spinner {
-                0% {
-                    -webkit-transform: rotate(0deg);
-                    -moz-transform: rotate(0deg);
-                    -ms-transform: rotate(0deg);
-                    -o-transform: rotate(0deg);
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    -webkit-transform: rotate(360deg);
-                    -moz-transform: rotate(360deg);
-                    -ms-transform: rotate(360deg);
-                    -o-transform: rotate(360deg);
-                    transform: rotate(360deg);
-                }
-            }
-        </style>
-         Loading*@
-    @*<script src="/Content/client/js/jquery-3.4.1.min.js"></script>
-        <script src="/Content/client/js/bootstrap.min.js"></script>
-        <script>
-            // Here we enable or disable Megamenu tab onHover/onClick
-            /*
-            (function ($) {
-                $(function () {
-                    $(document).off('click.bs.tab.data-api', '[data-hover="tab"]');
-                    $(document).on('mouseenter.bs.tab.data-api', '[data-toggle="tab"], [data-hover="tab"]', function () {
-                        $(this).tab('show');
-                    });
-                });
-            })(jQuery);
-            */
-        </script>
-        <script src="/Content/client/js/owl.carousel.min.js"></script>
-        <script src="/Content/client/js/modernizr.js"></script>
-        @*<script src="/Content/client/js/jquery.magnific-popup.min.js"></script>
-        <script src="/Content/client/js/custom.js"></script>
-        @*<script src="/Content/client/js/countDown.js"></script>
-        <script src="/Content/client/js/store.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-loading-overlay/2.1.7/loadingoverlay.min.js" integrity="sha512-hktawXAt9BdIaDoaO9DlLp6LYhbHMi5A36LcXQeHgVKUH6kJMOQsAtIw2kmQ9RERDpnSTlafajo6USh9JUXckw==" crossorigin="anonymous"></script>*@
-
-    <!-- Plugins JS File -->
-    <script src="/Content/client/assets/js/jquery.min.js"></script>
-    <script src="/Content/client/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="/Content/client/assets/js/jquery.hoverIntent.min.js"></script>
-    <script src="/Content/client/assets/js/jquery.waypoints.min.js"></script>
-    <script src="/Content/client/assets/js/superfish.min.js"></script>
-    <script src="/Content/client/assets/js/owl.carousel.min.js"></script>
-    <script src="/Content/client/assets/js/wNumb.js"></script>
-    <script src="/Content/client/assets/js/bootstrap-input-spinner.js"></script>
-    <script src="/Content/client/assets/js/jquery.elevateZoom.min.js"></script>
-    <script src="/Content/client/assets/js/bootstrap-input-spinner.js"></script>
-    <script src="/Content/client/assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="/Content/client/assets/js/nouislider.min.js"></script>
-    <!-- <script src="assets/js/jquery.magnific-popup.min.js"></script> -->
-    <!-- Main JS File -->
-    <script src="/Content/client/assets/js/main.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+    <!--Additional js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
+
+
 
 
     <script>
