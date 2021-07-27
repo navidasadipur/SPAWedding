@@ -353,8 +353,7 @@ namespace SPAWedding.Web.Controllers
             return PartialView(partners);
         }
 
-        [Route("ContactUs")]
-        public ActionResult Contact()
+        public ActionResult ContactUs()
         {
             var map = _staticContentRepo.GetStaticContentDetail((int)StaticContents.ContactUsMap);
             var phone = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Phone);

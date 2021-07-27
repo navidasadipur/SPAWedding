@@ -5,51 +5,214 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main class="main">
-    <div class="page-header text-center" style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.BanerImage')">
-        <div class="container">
-            <h1 class="page-title">@ViewBag.Title</h1>
-        </div><!-- End .container -->
-    </div><!-- End .page-header -->
-    <nav aria-label="breadcrumb" class="breadcrumb-nav">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/home">خانه</a></li>
-                @*<li class="breadcrumb-item"><a href="#">صفحات</a></li>*@
-                <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
-            </ol>
-        </div><!-- End .container -->
-    </nav><!-- End .breadcrumb-nav -->
+<div class="page-title text-center">
+    <div class="block-parallax height40vh blend-bg text-center breadcrumb-back">
+        <div class="page-title-wrap">
+            <div class="page-title-inner">
+                <div class="page-title-align animate" data-animation="fadeIn" data-timeout="800">
+                    <h1>درباره ما</h1>
+                    <div class="page-title-description breadcrumbs">
+                        <ul>
+                            <li><a href="index.html">خانه</a><span>/</span></li>
+                            <li>درباره ما</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  / .block-parallax -->
+</div>
 
-    <div class="page-content pb-3">
+<div class="wrapper-content">
+    <div class="container">
+        <div class="row">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="about-text text-center mt-3">
-                        <h2 class="title text-center mb-2">@Model.Title</h2><!-- End .title text-center mb-2 -->
-                        <p class="text-center">
-                            @Model.AboutDescription
-                        </p>
-                        <img src="/Files/StaticContentImages/Image/@Model.SignatureImage" alt="signature"
-                             class="mx-auto mb-5">
+            <div class="col-md-5">
 
-                        <img src="/Files/StaticContentImages/Image/@Model.Image" alt="image"
-                             class="mx-auto mb-6">
-                    </div><!-- End .about-text -->
-                </div><!-- End .col-lg-10 offset-1 -->
-            </div><!-- End .row -->
+                <div class="animate" data-animation="fadeIn" data-timeout="400">
+                    <img class="circle-img" src="/Content/client/img/bride.jpg" alt="Groom Image">
+                </div>
+                <div class="white-space"></div>
 
-            @Html.Action("AboutOurPropertiesSection", "Home")
+                <div class="white-space"></div>
 
-        </div><!-- End .container -->
+            </div>
 
-        <div class="mb-2"></div><!-- End .mb-2 -->
+            <div class="col-md-7">
 
-        @Html.Action("OurTeamsSection", "Home")
-       
-        @Html.Action("PartnersSection", "Home");
+                <h4>هر آنچه باید درباره ما بدانید</h4>
+                <div class="white-space"></div>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
+                    مورد نیاز، و کاربردهای آن
+                </p>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
+                    مورد نیاز، و کاربردهای آن لورم ایپسوم متن ساختگی با تولید سادگی
+                    نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
+                    ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای آن
+                </p>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
+                    مورد نیاز، و کاربردهای آن لورم ایپسوم متن ساختگی با تولید سادگی
+                    نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
+                    ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای آن لورم ایپسوم
+                    متن ساختگی با تولید سادگی نامفهوم از صنعت
+                    چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان
+                    که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای آن
+                </p>
 
-    </div><!-- End .page-content -->
-</main><!-- End .main -->
+            </div>
+
+
+
+            <div class="col-md-12 mt-3">
+                <div class="text-center">
+                    <div class="separator-medium"></div>
+                    <h3>آموزش های آنلاین محبوب</h3>
+                    <div class="white-space"></div>
+                </div>
+
+                <div class="wrapper-content">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-4">
+
+                                <!-- BLOG ITEM -->
+
+                                <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
+                                    <a href="blog-details.html">
+                                        <img src="/Content/client/img/masonry15.jpg" alt="Post 1">
+                                    </a>
+                                    <div class="blog-info text-center">
+                                        <h6>هر آنچه باید درباره ما بدانید</h6>
+                                        <p>
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
+                                            از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                            سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای
+                                            آن
+                                        </p>
+                                        <a class="btn btn-small btn-clr-reverse" href="blog-details.html">بیشتر</a>
+                                    </div>
+                                </div>
+
+                                <!-- / BLOG ITEM -->
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <!-- BLOG ITEM -->
+
+                                <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
+                                    <a href="blog-details.html">
+                                        <img src="/Content/client/img/masonry14.jpg" alt="Post 1">
+                                    </a>
+                                    <div class="blog-info text-center">
+                                        <h6>هر آنچه باید درباره ما بدانید</h6>
+                                        <p>
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
+                                            از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                            سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای
+                                            آن
+                                        </p>
+                                        <a class="btn btn-small btn-clr-reverse" href="blog-details.html">بیشتر</a>
+                                    </div>
+                                </div>
+
+                                <!-- / BLOG ITEM -->
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <!-- BLOG ITEM -->
+
+                                <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
+                                    <a href="blog-details.html">
+                                        <img src="/Content/client/img/masonry13.jpg" alt="Post 1">
+                                    </a>
+                                    <div class="blog-info text-center">
+                                        <h6>هر آنچه باید درباره ما بدانید</h6>
+                                        <p>
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
+                                            از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                            سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای
+                                            آن
+                                        </p>
+                                        <a class="btn btn-small btn-clr-reverse" href="blog-details.html">بیشتر</a>
+                                    </div>
+                                </div>
+
+                                <!-- / BLOG ITEM -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- / .container -->
+</div>
+<!-- / .wrapper-content -->
+
+<div class="footer-margin"></div>
+
+
+
+
+@*<main class="main">
+        <div class="page-header text-center" style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.BanerImage')">
+            <div class="container">
+                <h1 class="page-title">@ViewBag.Title</h1>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
+        <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">خانه</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+                </ol>
+            </div><!-- End .container -->
+        </nav><!-- End .breadcrumb-nav -->
+
+        <div class="page-content pb-3">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="about-text text-center mt-3">
+                            <h2 class="title text-center mb-2">@Model.Title</h2><!-- End .title text-center mb-2 -->
+                            <p class="text-center">
+                                @Model.AboutDescription
+                            </p>
+                            <img src="/Files/StaticContentImages/Image/@Model.SignatureImage" alt="signature"
+                                 class="mx-auto mb-5">
+
+                            <img src="/Files/StaticContentImages/Image/@Model.Image" alt="image"
+                                 class="mx-auto mb-6">
+                        </div><!-- End .about-text -->
+                    </div><!-- End .col-lg-10 offset-1 -->
+                </div><!-- End .row -->
+
+                @Html.Action("AboutOurPropertiesSection", "Home")
+
+            </div><!-- End .container -->
+
+            <div class="mb-2"></div><!-- End .mb-2 -->
+
+            @Html.Action("OurTeamsSection", "Home")
+
+            @Html.Action("PartnersSection", "Home");
+
+        </div><!-- End .page-content -->
+    </main><!-- End .main -->*@
 
