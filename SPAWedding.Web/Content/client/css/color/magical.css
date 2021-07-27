@@ -1,0 +1,336 @@
+/*------------------------------------------------------------------
+[13. Color style ]
+----------------------------------------------*/
+/** font color **/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.btn,
+span.icon a,
+.counter-value,
+span.grey {
+  color: #68555e;
+}
+
+.btn.btn-wht {
+  border: 1px solid #1d1d1d;
+  color: #1d1d1d;
+}
+
+footer.style-1,
+footer.style-2,
+footer.style-3 {
+  background: #1d1d1d;
+}
+
+/** main font **/
+.main-font,
+.wrap-countdown {
+  color: #1d1d1d !important;
+}
+
+ul.tab-element-tabs li:hover,
+blockquote span.author,
+.header-bg .site-logo,
+.header-bg-sticky .site-logo,
+.header-bg .menu ul li a,
+.header-bg-sticky .menu ul li a,
+.menu ul ul > li a {
+  color: #1d1d1d;
+}
+
+/** font color light **/
+.btn.btn-wht:hover,
+.btn.btn-white:hover,
+.accordion-element a.toggle,
+.tab-element .tab-content {
+  border: 1px solid #5d5b5b;
+  color: #5d5b5b;
+}
+
+span.icon.icon-wht {
+  background-color: #5d5b5b;
+  border: 1px solid #5d5b5b;
+}
+
+body,
+span.icon.icon-wht:hover,
+span.icon.icon-wht:hover a,
+ul.tab-element-tabs li,
+footer.style-2 a,
+.invitation.invitation-bg p,
+.icon-text:hover i,
+.section-title p {
+  color: #5d5b5b;
+}
+
+ul.tab-element-tabs li.current {
+  border-top: 1px solid #5d5b5b;
+  border-left: 1px solid #5d5b5b;
+  border-right: 1px solid #5d5b5b;
+}
+
+.form-group ::-webkit-input-placeholder,
+.form-group ::-moz-placeholder,
+.form-group ::-ms-input-placeholder,
+.form-group ::-moz-placeholder {
+  color: #5d5b5b;
+}
+
+/** grey color **/
+.heading::before,
+a.btn-slide,
+.site-logo,
+.menu ul li a,
+footer .footer-top,
+.page-404 h1,
+.page-404 p,
+.white-countdown span.big-num,
+.image-text:hover i,
+.white-countdown .countdown-amount,
+.white-countdown span.grey,
+.invitation h1,
+.invitation p {
+  color: #f0f0f0;
+}
+
+.info-block-item:hover {
+  border: 1px solid #f0f0f0;
+}
+
+.separator-small {
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.separator-medium {
+  border-bottom: 4px solid #f0f0f0;
+}
+
+.call-to-acton-border {
+  border-bottom: 2px solid #f0f0f0;
+  border-top: 2px solid #f0f0f0;
+}
+
+.form-group input,
+.form-group textarea {
+  border-top: 1px solid #f0f0f0;
+  border-left: 1px solid #f0f0f0;
+  border-right: 1px solid #f0f0f0;
+}
+
+.testimonial-image i,
+blockquote {
+  background-color: #f0f0f0;
+}
+
+.testimonial-item-border {
+  border: 1px solid #f0f0f0;
+}
+
+/** main color **/
+a,
+.font-main,
+.separator-heart::before,
+.btn:hover,
+span.icon a:hover,
+span.icon.icon-clr:hover,
+span.icon.icon-clr:hover a,
+.icon-text i,
+.icon-text.icon-text-clr:hover i,
+ul.tab-element-tabs li.current,
+.testimonial-image i,
+.testimonial-item-border i,
+.dropcap,
+.site-logo::after,
+header.header-menu-sticky .menu ul li.has-sub-menu:hover a.parent,
+.menu ul li.has-sub-menu:hover a.parent.active,
+.menu ul ul > li a:hover,
+.menu li li.has-sub-menu > a:after,
+.scrollup,
+.menu ul li a.parent.active,
+.breadcrumbs a:hover,
+.page-title-description:after,
+a.page-title-btn:hover {
+  color: #612d7f;
+}
+
+.heading ::after,
+.bg-main,
+.icon-text.icon-text-clr i,
+.image-text.image-text-clr i,
+.team-item:hover .team-item-hover,
+.info-block-item:hover .info-block-hover,
+.owl-carousel .owl-dots .owl-dot.active span,
+.owl-carousel .owl-dots .owl-dot:hover span,
+ul.circled-list li::before,
+.hovereffect h2,
+.spinner:before,
+.spinner:after,
+.success-message,
+label.error,
+.page-title-description:before,
+.blog-navigation li.active a,
+.blog-navigation li a:hover {
+  background: #612d7f;
+}
+
+.lighterbox-caption {
+  background: #612d7f !important;
+}
+
+.btn.btn-clr,
+.btn.btn-clr-reverse:hover,
+span.icon.icon-clr {
+  background-color: #612d7f;
+  border: 1px solid #612d7f;
+  color: white !important;
+}
+
+.btn.btn-clr-reverse,
+#filters-cat li span.active {
+  border: 1px solid #612d7f;
+  color: #612d7f;
+}
+
+.accordion-element a.toggle.current,
+.accordion-element a.toggle:hover {
+  border: 1px solid #612d7f;
+  background: #612d7f;
+  color: #fff !important;
+}
+
+.separator-heart {
+  border-bottom: 1px solid #612d7f;
+}
+
+blockquote {
+  border-left: 5px solid #612d7f;
+}
+
+.header-bg-sticky .site-logo,
+.scrollup,
+footer .site-logo {
+  border: 1px solid #612d7f;
+}
+
+/** light color **/
+::-moz-selection {
+  background-color: rgba(97, 45, 127, 0.2);
+}
+
+::selection {
+  background-color: rgba(97, 45, 127, 0.2);
+}
+
+.blog-navigation li a {
+  border: 1px solid rgba(97, 45, 127, 0.2);
+}
+
+.blend-bg,
+.slider-bg {
+  background-color: rgb(116 116 116 / 24%);
+}
+
+.btn.btn-clr:hover {
+  background-color: transparent;
+  color: #612d7f;
+}
+
+.bg-clr {
+  background-color: rgba(97, 45, 127, 0.2);
+  color: #68555e !important;
+}
+
+.section-title {
+  border-bottom: 3px solid rgba(97, 45, 127, 0.2);
+}
+
+.bg-clr h1,
+.bg-clr h2,
+.bg-clr h3,
+.bg-clr h4,
+.bg-clr h5,
+.bg-clr h6 {
+  color: #68555e !important;
+}
+
+.bg-clr span.icon a {
+  color: #612d7f !important;
+}
+
+.separator-large {
+  border-bottom: 5px solid rgba(97, 45, 127, 0.2);
+}
+
+footer.style-1 {
+  border-top: 3px solid #612d7f;
+}
+
+header.top-menu.header-menu-sticky {
+  border-bottom: 1px solid rgba(97, 45, 127, 0.2) !important;
+}
+
+header.bottom-menu.header-menu-sticky {
+  border-top: 1px solid rgba(97, 45, 127, 0.2) !important;
+}
+
+/** light black **/
+a:hover {
+  color: rgba(29, 29, 29, 0.1);
+}
+
+.overlay-parallax {
+  background: rgba(29, 29, 29, 0.1);
+}
+
+.form-group input,
+.form-group textarea {
+  border-bottom: 1px solid rgba(29, 29, 29, 0.1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(29, 29, 29, 0.1);
+}
+
+/** hover white **/
+.mfp-bg {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 766px) {
+  a.menu-link {
+    background-color: #612d7f;
+  }
+
+  .menu li,
+  .menu > ul > li {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .menu ul li a.active {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .menu ul li a {
+    color: #5d5b5b;
+  }
+
+  .menu ul li.has-sub-menu:hover a.parent,
+  .menu ul > li a:hover,
+  .menu ul ul > li a:hover,
+  .menu ul ul ul > li a:hover {
+    color: #1d1d1d;
+  }
+
+  .menu li.has-sub-menu > a:after {
+    color: rgba(97, 45, 127, 0.2);
+  }
+
+  .menu li.has-sub-menu > a.active:after {
+    color: #612d7f;
+  }
+}
