@@ -20,8 +20,8 @@ namespace SPAWedding.Core.Utility
 
     public enum StaticContents
     {
-        AboutDescription = 15,
-        firstImageAboutPage = 16,
+        AboutDescription = 16,
+        firstImageAboutPage = 15,
         WorkingHours = 1008,
         Youtube = 29,
         Instagram = 28,

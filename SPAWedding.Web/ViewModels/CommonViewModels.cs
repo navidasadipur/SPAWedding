@@ -237,7 +237,6 @@ namespace SPAWedding.Web.ViewModels
         public string Title { get; set; }
         [DataType(DataType.MultilineText)]
         public string AboutDescription { get; set; }
-        public string SignatureImage { get; set; }
         public string Image { get; set; }
     }
     public class FooterViewModel

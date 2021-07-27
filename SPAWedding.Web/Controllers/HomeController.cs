@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using SPAWedding.Core.Models;
 using SPAWedding.Core.Utility;
 using SPAWedding.Infrastructure.Repositories;
@@ -321,13 +322,9 @@ namespace SPAWedding.Web.Controllers
             var model = new AboutViewModel()
             {
                 Title = about.Title,
-                AboutDescription = about.ShortDescription,
-                SignatureImage = about.Image,
+                AboutDescription = about.Description,
+                Image = about.Image,
             };
-
-            model.Image = _staticContentRepo.GetStaticContentDetail((int)StaticContents.firstImageAboutPage).Image;
-
-            ViewBag.BanerImage = _staticContentRepo.GetStaticContentDetail(13).Image;
 
             return View(model);
         }
@@ -353,6 +350,7 @@ namespace SPAWedding.Web.Controllers
             return PartialView(partners);
         }
 
+        [Route("ContactUs")]
         public ActionResult ContactUs()
         {
             var map = _staticContentRepo.GetStaticContentDetail((int)StaticContents.ContactUsMap);
