@@ -1,0 +1,21 @@
+﻿@model List<SPAWedding.Core.Models.StaticContentDetail>
+
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-sm-6">
+                <div class="icon-box icon-box-sm text-center">
+                    <span class="icon-box-icon">
+                        @Html.Raw(item.ShortDescription)
+                    </span>
+                    <div class="icon-box-content">
+                        <h3 class="icon-box-title">@item.Title </h3><!-- End .icon-box-title -->
+                        <div class="center">
+                            @Html.Raw(item.Description)
+                        </div>
+                    </div><!-- End .icon-box-content -->
+                </div><!-- End .icon-box -->
+            </div><!-- End .col-lg-4 col-sm-6 -->
+
+        }
+    </div><!-- End .row -->

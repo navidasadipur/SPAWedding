@@ -1,0 +1,558 @@
+﻿@model SPAWedding.Web.ViewModels.ProductListViewModel
+
+@*<div class="contant">
+    <div id="banner-part" class="banner inner-banner" style="background-image:url(@ViewBag.Banner)">
+        <div class="container">
+            <div class="bread-crumb-main">
+                <h1 class="banner-title">@ViewBag.Title</h1>
+                <div class="breadcrumb">
+                    <ul class="inline">
+                        <li><a href="">خانه</a></li>
+                        <li>@ViewBag.Title</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-4 col-xl-3">
+                    <div class="sidebar mb-md-30">
+                        <div class="sidebar-default sidebar-banner d-none d-lg-block">
+                                <a href="javascript:void(0)">
+                                    <img src="images/sidebar-banner.jpg" alt="">
+                                </a>
+                            </div>*@@*
+
+    <div class="sidebar-category sidebar-default">
+        <div class="category-content">
+            <h2 class="cat-title">دسته بندی ها</h2>
+            @if (ViewBag.ProductGroupName != null)
+            {
+                <h5>@ViewBag.ProductGroupName</h5>
+            }
+            <ul class="pl-0 mb-0">
+                @foreach (var item in Model.ProductGroups)
+                {
+                    <li><a href="/Shop/ProductList/@item.Id">@item.Title</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="sidebar-default">
+        <div class="category-content">
+            <h2 class="cat-title">فیلتر بر اساس</h2>
+            <a class="btn btn-color small btn-filter mb-20" href="#"><i class="fa fa-close"></i><span>حذف همه</span></a>*@@*
+                                                                <div class="mb-20">
+                                                                    <div class="inner-title expandable edeactive">برند</div>
+                                                                    <ul class="filter-sub-section" style="">
+                                                                        @foreach (var brand in Model.Brands)
+                                                                        {
+                                                                            <li>
+                                                                                <div class="check-box">
+                                                                                    <span>
+                                                                                        <input type="checkbox" class="checkbox" id="b_@brand.Id"
+                                                                                               onchange="GetGrid()"
+                                                                                               value="@brand.Id"
+                                                                                               name="brands">
+                                                                                        <label for="b_@brand.Id">@brand.Name</label>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </li>
+
+                                                                        }
+                                                                    </ul>
+                                                                </div>
+                                                                @foreach (var feature in Model.Features.Where(f => f.SubFeatures.Any()))
+                                                                {
+                                                                    <div class="mb-20">
+                                                                        <div class="inner-title expandable edeactive">@feature.Title</div>
+                                                                        <ul class="filter-sub-section" style="">
+                                                                            @foreach (var subFeature in feature.SubFeatures)
+                                                                            {
+                                                                                <li>
+                                                                                    <div class="check-box">
+                                                                                        <span>
+                                                                                            <input type="checkbox" class="checkbox" id="sf_@subFeature.Id"
+                                                                                                   onchange="GetGrid()"
+                                                                                                   value="@subFeature.Id"
+                                                                                                   name="subFeatures">
+                                                                                            <label for="sf_@subFeature.Id">@subFeature.Value</label>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </li>
+
+                                                                            }
+                                                                        </ul>
+                                                                    </div>
+                                                                }
+                                                                <div class="mb-20">
+                                                                    <div class="inner-title expandable edeactive">قیمت</div>
+                                                                    <ul class="filter-sub-section" style="height:auto; overflow-y:unset">
+                                                                        <li>
+                                                                            <div class="check-box">
+                                                                                <span>
+                                                                                    <input type="radio" class="checkbox" onchange="GetGrid()" id="price1" value="0-5" name="price">
+                                                                                    <label for="price1">تا 500.000 تومان</label>
+                                                                                </span>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="check-box">
+                                                                                <span>
+                                                                                    <input type="radio" class="checkbox" onchange="GetGrid()" id="price2" value="5-20" name="price">
+                                                                                    <label for="price2">2.000،000 تومان - 500،000 تومان</label>
+                                                                                </span>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="check-box">
+                                                                                <span>
+                                                                                    <input type="radio" class="checkbox" onchange="GetGrid()" id="price3" value="20-50" name="price">
+                                                                                    <label for="price3">5.000،000 تومان - 2.000،000 تومان</label>
+                                                                                </span>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="check-box">
+                                                                                <span>
+                                                                                    <input type="radio" class="checkbox" onchange="GetGrid()" id="price4" value="50-0" name="price">
+                                                                                    <label for="price4">از 5.000،000 تومان به بالا</label>
+                                                                                </span>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @Html.Action("LatestProductsSidebar", "Shop", new { take = 3 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-8 col-xl-9">
+                                                    <div class="shorting mb-30">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="short-by float-right-md">
+                                                                    <span>مرتب سازی</span>
+                                                                    <div class="select-item">
+                                                                        <select onchange="GetGrid()" name="sort" id="sort">
+                                                                            <option value="date" selected="selected">تاریخ ثبت</option>
+                                                                            <option value="name">اسم محصول</option>
+                                                                            <option value="price-high-to-low">قیمت از زیاد به کم</option>
+                                                                            <option value="price-low-to-high">قیمت از کم به زیاد</option>
+                                                                            <option value="sale">پر فروش ها</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="show-item left-side float-left-md">
+                                                                    <span>نمایش</span>
+                                                                    <div class="select-item">
+                                                                        <select onchange="GetGrid()" name="take" id="take">
+                                                                            <option value="27" selected="selected">27</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="9">9</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <span>هر صفحه</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="grid"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+
+
+
+
+
+
+
+
+            <main class="main">
+                <div class="page-header text-center" style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.BanerImage')">
+                    <div class="container">
+                        <h1 style="color: #00B4A2;" class="page-title">فروشگاه</h1>
+                        @if (ViewBag.ProductGroupName != null)
+                        {
+                           <h5>محصولات دسته <b style="color: #00B4A2;">@ViewBag.ProductGroupName</b> </h5>
+                        }
+                    </div><!-- End .container -->
+                </div><!-- End .page-header -->
+                <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+                    <div class="container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                            <li class="breadcrumb-item"><a href="/shop">فروشگاه</a></li>
+                        </ol>
+                    </div><!-- End .container -->
+                </nav><!-- End .breadcrumb-nav -->
+
+                <div class="page-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="toolbox">
+                                    <div class="toolbox-left row">
+                                        @*<div class="">*@
+                                        <div class="col-6">
+
+                                        </div>
+                                        <div class="select-item col-3">
+                                            <select onchange="GetGrid()" name="take" id="take" class="form-control">
+                                                <option value="27" selected="selected">27 محصول</option>
+                                                <option value="15">15 محصول</option>
+                                                <option value="9">9 محصول</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="select-item col-3">
+                                            <span>در هر صفحه</span>
+                                        </div>
+                                        @*نمایش <span>9 از 56</span> محصول*@
+                                        @*</div> End .toolbox-info*@
+                                    </div><!-- End .toolbox-left -->
+
+                                    <div class="toolbox-right">
+                                        <div class="toolbox-sort">
+                                            <label for="sortby">مرتب سازی براساس : </label>
+                                            <div class="">
+                                                <select onchange="GetGrid()" name="sort" id="sort" class="form-control">
+                                                    <option value="date" selected="selected">تاریخ ثبت</option>
+                                                    <option value="name">اسم محصول</option>
+                                                    <option value="price-high-to-low">قیمت از زیاد به کم</option>
+                                                    <option value="price-low-to-high">قیمت از کم به زیاد</option>
+                                                    <option value="sale">پر فروش ها</option>
+                                                </select>
+                                                @*<select name="sortby" id="sortby" class="form-control">
+                                                        <option value="popularity" selected="selected">بیشترین خرید</option>
+                                                        <option value="rating">بیشترین امتیاز</option>
+                                                        <option value="date">تاریخ</option>
+                                                    </select>*@
+                                            </div>
+                                        </div><!-- End .toolbox-sort -->
+
+                                    </div><!-- End .toolbox-right -->
+                                </div><!-- End .toolbox -->
+
+
+                                <div id="grid"></div>
+
+
+
+                            </div><!-- End .col-lg-9 -->
+                            <aside class="col-lg-3 order-lg-first">
+                                <div class="sidebar sidebar-shop">
+                                    <div class="widget widget-clean">
+                                        <label>فیلترها : </label>
+                                        @if (@Request.Url.AbsoluteUri.ToString().EndsWith("hop") || @Request.Url.AbsoluteUri.ToString().EndsWith("hop#"))
+                                        {
+                                            <a href='#' onclick='location.reload(true); return false;' class="sidebar-filter-clear">پاک کردن همه</a>
+                                        }
+                                        else
+                                        {   
+                                            <a href="javascript:void(0)" class="sidebar-filter-clear" id="reload">پاک کردن همه</a>
+                                        }
+                                    </div><!-- End .widget widget-clean -->
+
+                                    <div class="widget widget-collapsible">
+                                        <h3 class="widget-title">
+                                            <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true"
+                                               aria-controls="widget-1">
+                                                دسته بندی
+                                            </a>
+                                        </h3><!-- End .widget-title -->
+                                        <div class="collapse show" id="widget-1">
+                                            <!--subset-->
+
+                                            <div class="subset-category">
+                                                <!--Item 1-->
+                                                @foreach (var item in Model.ProductGroups)
+                                                {
+                                                    <a href="javascript:void(0)" onclick="GetGrid(null, @item.Id)">
+                                                        @item.Title
+                                                    </a>
+                                                    <div class="widget widget-collapsible border-0">
+                                                        <h3 class="widget-title widget-title-custome">
+                                                            <a data-toggle="collapse" href="#category-@item.Id" role="button"
+                                                               aria-expanded="true"
+                                                               aria-controls="category-@item.Id" style="opacity: 0.4">
+                                                                زیر دسته های @item.Title
+                                                                <a />
+                                                        </h3>
+                                                    </div>
+
+
+                                                    if (item.Children.Count > 0)
+                                                    {
+                                                        <div class="collapse" id="category-@item.Id">
+                                                            <ul class="category-collaps">
+                                                                @foreach (var subItem in item.Children)
+                                                                {
+                                                                    if (subItem.IsDeleted)
+                                                                    {
+                                                                        continue;
+                                                                    }
+                                                                    <li><a href="javascript:void(0)" onclick="GetGrid(null, @subItem.Id)">@subItem.Title</a></li>
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    }
+                                                    @*<li><a href="product.html">قرص استامینوقن</a></li>
+                                                        <li><a href="product.html">قرص ژلوفن</a></li>
+                                                        <li><a href="product.html">قرص سرماخوردگی</a></li>*@
+
+
+                                                }
+                                                @*<div class="widget widget-collapsible border-0">
+                                                        <h3 class="widget-title widget-title-custome">
+                                                            <a data-toggle="collapse" href="#category1" role="button"
+                                                               aria-expanded="true"
+                                                               aria-controls="category1">
+                                                                قرص
+                                                            </a>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="collapse" id="category1">
+                                                        <ul class="category-collaps">
+                                                            <li><a href="product.html">قرص استامینوقن</a></li>
+                                                            <li><a href="product.html">قرص ژلوفن</a></li>
+                                                            <li><a href="product.html">قرص سرماخوردگی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <!--End Item 1-->
+                                                    <!--Item 2-->
+                                                    <div class="widget widget-collapsible border-0">
+                                                        <h3 class="widget-title widget-title-custome">
+                                                            <a data-toggle="collapse" href="#category2" role="button"
+                                                               aria-expanded="true"
+                                                               aria-controls="category2">
+                                                                ضدعفونی کننده
+                                                            </a>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="collapse" id="category2">
+                                                        <ul class="category-collaps">
+                                                            <li><a href="product.html">ژل ضدعفونی کننده</a></li>
+                                                            <li><a href="product.html">اسپری ضدعفونی کننده</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <!--End Item 3-->*@
+
+                                            </div>
+                                        </div><!-- End .widget -->
+                                    </div>
+
+                                    <div class="widget widget-collapsible">
+                                        <h3 class="widget-title">
+                                            <a data-toggle="collapse" href="#widget-5" role="button" aria-expanded="true"
+                                               aria-controls="widget-5">
+                                                قیمت
+                                            </a>
+                                        </h3><!-- End .widget-title -->
+
+                                        <div class="collapse show" id="widget-5">
+                                            <div class="widget-body">
+                                                <div class="filter-price">
+                                                    <div class="filter-price-text">
+                                                        محدوده قیمت :
+                                                        <span id="filter-price-range"></span>
+                                                    </div><!-- End .filter-price-text -->
+
+                                                    <div id="price-slider"></div><!-- End #price-slider -->
+                                                </div><!-- End .filter-price -->
+                                            </div><!-- End .widget-body -->
+                                        </div><!-- End .collapse -->
+                                    </div><!-- End .widget -->
+
+                                    <div class="widget widget-collapsible">
+                                        <h3 class="widget-title">
+                                            <a data-toggle="collapse" href="#widget-4" role="button" aria-expanded="true"
+                                               aria-controls="widget-4">
+                                                برند
+                                            </a>
+                                        </h3><!-- End .widget-title -->
+
+                                        <div class="collapse show" id="widget-4">
+                                            <div class="widget-body">
+                                                <div class="filter-items">
+                                                    @foreach (var brand in Model.Brands)
+                                                    {
+                                                        <div class="filter-item">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                       id="b_@brand.Id"
+                                                                       onchange="GetGrid()"
+                                                                       value="@brand.Id"
+                                                                       name="brands">
+                                                                <label class="custom-control-label" for="b_@brand.Id">@brand.Name</label>
+                                                            </div><!-- End .custom-checkbox -->
+                                                        </div><!-- End .filter-item -->
+                                                    }
+                                                    @*<div class="filter-item">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                       id="brand-1">
+                                                                <label class="custom-control-label" for="brand-1">Next</label>
+                                                            </div><!-- End .custom-checkbox -->
+                                                        </div><!-- End .filter-item -->*@
+
+                                                </div><!-- End .filter-items -->
+                                            </div><!-- End .widget-body -->
+                                        </div><!-- End .collapse -->
+                                    </div><!-- End .widget -->
+
+
+                                </div><!-- End .sidebar sidebar-shop -->
+                            </aside><!-- End .col-lg-3 -->
+                        </div><!-- End .row -->
+                    </div><!-- End .container -->
+                </div><!-- End .page-content -->
+            </main><!-- End .main -->
+            <!-- Loading -->
+@section scripts
+{
+    <script>
+    var brandIds = null;
+    var groupIds = null;
+    var productIds = null;
+    </script>
+
+    @if (ViewBag.brandIds != null)
+    {
+        <script>
+            brandIds = "@ViewBag.BrandIds";
+        </script>
+    }
+    @if (ViewBag.groupIds != null)
+    {
+        <script>
+            groupIds = "@ViewBag.GroupIds";
+        </script>
+    }
+    @if (ViewBag.productIds != null)
+    {
+        <script>
+            productIds = "@ViewBag.ProductIds";
+        </script>
+    }
+                <script>
+        var selectedGroupId = @Model.SelectedGroupId;
+
+        function GetGrid(page, groupId) {
+            $("#loading").show();
+            var pageNumber = 1;
+            if (page != null) {
+                pageNumber = page;
+            }
+            var sort = $("#sort").find(":selected").val();
+            var take = $("#take").find(":selected").val();
+            var categoryId = groupId !== undefined ? groupId : null;
+            categoryId = categoryId === null ? selectedGroupId : categoryId;
+            var searchString =  '@ViewBag.SearchString';
+            var brands = [];
+            var priceFrom = null;
+            var priceTo = null;
+            var selectedPriceRange = $("span#filter-price-range").text().replaceAll("تومان", "");
+            if (selectedPriceRange != undefined) {
+                var priceRangeArr = selectedPriceRange.split('-');
+                 console.log(priceRangeArr);
+                if (parseInt(priceRangeArr[0]) > 0) {
+                    priceFrom = parseInt(priceRangeArr[0]);
+                    console.log(priceFrom);
+                }
+                if (parseInt(priceRangeArr[1]) > 0) {
+                    priceTo = parseInt(priceRangeArr[1]);
+                    console.log(priceTo);
+                }
+            }
+
+            $("input[name='brands']").map(function() {
+                if ($(this).prop("checked") === true) {
+                    brands.push(parseInt($(this).val()));
+                }
+            });
+            var subFeatures = [];
+            $("[name='subFeatures']").map(function() {
+                if ($(this).prop("checked") === true) {
+                    subFeatures.push(parseInt($(this).val()));
+                }
+            });
+            var grid = {
+                categoryId: categoryId,
+                searchString: searchString,
+                priceFrom: priceFrom,
+                priceTo: priceTo,
+                brands: brands.join('-'),
+                subFeatures: subFeatures.join('-'),
+                pageNumber: pageNumber,
+                take: take,
+                sort: sort,
+                BrandIds: brandIds,
+                GroupIds: groupIds,
+                ProductIds: productIds,
+            }
+            $.ajax({
+                type: 'GET',
+                url: '/ProductsGrid',
+                data: grid,
+                success: function(data) {
+                    $("#grid").html(data);
+                },
+                error: function(data) {
+                    console.log("error");
+                    console.log(data);
+                },
+                complete: function() {
+                    $("#loading").hide();
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            GetGrid();
+
+            //$("#filter-price-range").on('DOMSubtreeModified', function () {
+            //    alert("Span HTML is now " + $(this).html());
+            //    GetGrid();
+            //});
+
+            // Update Price Range
+            $('#price-slider').mouseup(function () {
+                GetGrid();
+            });
+
+            document.getElementById("reload").onclick = function() {reload()};
+
+
+        });
+                function reload() {
+                window.location = window.location.href.split("?")[0];
+            }
+
+                    function CheckPriceUpdated() {
+        var newMintxt = $('.from').text();
+        var newMaxtxt = $('.to').text();
+
+        var newMin = newMintxt.substring(1);
+        var newMax = newMaxtxt.substring(1);
+
+        if (newMin != minPrice || newMax != maxPrice) {
+            minPrice = newMin;
+            maxPrice = newMax;
+
+            searchString = "";
+            $('.search-field').val(searchString);
+
+            submitForm();
+        }
+    }
+                </script>
+
+            }

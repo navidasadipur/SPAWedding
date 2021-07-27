@@ -1,0 +1,92 @@
+﻿@model SPAWedding.Core.Models.ContactForm
+@*<div class="heading-part mb-30">
+    <h3>اطلاعات را وارد کنید</h3>
+</div>
+<div class="form-detail">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form", @class = "main-form" }))
+    {
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "نام و نام خانوادگی" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { placeholder = "شماره موبایل" } })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "ایمیل" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    @Html.TextAreaFor(model => model.Message, 4, 4, new { htmlAttributes = new { placeholder = "پیام" } })
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn-color">ارسال</button>
+            </div>
+        </div>
+    }
+</div>*@
+
+<div class="touch-container row justify-content-center">
+    <div class="col-md-9 col-lg-7">
+        <div class="text-center">
+            <h2 class="title mb-1 text-center">تماس با ما</h2><!-- End .title mb-2 -->
+            <p class="lead text-primary text-center mb-5">
+                از طریق فرم زیر میتوانید با ما ارتباط برقرار کنید
+            </p><!-- End .lead text-primary -->
+
+            @*<form action="home/ContactUsForm" class="contact-form mb-2">*@
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form", @class = "contact-form mb-2" }))
+                {
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label for="cname" class="sr-only">نام</label>
+                            <input type="text" class="form-control" id="cname" name="Name"
+                                   placeholder="نام خود را وارد کنید *" required>
+                        </div><!-- End .col-sm-4 -->
+
+                        <div class="col-sm-4">
+                            <label for="cemail" class="sr-only">ایمیل</label>
+                            <input type="email" class="form-control" id="cemail" name="Email"
+                                   placeholder="ایمیل خود را وارد کنید *" required>
+                        </div><!-- End .col-sm-4 -->
+
+                        <div class="col-sm-4">
+                            <label for="cphone" class="sr-only">شماره موبایل</label>
+                            <input type="tel" class="form-control" id="cphone" name="Phone"
+                                   placeholder="شماره موبایل خود را وارد کنید">
+                        </div><!-- End .col-sm-4 -->
+                    </div><!-- End .row -->
+
+                    @*<label for="csubject" class="sr-only">موضوع</label>
+            <input type="text" class="form-control" id="csubject" placeholder="موضوع پیام شما">*@
+
+                    <label for="cmessage" class="sr-only">پیام</label>
+                    <textarea class="form-control" cols="30" rows="4" id="cmessage" required name="Message"
+                              placeholder="متن پیام شما *"></textarea>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
+                            <span>تایید و ارسال</span>
+                            <i class="icon-long-arrow-left"></i>
+                        </button>
+                    </div><!-- End .text-center -->
+                }
+                </form><!-- End .contact-form -->
+        </div><!-- End .col-md-9 col-lg-7 -->
+    </div><!-- End .row -->
+</div><!-- End .container -->
+
+<script>
+    $.validator.unobtrusive.parse("#form");
+</script>

@@ -1,0 +1,113 @@
+﻿
+@*@model List<SPAWedding.Web.ViewModels.DiscountProductViewModel>
+
+
+    <section class="product-section ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-part text-center mb-30 mb-sm-20">
+                        <h2 class="main_title">تخفیف های ویژه</h2>
+                    </div>
+                </div>
+
+            </div>
+            <div class="position-r">
+                <div class="row">
+                    <div class="product-slider owl-carousel position-initial">
+                        @foreach (var item in Model)
+                        {
+                            <div class="item discount-item">
+                                <div class="product-item">
+                                    <a href="/Shop/Product/@item.ProductId">
+
+                                        @{
+                                            var discountTypeStr = item.DiscountType == 1 ? "درصد" : "تومان";
+                                        }
+                                        <div class="product-image">
+                                            @if (item.Price > 200000)
+                                            {
+                                                <div class="new-label" title="ارسال رایگان"><span><i class="fas fa-shipping-fast"></i></span></div>
+                                            }
+                                            <img class="cart-item-image" src="/Files/ProductImages/Thumb/@item.Image" alt="@item.ShortTitle">
+                                        </div>
+
+
+                                    </a>
+                                    <div class="product-details-outer">
+                                        <div class="product-details discount-details">
+                                            <div class="product-title">
+                                                <a href="/Shop/Product/@item.ProductId">@item.ShortTitle</a>
+                                            </div>
+                                            <div class="price-box">
+                                                <div class="sale-label"><span>@item.Amount @discountTypeStr</span></div>
+                                                @if (item.Price == 0)
+                                                {
+                                                    <a href="javascript:void(0)">-</a>
+                                                }
+                                                else if (item.PriceAfterDiscount < item.Price)
+                                                {
+                                                    <span class="price">@item.PriceAfterDiscount.ToString("##,###")</span>
+                                                    <del class="price old-price">@item.Price.ToString("##,###") تومان</del>
+                                                }
+                                                else
+                                                {
+                                                    <span class="price">@item.Price.ToString("##,###") تومان</span>
+                                                }
+                                            </div>
+                                            <div class="timer-secton" m-date-date="@item.DeadLine.ToString("yyyy/MM/dd hh:mm:ss")"></div>
+                                        </div>
+                                        <div class="product-details-btn">
+
+                                            <div class="hover-product-details">
+
+                                                <div class="product-title">
+                                                    <a href="/Shop/Product/@item.ProductId">@item.ShortTitle</a>
+                                                </div>
+
+                                                <div class="price-section-wrapper">
+                                                    <div class="sale-label-container">
+                                                        <div class="sale-label"><span>@item.Amount @discountTypeStr</span></div>
+                                                    </div>
+                                                    <div class="price-wrapper">
+                                                        @if (item.Price == 0)
+                                                        {
+                                                            <a href="javascript:void(0)">-</a>
+                                                        }
+                                                        else if (item.PriceAfterDiscount < item.Price)
+                                                        {
+                                                            <del class="price old-price">@item.Price.ToString("##,###")</del>
+                                                            <span class="price">@item.PriceAfterDiscount.ToString("##,###") تومان</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="price">@item.Price.ToString("##,###") تومان</span>
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                                <div class="timer-secton" m-date-date="@item.DeadLine.ToString("yyyy/MM/dd hh:mm:ss")"></div>
+                                            </div>
+                                            @if (item.Price > 0 && item.PriceAfterDiscount > 0)
+                                            {
+                                                <a href="javascript:void(0)" onclick="AddToCart(@item.ProductId)" class="btn add-product-btn">اضافه کردن به سبد خرید</a>
+
+                                            }
+                                            else
+                                            {
+                                                <a href="tel:@ViewBag.CallForProductNumber.Title" class="btn add-product-btn" style="">تماس بگیرید</a>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+

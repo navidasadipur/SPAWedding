@@ -1,0 +1,88 @@
+﻿@model List<SPAWedding.Core.Models.Product>
+
+@using SPAWedding.Core.Models;
+
+@{
+    ViewBag.Title = "گالری";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var allGroups = new List<ProductGroup>();
+
+    foreach (var item in Model)
+    {
+        var group = item.ProductGroup;
+
+        if (!allGroups.Contains(group) && group.ParentId == null)
+        {
+            allGroups.Add(group);
+        }
+        
+    }
+}
+
+
+    <div class="page-header text-center" style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.BanerImage')">
+        <div class="container">
+            <h1 class="page-title">@ViewBag.Title</h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                @*<li class="breadcrumb-item"><a href="#">صفحات</a></li>*@
+            <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="container mt-4">
+        <div class="text-center">
+            <button class="btn mybtn-default filter-button" data-filter="all">همه</button>
+            @foreach (var group in allGroups)
+            {
+                <button class="btn mybtn-default filter-button" data-filter="@group.Id">@group.Title</button>
+            }
+        </div>
+        <div class="row justify-content-center align-items-center">
+            @foreach (var product in Model)
+            {
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter @product.ProductGroupId">
+                    <img src="Content/client/pic/g1.jpg" class="img-responsive">
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+
+            $(".filter-button").click(function () {
+                var value = $(this).attr('data-filter');
+
+                if (value == "all") {
+                    //$('.filter').removeClass('hidden');
+                    $('.filter').show('1000');
+                }
+                else {
+                    //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+                    //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                    $(".filter").not('.' + value).hide('3000');
+                    $('.filter').filter('.' + value).show('3000');
+
+                }
+            });
+
+            if ($(".filter-button").removeClass("active")) {
+                $(this).removeClass("active");
+            }
+            $(this).addClass("active");
+
+        });
+    </script>
+}

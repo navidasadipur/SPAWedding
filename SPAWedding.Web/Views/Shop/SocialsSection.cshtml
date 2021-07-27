@@ -1,0 +1,34 @@
+﻿@model SPAWedding.Web.ViewModels.SocialViewModel
+
+@*<div class="col-md-auto mt-2 mt-md-0">
+    <div class="social-icons social-icons-color">
+        <span class="social-label">اشتراک گذاری این پست : </span>
+        <a href="@Model.Facebook.Link" class="social-icon social-facebook" title="فیسبوک"
+           target="_blank">@Html.Raw(Model.Facebook.ShortDescription)</a>
+        <a href="@Model.Twitter.Link" class="social-icon social-twitter" title="توییتر"
+           target="_blank">@Html.Raw(Model.Twitter.ShortDescription)</a>
+        <a href="@Model.Pinterest.Link" class="social-icon social-pinterest" title="پینترست"
+           target="_blank">@Html.Raw(Model.Pinterest.ShortDescription)</a>
+        <a href="@Model.Linkedin.Link" class="social-icon social-linkedin" title="لینکدین"
+           target="_blank">@Html.Raw(Model.Linkedin.ShortDescription)</a>
+    </div><!-- End .soial-icons -->
+</div><!-- End .col-auto -->*@
+
+<div class="social-icons social-icons-sm mb-2">
+    <label class="social-label">اشتراک گذاری در : </label>
+    <a href="@Model.Facebook.Link" class="social-icon" title="فیسبوک" target="_blank">
+        @Html.Raw(Model.Facebook.ShortDescription)
+    </a>
+    <a href="@Model.Twitter.Link" class="social-icon" title="توییتر" target="_blank">
+        @Html.Raw(Model.Twitter.ShortDescription)
+    </a>
+    <a href="@Model.Instagram.Link" class="social-icon" title="اینستاگرام" target="_blank">
+        @Html.Raw(Model.Instagram.ShortDescription)
+    </a>
+    <a href="@Model.Youtube.Link" class="social-icon" title="یوتیوب" target="_blank">
+        @Html.Raw(Model.Youtube.ShortDescription)
+    </a>
+    <a href="@Model.Pinterest.Link" class="social-icon" title="پینترست" target="_blank">
+        @Html.Raw(Model.Pinterest.ShortDescription)
+    </a>
+</div><!-- End .soial-icons -->

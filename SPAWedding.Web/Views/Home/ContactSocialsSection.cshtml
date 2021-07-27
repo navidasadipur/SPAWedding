@@ -1,0 +1,26 @@
+﻿@model SPAWedding.Web.ViewModels.SocialViewModel
+
+
+<div class="col-md-4">
+    <div class="contact-box text-center">
+        <h3>شبکه های اجتماعی</h3>
+
+        <div class="social-icons social-icons-color justify-content-center">
+            <a href="@Model.Facebook.Link" class="social-icon social-facebook" title="فیسبوک" target="_blank">
+                @Html.Raw(Model.Facebook.ShortDescription)
+            </a>
+            <a href="@Model.Twitter.Link" class="social-icon social-twitter" title="توییتر" target="_blank">
+                @Html.Raw(Model.Twitter.ShortDescription)
+            </a>
+            <a href="@Model.Instagram.Link" class="social-icon social-instagram" title="اینستاگرام" target="_blank">
+                @Html.Raw(Model.Instagram.ShortDescription)
+            </a>
+            <a href="@Model.Youtube.Link" class="social-icon social-youtube" title="یوتیوب" target="_blank">
+                @Html.Raw(Model.Youtube.ShortDescription)
+            </a>
+            <a href="@Model.Pinterest.Link" class="social-icon social-pinterest" title="پینترست" target="_blank">
+                @Html.Raw(Model.Pinterest.ShortDescription)
+            </a>
+        </div><!-- End .soial-icons -->
+    </div><!-- End .contact-box -->
+</div><!-- End .col-md-4 -->

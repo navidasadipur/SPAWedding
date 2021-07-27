@@ -1,0 +1,131 @@
+﻿@model List<SPAWedding.Core.Models.StaticContentDetail>
+
+
+
+@*<section id="banner-part" class="menu-section pb-100">
+    <div class="banner main-banner owl-carousel">
+        @foreach (var item in Model.Where(m => m.Image != null))
+        {
+            string link = "";
+            if (!String.IsNullOrEmpty(item.Link))
+            {
+                link = item.Link;
+            }
+            <a href="@link" style="display:block;">
+                <div class="banner">
+
+                    <img src="/Files/StaticContentImages/Image/@item.Image" alt="@item.Title">
+                    <div class="banner-detail">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="banner-detail-inner">
+                                        @if (item.Title != null)
+                                        {
+                                            <span class="subtitle1">@item.Title</span>
+                                        }
+                                        @if (item.ShortDescription != null)
+                                        {
+                                            <h1 class="banner-title">@item.ShortDescription</h1>
+                                        }
+                                        @if (item.ShortDescription != null)
+                                        {
+                                            <div class="subtitle2">
+                                                <span class="part1">@Html.Raw(item.Description)</span>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</section>*@
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12 col-12">
+            <div class="intro-slider-container mt-2">
+                <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl"
+                     data-owl-options='{
+                                    "dots": true,
+                                    "nav": true,
+                                    "rtl": true,
+                            "responsive": {
+                                        "1200": {
+                                            "nav": true,
+                                            "dots": true
+                                        }
+                                    }
+                                }'>
+                    @foreach (var item in Model)
+                    {
+                        string link = "";
+                        if (!String.IsNullOrEmpty(item.Link))
+                        {
+                            link = item.Link;
+                        }
+
+                        <div class="intro-slide banner-lg"
+                             style="background-image: url(/Files/StaticContentImages/Image/@item.Image);">
+                            <div class="intro">
+                                <div class="title">
+                                    <a>@item.Title</a>
+                                </div>
+                                <div class="content">
+                                    <h3>@Html.Raw(item.ShortDescription)</h3>
+                                    <h4>@Html.Raw(item.Description)</h4>
+                                </div>
+                                <div class="action">
+                                    <a href="@item.Link">خرید</a>
+                                </div>
+                            </div>
+                        </div><!-- End .intro-slide -->
+                    }
+                    @*<div class="intro-slide banner-lg"
+                         style="background-image: url(/Content/client/assets/images/medicine_images/header/102838-2.jpg);">
+                        <div class="intro">
+                            <div class="title">
+                                <a>پیشنهاد روزانه</a>
+                            </div>
+                            <div class="content">
+                                <h3><span>بیشتر از</span> 20% <span>تخفیف</span></h3>
+                                <h4>تخفیف مکمل های ورزشی</h4>
+                            </div>
+                            <div class="action">
+                                <a href="category.html">خرید</a>
+                            </div>
+                        </div>
+                    </div><!-- End .intro-slide -->
+
+                    <div class="intro-slide banner-lg"
+                         style="background-image: url(/Content/client/assets/images/medicine_images/header/Magnesium_tablets-4.jpg);">
+                        <div class="intro">
+                            <div class="title">
+                                <a>محصولات جدید</a>
+                            </div>
+                            <div class="content">
+                                <h3>برندهای منتخب<br>بیش از <span>30% تخفیف</span></h3>
+                            </div>
+                            <div class="action">
+                                <a href="category.html">خرید</a>
+                            </div>
+                        </div>
+                    </div><!-- End .intro-slide -->*@
+
+
+                </div><!-- End .intro-slider owl-carousel owl-simple -->
+
+                <span class="slider-loader"></span><!-- End .slider-loader -->
+            </div><!-- End .intro-slider-container -->
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,1300 @@
+﻿@using SPAWedding.Core.Utility
+@model SPAWedding.Web.ViewModels.ProductDetailsViewModel
+@{
+    ViewBag.Title = "ProductDetails";
+}
+
+<style>
+    .product-nav-thumbs a.active {
+        background-color: burlywood;
+    }
+</style>
+
+<!-- Product detail contant start -->
+@*<input type="hidden" name="mainFeatureId" id="mainFeatureId" value="@Model.ProductMainFeatures.FirstOrDefault().Id" />
+    <div class="contant">
+        <div id="banner-part" class="banner inner-banner" style="background-image:url(/Files/ProductGroupImages/Image/@ViewBag.Banner)">
+            <div class="container">
+                <div class="bread-crumb-main">
+                    <h1 class="banner-title">@Model.Product.ShortTitle</h1>
+                    <div class="breadcrumb">
+                        <ul class="inline">
+                            <li><a href="/">خانه</a></li>
+                            <li><a href="/Shop/Productlist">محصولات</a></li>
+                            <li>@Model.Product.ShortTitle</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12 col-12">
+                        <div class="align-center mb-md-30">
+                            <ul id="glasscase" class="gc-start">
+                                @foreach (var item in Model.ProductGalleries)
+                                {
+                                    <li><img src="/Files/ProductImages/ProductGallery/@item.Image" alt="@item.Title" /></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12">
+
+                        <div class="row">
+
+                            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+
+                                <div class="product-detail-main">
+                                    <div class="product-item-details">
+                                        <div class="row">
+                                            <div class="col-xl-9 col-lg-8 col-md-12">
+                                                <div class="product-intro">
+                                                    <div class="product-intro-info">
+                                                        <h1 class="product-item-name">@Model.Product.ShortTitle</h1>
+                                                        <h5>@Model.Product.Title</h5>
+                                                    </div>
+                                                </div>
+
+                                                <div class="rating-main">
+                                                    <div class="rating-summary-block">
+                                                        @{
+                                                            var rate = (Model.Product.Rate < 6 ? Model.Product.Rate : 5);
+                                                            rate = (rate > 0 ? rate : 0);
+                                                            var ratingPercentage = Model.Product.Rate * 100 / 5;
+                                                            <div title="@ratingPercentage%" class="rating-result"><span style="width: @(ratingPercentage)%"></span></div>
+                                                        }
+                                                    </div>
+                                                    <span>@Model.ProductComments.Count دیدگاه</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-lg-4 col-md-12">
+                                                <div class="producer-logo">
+                                                    <img src="~/Files/BrandsImages/@Model.Product.Brand.Logo" alt="@Model.Product.Brand.Name" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="product-des color666">
+
+
+                                            <p>
+                                                @{
+                                                    var descParts = new List<string>();
+
+                                                    if (Model.Product.ShortDescription != null)
+                                                    {
+                                                        descParts = Model.Product.ShortDescription.Split('\n').ToList();
+                                                    }
+                                                }
+                                                <ul class="product-des-ul mb-40">
+                                                    @foreach (var desc in descParts)
+                                                    {
+                                                        <li>@desc</li>
+                                                    }
+                                                </ul>
+                                            </p>
+                                        </div>
+                                        <hr class="mb-20">
+                                        @{
+                                            /*
+                                            var featureName = Model.ProductMainFeatures.FirstOrDefault().FeatureId != StaticVariables.ColorCodeFeatureId ? Model.ProductMainFeatures.FirstOrDefault().Feature.Title : "رنگ";
+
+                                            if (featureName != "رنگبندی :")
+                                            {
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="table-listing qty mb-20">
+                                                            @{
+
+                                                                var i = 0;
+                                                                <div class="row">
+                                                                    <div class="col-xl-2 col-md-3 col-sm-12">
+                                                                        <span class="color666">@featureName</span>
+                                                                    </div>
+                                                                    <div class="col-xl-10 col-md-9 col-sm-12">
+                                                                        <div class="row">
+                                                                            @foreach (var item in Model.ProductMainFeatures)
+                                                                            {
+                                                                                i++;
+                                                                                <div class="col">
+                                                                                    <div class="check-box">
+                                                                                        <span>
+                                                                                            <input type="radio" class="checkbox" onchange="UpdateProductPrice(@item.ProductId,@item.Id)"
+                                                                                                   @(i == 1 ? "checked='checked'" : null)
+                                                                                                   id="mf_@item.Id" value="@item.Id" name="mainFeature">
+                                                                                            <label for="mf_@item.Id">
+                                                                                                @if (item.FeatureId == StaticVariables.ColorCodeFeatureId)
+                                                                                                {
+                                                                                                    <div style="width: 17px; height: 17px;background-color:@(item.SubFeature != null ? item.SubFeature.Value : item.Value)"></div>
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    @(item.SubFeature != null ? item.SubFeature.Value : item.Value)
+                                                                                                }
+                                                                                            </label>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            }
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                </div>
+                                            }*/
+                                        }
+
+                                        @{
+                                            if (ViewBag.ProductVolumes.Count > 0)
+                                            {
+                                                <div class="row mb-20" style="position: relative;">
+                                                    <div class="col-xl-2 col-md-3 col-sm-12">
+                                                        حجم:
+                                                    </div>
+                                                    <div class="col-xl-10 col-md-9 col-sm-12">
+                                                        <div class="volumes-wrapper">
+                                                            @foreach (var item in ViewBag.ProductVolumes)
+                                                            {
+                                                                var parts = item.Link.ToString().Split('/');
+                                                                int index = -1;
+                                                                foreach (var p in parts)
+                                                                {
+                                                                    if (int.TryParse(p, out index))
+                                                                    {
+                                                                        break;
+                                                                    }
+                                                                }
+
+                                                                if (Model.Product.Id == index)
+                                                                {
+                                                                    <a class="volume-elm active-volume">
+                                                                        <span><i class="fa fa-check"></i></span>
+                                                                        <label for="chk_volume_@index">@item.Value</label>
+                                                                    </a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a href="@item.Link" class="volume-elm">
+                                                                        <span></span>
+                                                                        <label for="chk_volume_@index">@item.Value</label>
+                                                                    </a>
+                                                                }
+
+
+                                                            }
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            }
+                                        }
+
+                                        @{
+                                            var featureName = Model.ProductMainFeatures.FirstOrDefault().Feature.Title;
+                                            var i = 0;
+                                            if (featureName.Contains("رنگبندی") || featureName.Contains("رنگ"))
+                                            {
+                                                <div class="row mb-20" style="position: relative;">
+                                                    <div class="col-xl-2 col-md-3 col-sm-12">
+                                                        @featureName
+                                                    </div>
+                                                    <div class="col-xl-10 col-md-9 col-sm-12">
+                                                        <div class="colors-wrapper">
+                                                            @foreach (var item in Model.ProductMainFeatures)
+                                                            {
+                                                                var className = "";
+                                                                i++;
+
+                                                                if (i == 1)
+                                                                {
+                                                                    className = "active-color";
+                                                                }
+
+
+                                                                <div class="color-wrapper">
+                                                                    <a href="javascript:void(0)" onclick="UpdateProductPrice(@item.ProductId,@item.Id, this)">
+                                                                        <div class="spn-product-code @className" style="background:@item.Value">
+
+                                                                            <div class="spn-product-code-Title-wrapper">
+                                                                                <span class="spn-product-code-Title">@item.AdditionalInfo</span>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="color-notification"></div>
+
+                                                </div>
+
+                                            }
+
+                                        }
+
+                                        @{
+                                            if (ViewBag.ProductColors.Count > 0)
+                                            {
+                                                <div class="row mb-20" style="position: relative;">
+                                                    <div class="col-xl-2 col-md-3 col-sm-12">
+                                                        رنگبندی:
+                                                    </div>
+                                                    <div class="col-xl-10 col-md-9 col-sm-12">
+                                                        <div class="colors-wrapper">
+                                                            @foreach (var item in ViewBag.ProductColors)
+                                                            {
+                                                                var className = "";
+                                                                var parts = item.Link.ToString().Split('/');
+                                                                int index = -1;
+                                                                foreach (var p in parts)
+                                                                {
+                                                                    if (int.TryParse(p, out index))
+                                                                    {
+                                                                        break;
+                                                                    }
+                                                                }
+
+                                                                if (Model.Product.Id == index)
+                                                                {
+                                                                    className = "active-color";
+                                                                }
+
+
+                                                                <div class="color-wrapper">
+                                                                    <a href="@item.Link">
+                                                                        @if (!string.IsNullOrEmpty(item.Image))
+                                                                        {
+                                                                            <div class="spn-product-code @className" style="background-image: url(/Files/ProductColors/Images/@item.Image)">
+
+                                                                                <div class="spn-product-code-Title-wrapper">
+                                                                                    <span class="spn-product-code-Title">@item.Title</span>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <div class="spn-product-code @className" style="background:@item.ColorCode">
+
+                                                                                <div class="spn-product-code-Title-wrapper">
+                                                                                    <span class="spn-product-code-Title">@item.Title</span>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        }
+                                                                    </a>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="color-notification"></div>
+
+                                                </div>
+                                            }
+                                        }
+
+                                    </div>
+                                    @if (Model.ProductFeatureValues.Any(f => f.Id == StaticVariables.OlfactoryPyramidFeatureId))
+                                    {
+                                        {
+                                            var OlfactoryPyramid = Model.ProductFeatureValues.FirstOrDefault(f => f.Id == StaticVariables.OlfactoryPyramidFeatureId);
+
+                                            <h4 class="text-center">@OlfactoryPyramid.Feature.Title</h4>
+                                            <div style="width: 100%">
+                                                <img src="/Files/SubFeaturesImages/@OlfactoryPyramid.SubFeature.Image" alt="@OlfactoryPyramid.Feature.Title" />
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+
+                                @if (Model.Price > 200000)
+                                {
+                                    <div class="free-delivery mb-20 mb-sm-10">
+                                        <div class="delivery-icon"><i class="fas fa-shipping-fast"></i></div>
+                                        <div class="delivery-text"><span>ارسال رایگان محموله</span></div>
+                                    </div>
+                                }
+
+                                <div class="share-section">
+                                    <div class="share-icon twitter" title="اشتراک گذاری در تویتر"><a href="http://twitter.com/share?text=@Model.Product.ShortTitle&url=http://SPAWeddingGallery.com/Shp/Product/@Model.Product.Id&hashtags=SPAWedding,سه شین"><i class="fa fa-twitter"></i></a></div>
+                                    <div class="share-icon whatsapp" title="اشتراک گذاری در واتس اپ"><a href="whatsapp://send?text=@Model.Product.ShortTitle \n لینک: http://SPAWeddingGallery.com/Shp/Product/@Model.Product.Id" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a></div>
+                                    <div class="share-icon facebook" title="اشتراک گذاری در فیسبوک"><a href="https://www.facebook.com/sharer/sharer.php?u=http://SPAWeddingGallery.com/Shp/Product/@Model.Product.Id" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></div>
+                                    <div class="share-icon clipboard" title="کپی لینک محصول"><a href="javascript:void(0);" onclick="CopyLink('http://SPAWeddingGallery.com/Shp/Product/@Model.Product.Id')"><i class="fa fa-copy"></i></a></div>
+                                </div>
+
+                                <div class="product-side-price-box">
+
+                                    <div class="product-guarantee">
+                                        <img src="~/Content/client/images/guarantee.png" alt="Guarantee" />
+                                        <span>تضمین اصالت کالا</span>
+                                    </div>
+
+                                    <ul class="product-list color444">
+                                        <li><i class="fa fa-check"></i> ضمانت هفت روز بازگشت کالا</li>
+                                        <li><i class="fa fa-check"></i> تحویل سریع و آسان</li>
+                                        <li><i class="fa fa-check"></i> ضمانت اصل بودن کالا</li>
+                                    </ul>
+
+                                    <div class="price-box side-price-box">
+                                        @if (Model.PriceAfterDiscount < Model.Price)
+                                        {
+                                            <span class="price"><span id="productPriceAfterDiscount">@Model.PriceAfterDiscount.ToString("##,###")</span> تومان</span>
+                                            <del class="price old-price"><span id="productPrice">@Model.Price.ToString("##,###")</span> تومان</del>
+                                        }
+                                        else
+                                        {
+                                            <span class="price"><span id="productPrice">@Model.Price.ToString("##,###")</span> تومان</span>
+                                        }
+                                    </div>
+
+                                    <div class="">
+                                        <!-- detail-page-btn  -->
+                                        <div class="side-product-order-section">
+                                            @if (Model.Price > 0)
+                                            {
+                                                <div class="order-counting mb-20">
+                                                    <div class="icon">
+                                                        <div class="multiple-add-section">
+                                                            <div><button class="btnProductCount" onclick="IncreaseProductCount()">+</button></div>
+                                                            <div><span readonly="readonly" id="txtProductCount">1</span></div>
+                                                            <div><button class="btnProductCount" onclick="DecreaseProductCount()">-</button></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="icon wishlist-icon">
+                                                        <a href="javascript:void(0)" onclick="AddToWishList(@Model.Product.Id)" class="btn btn-transparent"><span></span></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="icon cart-icon add-to-cart">
+                                                    <a href="javascript:void(0)" onclick="AddToCart(@Model.Product.Id,$('#mainFeatureId').val())" class="btn btn-color full-width"><span></span>افزودن به سبد خرید</a>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="icon cart-icon add-to-cart">
+                                                    <a href="tel:@ViewBag.CallForProductNumber.Title" class="btn add-product-btn" style="">تماس بگیرید</a>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product detail contant end -->
+    <!--   Perfume Notes   -->
+    @{
+        if (ViewBag.StartNotes.Count > 0 || ViewBag.MidNotes.Count > 0 || ViewBag.EndNotes.Count > 0)
+        {
+            <div class="perfume-notes-wrapper mb-20">
+
+
+                <div class="container perfume-notes-wrapper-inner">
+
+                    <div class="row mb-10">
+                        <div class="col-md-12">
+                            <h3 class="perfume-note-stamp">نت های عطر</h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        foreach (var item in ViewBag.PerfumeNotes)
+                        {
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+
+                            <div class="perfume-note">
+
+                                <div class="perfume-note-title">
+                                    @if ((int)item.PerfumeNoteType == 1)
+                                    {
+                                        <span>نت آغازین</span>
+                                    }
+                                    else if ((int)item.PerfumeNoteType == 2)
+                                    {
+                                        <span>نت میانی</span>
+                                    }
+                                    else if ((int)item.PerfumeNoteType == 3)
+                                    {
+                                        <span>نت پایانی</span>
+                                    }
+                                </div>
+
+                                <div class="perfume-title-name">
+                                    @item.Title
+                                </div>
+
+                                <div class="perfume-title-image">
+                                    <a href="@item.Link"><img src="~/Files/PerfumeNotes/Images/@item.Image" alt="@item.Title" /></a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        }
+
+
+
+                        <div class="col-md-12">
+
+                            <div class="note-heading">نت آغازین</div>
+
+                            <div class="notes-container">
+                                <div class="notes-inner-container">
+                                    @foreach (var item in ViewBag.StartNotes)
+                                    {
+
+                                        <div class="perfume-note">
+
+
+                                            <div class="perfume-note-image">
+                                                <a href="@item.Link"><img src="~/Files/PerfumeNotes/Images/@item.Image" alt="@item.Title" /></a>
+                                            </div>
+
+
+                                            <div class="perfume-note-name">
+                                                @item.Title
+                                            </div>
+
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-12">
+
+                            <div class="note-heading">نت میانی</div>
+
+                            <div class="notes-container">
+                                <div class="notes-inner-container">
+                                    @foreach (var item in ViewBag.MidNotes)
+                                    {
+
+                                        <div class="perfume-note">
+
+
+                                            <div class="perfume-note-image">
+                                                <a href="@item.Link"><img src="~/Files/PerfumeNotes/Images/@item.Image" alt="@item.Title" /></a>
+                                            </div>
+
+
+                                            <div class="perfume-note-name">
+                                                @item.Title
+                                            </div>
+
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-12">
+
+                            <div class="note-heading">نت پایانی</div>
+
+                            <div class="notes-container">
+                                <div class="notes-inner-container">
+                                    @foreach (var item in ViewBag.EndNotes)
+                                    {
+
+                                        <div class="perfume-note">
+
+
+                                            <div class="perfume-note-image">
+                                                <a href="@item.Link"><img src="~/Files/PerfumeNotes/Images/@item.Image" alt="@item.Title" /></a>
+                                            </div>
+
+
+                                            <div class="perfume-note-name">
+                                                @item.Title
+                                            </div>
+
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        }
+    }
+
+
+
+
+
+
+
+
+    <section class="product-tab-part position-r pb-100">
+        <div class="container">
+            <div class="product-tab-inner">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="tabs">
+                            <ul class="nav nav-tabs">
+                                <li><a class="tab-Features selected" title="Features">مشخصات</a></li>
+                                <li><a class="tab-Description" title="Description">توضیحات محصول</a></li>
+                                <li><a class="tab-Review" title="Review">دیدگاه ها</a></li>
+                                <li><a class="tab-Brand" title="Brand">درباره برند</a></li>
+                            </ul>
+                        </div>
+                        <div id="items">
+                            <div class="tab_content">
+                                <ul>
+                                    <li>
+                                        <div class="items-Features selected">
+                                            <table>
+                                                <tr>
+                                                    <th style="width:20%">ویژگی</th>
+                                                    <th style="width:70%">جزییات</th>
+                                                </tr>
+
+
+                                                <!--      Main Feature        -->
+                                                @{
+                                                    featureName = Model.ProductMainFeatures.FirstOrDefault().FeatureId != StaticVariables.ColorCodeFeatureId ? Model.ProductMainFeatures.FirstOrDefault().Feature.Title : "رنگ";
+
+                                                    if (featureName != "رنگبندی :")
+                                                    {
+                                                        <tr>
+                                                            <td>@featureName</td>
+
+                                                            <td>
+                                                                @foreach (var item in Model.ProductMainFeatures)
+                                                                {
+                                                                    <div>
+                                                                        @if (item.FeatureId == StaticVariables.ColorCodeFeatureId)
+                                                                        {
+                                                                            <div style="width: 17px; height: 17px;background-color:@(item.SubFeature != null ? item.SubFeature.Value : item.Value)"></div>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            @(item.SubFeature != null ? item.SubFeature.Value : item.Value)
+                                                                        }
+                                                                    </div>
+                                                                }
+                                                            </td>
+                                                        </tr>
+
+                                                    }
+                                                }
+
+
+                                                @foreach (var item in Model.ProductFeatureValues.Where(f => f.Id != StaticVariables.OlfactoryPyramidFeatureId))
+                                                {
+                                                    <tr>
+                                                        <td>@item.Feature.Title</td>
+                                                        @{
+                                                            var val = item.SubFeatureId != null ? item.SubFeature.Value : item.Value;
+
+                                                            if (val.StartsWith("#"))
+                                                            {
+                                                                <td>
+                                                                    <div style="display:inline-block; width:20px; height:20px; border-radius:50%; background-color:@val"></div>
+                                                                </td>
+                                                            }
+                                                            else if (val.StartsWith("<a"))
+                                                            {
+                                                                <td>
+                                                                    @Html.Raw(val)
+                                                                </td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td>@(val)</td>
+                                                            }
+                                                        }
+
+                                                    </tr>
+                                                }
+                                            </table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="items-Description">
+                                            @Html.Raw(Model.Product.Description)
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="items-Review">
+                                            <div class="comment-part">
+                                                <h3 class="mb-30">@Model.ProductComments.Count دیدگاه</h3>
+                                                <ul class="comment-list mt-30">
+                                                    @foreach (var comment in Model.ProductComments.Where(c => c.ParentId == null))
+                                                    {
+                                                        <li>
+                                                            <div class="comment-user" style="max-width: 70px">
+                                                                <img src="/Files/UserAvatars/user-avatar.png" alt="@comment.Name">
+                                                            </div>
+                                                            <div class="comment-detail">
+                                                                <span class="bloger-date">@comment.Name @comment.AddedDate</span>
+                                                                <p>
+                                                                    @comment.Message
+                                                                </p>
+                                                                <a onclick="AnswerComment('@comment.Id','@comment.Name')" class="reply-btn btn btn-color small">پاسخ</a>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                        </li>
+                                                        foreach (var childComment in Model.ProductComments.Where(c => c.ParentId == comment.Id))
+                                                        {
+                                                            <li>
+                                                                <ul class="comment-list child-comment">
+                                                                    <li>
+                                                                        <div class="comment-user" style="max-width: 70px">
+                                                                            <img src="/Files/UserAvatars/user-avatar.png" alt="@childComment.Name">
+                                                                        </div>
+                                                                        <div class="comment-detail">
+                                                                            <span class="bloger-date">@childComment.Name @childComment.AddedDate</span>
+                                                                            <p>
+                                                                                @childComment.Message
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="clearfix"></div>
+                                                                    </li>
+
+                                                                </ul>
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+
+                                                <div class="leave-comment-part main-form pt-100">
+                                                    <h4 id="answerPerson"></h4>
+                                                    <h3 class="mb-30">دیدگاه خود را بنویسید</h3>
+                                                    @using (Html.BeginForm("PostComment", "Shop", FormMethod.Post, new { id = "commentform" }))
+                                                    {
+                                                        <input type="hidden" id="ProductId" name="ProductId" value="@Model.Product.Id">
+                                                        <input type="hidden" id="ParentId" name="ParentId" value="">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="Name" id="Name" placeholder="نام و نام خانوادگی" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="Email" id="Email" placeholder="ایمیل" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <textarea placeholder="پیغام" name="Message" id="Message" rows="4" required></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <button type="submit" class="btn-color">ارسال دیدگاه</button>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="items-Brand">
+                                            <h4>@Model.Product.Brand.Name</h4>
+                                            <p>@Model.Product.Brand.ShortDescription</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @Html.Action("ComplementaryProductsSection", "Shop", new { productId = Model.Product.Id, take = 8 })
+    <!-- Related Product Section Start -->
+    <!-- Related Product Section End -->
+    @Html.Action("FooterTopSection", "Home")*@
+
+
+
+
+<main class="main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+        <div class="container d-flex align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                <li class="breadcrumb-item"><a href="/Shop">محصولات</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.Product.ShortTitle</li>
+            </ol>
+
+            @*<nav class="product-pager mr-auto" aria-label="Product">
+                    <a class="product-pager-link product-pager-prev" href="#" aria-label="Previous" tabindex="-1">
+                        <i class="icon-angle-right"></i>
+                        <span>قبلی</span>
+                    </a>
+
+                    <a class="product-pager-link product-pager-next" href="#" aria-label="Next" tabindex="-1">
+                        <span>بعدی</span>
+                        <i class="icon-angle-left"></i>
+                    </a>
+                </nav> End .pager-nav*@
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+            <div class="product-details-top">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-gallery product-gallery-vertical">
+                            <div class="row">
+                                @*@{
+                                        var galleryPlusImage = new List<string>();
+                                        galleryPlusImage.Add(Model.Product.Image);
+                                        if (Model.ProductGalleries != null)
+                                        {
+                                            foreach (var item in Model.ProductGalleries)
+                                            {
+                                                galleryPlusImage.Add(item.Image);
+                                            }
+                                        }
+                                    }*@
+                                <figure class="product-main-image">
+                                    <img id="product-zoom" src="/Files/ProductImages/Image/@Model.Product.Image" data-zoom-image="/Files/ProductImages/Image/@Model.Product.Image"
+                                         alt="@Model.Product.ShortTitle">
+
+                                    <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                                        <i class="icon-arrows"></i>
+                                    </a>
+                                </figure><!-- End .product-main-image -->
+
+                                <div id="product-zoom-gallery" class="product-image-gallery">
+                                    <a class="product-gallery-item active" href="#" data-image="/Files/ProductImages/Image/@Model.Product.Image"
+                                       data-zoom-image="/Files/ProductImages/Image/@Model.Product.Image">
+                                        <img src="/Files/ProductImages/Image/@Model.Product.Image" alt="@Model.Product.ShortTitle">
+                                    </a>
+                                    @foreach (var item in Model.ProductGalleries)
+                                    {
+                                        <a class="product-gallery-item active" href="#" data-image="/Files/ProductImages/ProductGallery/@item.Image"
+                                           data-zoom-image="/Files/ProductImages/ProductGallery/@item.Image">
+                                            <img src="/Files/ProductImages/ProductGallery/@item.Image" alt="">
+                                        </a>
+                                        @*<li><img src="/Files/ProductImages/ProductGallery/@item.Image" alt="@item.Title" /></li>*@
+                                    }
+                                    @*<a class="product-gallery-item active" href="#" data-image="/Content/client/pic/p12.jpg"
+                                            data-zoom-image="/Content/client/pic/p12.jpg">
+                                             <img src="/Content/client/pic/p12.jpg" alt="توضیحات تصویر">
+                                        </a>*@
+                                </div><!-- End .product-image-gallery -->
+                            </div><!-- End .row -->
+                        </div><!-- End .product-gallery -->
+                    </div><!-- End .col-md-6 -->
+
+                    <div class="col-md-6">
+                        <div class="product-details">
+                            <h1 class="product-title">@Model.Product.Title</h1>
+                            <!-- End .product-title -->
+
+                            <div class="ratings-container">
+                                @{
+                                    var rate = (Model.Product.Rate < 6 ? Model.Product.Rate : 5);
+                                    rate = (rate > 0 ? rate : 0);
+                                    var ratingPercentage = Model.Product.Rate * 100 / 5;
+                                    <div class="ratings">
+                                        <div class="ratings-val" style="width: @ratingPercentage%;"></div><!-- End .ratings-val -->
+                                    </div><!-- End .ratings -->
+                                }
+
+                                <a class="ratings-text" href="#product-review-link" id="review-link">
+                                    ( @Model.ProductComments.Count نظر
+                                    )
+                                </a>
+                            </div><!-- End .rating-container -->
+                            <div class="ratings-container">
+                                @if (Model.PriceAfterDiscount < Model.Price)
+                                {
+                                    <div class="col-md-4">
+                                        <span class="product-price"><span id="productPriceAfterDiscount">@Model.PriceAfterDiscount.ToString("##,###")&nbsp;</span>تومان</span>
+                                    </div>
+                                    <div class="col-md-8 rtl">
+                                        <del class="price"><span id="productPrice">@Model.Price.ToString("##,###")</span> </del>
+                                    </div><!-- End .ratings -->
+                                }
+                                else if (Model.Price != 0)
+                                {
+                                    <span class="product-price"><span id="productPrice">@Model.Price.ToString("##,###") &nbsp;</span> تومان</span>
+                                }
+                            </div>
+                            <div class="product-content">
+                                <p>
+                                    @{
+                                        var descParts = new List<string>();
+
+                                        if (Model.Product.ShortDescription != null)
+                                        {
+                                            descParts = Model.Product.ShortDescription.Split('\n').ToList();
+                                        }
+                                    }
+                                    <ul class="product-desc-content rtl">
+                                        @foreach (var desc in descParts)
+                                        {
+                                            if (!string.IsNullOrWhiteSpace(desc))
+                                            {
+                                                <li>@desc</li>
+                                            }
+                                        }
+                                    </ul>
+                                </p>
+                            </div><!-- End .product-content -->
+
+                            <div class="details-filter-row details-row-size">
+                                @{
+                                    var featureName = Model.ProductMainFeatures.FirstOrDefault().Feature.Title;
+
+                                    var i = 0;
+
+                                    <label>@featureName : </label>
+
+                                    <div class="product-nav product-nav-thumbs" id="product-main-btn">
+                                        @foreach (var item in Model.ProductMainFeatures)
+                                        {
+                                            var className = "";
+                                            i++;
+
+                                            if (i == 1)
+                                            {
+                                                className = "active";
+                                            }
+                                            <a href="javascript:void(0)" onclick="UpdateProductPrice(@item.ProductId,@item.Id, this)" class="test1 b @className">
+                                                @(item.SubFeature != null ? item.SubFeature.Value : item.Value)
+                                            </a>
+                                        }
+
+                                    </div><!-- End .product-nav -->
+                                }
+
+                                @*<label>رنگ : </label>
+
+                                    <div class="product-nav product-nav-thumbs">
+                                        <a href="#" class="active">
+                                            سفید
+                                        </a>
+                                        <a href="#">
+                                            زرد
+                                        </a>
+                                    </div> End .product-nav*@
+                            </div><!-- End .details-filter-row -->
+                            <input type="hidden" name="mainFeatureId" id="mainFeatureId" value="@Model.ProductMainFeatures.FirstOrDefault().Id" />
+                            @if (Model.Price > 0)
+                            {
+                                <div class="details-filter-row details-row-size">
+                                    <label for="qty">تعداد : </label>
+                                    <div class="product-details-quantity">
+                                        @*<input type="number" id="qty" class="form-control" value="1" min="1"
+                                            max="10" step="1" data-decimals="0" required>*@
+                                        <div class="input-group  input-spinner">
+                                            <div class="input-group-append"><button class="btn btn-decrement btn-spinner" onclick="IncreaseProductCount()" style="min-width: 26px"><i class="icon-plus"></i></button></div>
+                                            <div class="form-control"><span readonly="readonly" id="txtProductCount">1</span></div>
+                                            <div class="input-group-prepend"><button class="btn btn-decrement btn-spinner" onclick="DecreaseProductCount()" style="min-width: 26px"><i class="icon-minus"></i></button></div>
+                                        </div>
+                                    </div><!-- End .product-details-quantity -->
+                                </div><!-- End .details-filter-row -->
+
+                                <div class="product-details-action">
+                                    <a href="javascript:void(0)" onclick="AddToCart(@Model.Product.Id,$('#mainFeatureId').val(), $('#txtProductCount').val())" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
+
+                                    <div class="details-action-wrapper">
+                                        <a href="javascript:void(0)" onclick="AddToWishList(@Model.Product.Id)" class="btn-product btn-wishlist"
+                                           title="لیست علاقه مندی">
+                                            <span>
+                                                افزودن
+                                                به
+                                                علاقه مندی
+                                            </span>
+                                        </a>
+
+                                    </div><!-- End .details-action-wrapper -->
+                                </div><!-- End .product-details-action -->
+                            }
+                            else
+                            {
+                                <div class="product-details-action">
+                                    <a href="tel:@ViewBag.CallForProductNumber.Title" class="btn-product btn-cart"><span>برای سفارش محصول تماس بگیرید</span></a>
+
+                                    <div class="details-action-wrapper">
+                                        <a href="javascript:void(0)" onclick="AddToWishList(@Model.Product.Id)" class="btn-product btn-wishlist"
+                                           title="لیست علاقه مندی">
+                                            <span>
+                                                افزودن
+                                                به
+                                                علاقه مندی
+                                            </span>
+                                        </a>
+
+                                    </div><!-- End .details-action-wrapper -->
+                                </div><!-- End .product-details-action -->
+                            }
+
+                            <div class="product-details-footer">
+                                <div class="product-cat text-center">
+                                    <span>دسته بندی : </span>
+                                    @*<a href="#">سرد درد</a>،
+                                        <a href="#">مسکن</a>،*@
+                                    @if (Model.Group != null)
+                                    {
+                                        <a href="/Shop/ProductList/@Model.Group.Id">@Model.Group.Title</a>
+                                    }
+
+                                </div><!-- End .product-cat -->
+
+
+                            </div><!-- End .product-details-footer -->
+                        </div><!-- End .product-details -->
+                    </div><!-- End .col-md-6 -->
+                </div><!-- End .row -->
+            </div><!-- End .product-details-top -->
+
+            <div class="product-details-tab">
+                <ul class="nav nav-pills justify-content-center" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="product-desc-link" data-toggle="tab"
+                           href="#product-desc-tab" role="tab" aria-controls="product-desc-tab"
+                           aria-selected="true">توضیحات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab"
+                           role="tab" aria-controls="product-info-tab" aria-selected="false">اطلاعات بیشتر</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="#brand" data-toggle="tab"
+                           href="#brand" role="#tab" aria-controls="brand"
+                           aria-selected="false">درباره برند</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="product-review-link" data-toggle="tab"
+                           href="#product-review-tab" role="tab" aria-controls="product-review-tab"
+                           aria-selected="false">نظرات (@Model.ProductComments.Count)</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    @Html.Action("ProductDetailsDescrioptinSection", "Shop", new { productId = Model.Product.Id })
+
+                    @Html.Action("ProductFeaturesSection", "Shop", new { productId = Model.Product.Id })
+
+                    @Html.Action("ProductDetailsBrandSection", "Shop", new { productId = Model.Product.Id })
+                    <div class="tab-pane fade" id="product-review-tab" role="tabpanel"
+                         aria-labelledby="product-review-link">
+                        <div class="reviews">
+                            <h3>نظر (@Model.ProductComments.Count)</h3>
+                            @if (Model.ProductComments.Count() != 0)
+                            {
+                                var todayDate = new DateTime();
+                                foreach (var comment in Model.ProductComments)
+                                {
+                                    <div class="review">
+                                        <div class="row no-gutters">
+                                            <div class="col-auto">
+                                                <h4><a class="text-dark" href="#">نام: @comment.Name</a></h4>
+                                                <div class="ratings-container">
+                                                    @*<div class="ratings">
+                                                            <div class="ratings-val" style="width: 80%;"></div>
+                                                            <!-- End .ratings-val -->
+                                                        </div><!-- End .ratings -->*@
+                                                </div><!-- End .rating-container -->
+                                                <span class="review-date">@comment.AddedDate</span>
+                                            </div><!-- End .col -->
+                                            <div class="col-12">
+                                                <div class="review-content">
+                                                    <p>
+                                                        @comment.Message
+                                                    </p>
+                                                </div><!-- End .review-content -->
+
+
+                                            </div><!-- End .col-auto -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .review -->
+                                }
+                            }
+
+                            @*<div class="review">
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <h4><a class="text-dark" href="#">کاربر 1</a></h4>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                    <div class="ratings-val" style="width: 80%;"></div>
+                                                    <!-- End .ratings-val -->
+                                                </div><!-- End .ratings -->
+                                            </div><!-- End .rating-container -->
+                                            <span class="review-date">4 روز پیش</span>
+                                        </div><!-- End .col -->
+                                        <div class="col-12">
+                                            <h4>عالی، سایز فوق العاده</h4>
+
+                                            <div class="review-content">
+                                                <p>
+                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم،لورم ایپسوم متن
+                                                    ساختگی با تولید سادگی نامفهوم، لورم ایپسوم متن ساختگی با تولید
+                                                    سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم!
+                                                </p>
+                                            </div><!-- End .review-content -->
+
+
+                                        </div><!-- End .col-auto -->
+                                    </div><!-- End .row -->
+                                </div><!-- End .review -->*@
+
+                        </div><!-- End .نظر -->
+                    </div><!-- .End .tab-pane -->
+                </div><!-- End .tab-content -->
+            </div><!-- End .product-details-tab -->
+
+            @Html.Action("RelatedProductsSection", "Shop", new { productId = Model.Product.Id, take = 6 })
+            <!--Comments-->
+            <div class="reply">
+                <div class="heading">
+                    <h3 class="title">ارسال یک دیدگاه</h3><!-- End .title -->
+                    <p class="title-desc">
+                        ایمیل شما منتشر نخواهد شد، فیلد های اجباری با علامت * مشخص
+                        شده اند.
+                    </p>
+                </div><!-- End .heading -->
+                @using (Html.BeginForm("PostComment", "Shop", FormMethod.Post, new { id = "commentform" }))
+                {
+                    <input type="hidden" id="ProductId" name="ProductId" value="@Model.Product.Id">
+                    <div class="row">
+                        <label for="Message" class="sr-only">دیدگاه</label>
+                        <textarea name="Message" id="Message" cols="30" rows="4" class="form-control" required="" placeholder="دیدگاه شما *"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="Name" class="sr-only">نام</label>
+                            <input type="text" class="form-control" id="Name" name="Name" required="" placeholder="نام شما *">
+                        </div><!-- End .col-md-6 -->
+
+                        <div class="col-md-6">
+                            <label for="reply-email" class="sr-only">ایمیل</label>
+                            <input type="email" class="form-control" id="Email" name="Email" required="" placeholder="ایمیل شما *">
+                        </div><!-- End .col-md-6 -->
+                    </div><!-- End .row -->
+
+                    <button type="submit" class="btn btn-outline-primary-2 float-right">
+                        <span>ارسال دیدگاه</span>
+                        <i class="icon-long-arrow-left"></i>
+                    </button>
+                }
+            </div>
+            <!--End Comments-->
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
+<!-- Sticky Bar -->
+<div class="sticky-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <figure class="product-media">
+                    <a href="product.html">
+                        <img width="90px" height="90px" src="/Files/ProductImages/Thumb/@Model.Product.Image" alt="@Model.Product.ShortTitle">
+                    </a>
+                </figure><!-- End .product-media -->
+                <h4 class="product-title"><a href="product.html">@Model.Product.Title</a></h4>
+                <!-- End .product-title -->
+            </div><!-- End .col-6 -->
+
+            <div class="col-6 justify-content-end">
+                <div class="product-price">
+                    @if (Model.PriceAfterDiscount < Model.Price)
+                    {
+                        <span class="product-price"><span id="stiky-productPriceAfterDiscount">@Model.PriceAfterDiscount.ToString("##,###")&nbsp;</span>تومان</span>
+
+                        <del class="price"><span id="stiky-productPrice">@Model.Price.ToString("##,###")</span> </del>
+                    }
+                    else if (Model.Price != 0)
+                    {
+                        <span class="product-price"><span id="stiky-productPrice">@Model.Price.ToString("##,###") &nbsp;</span> تومان</span>
+                    }
+                </div><!-- End .product-price -->
+                <div class="product-details-quantity">
+                    @*<input type="number" id="sticky-cart-qty" class="form-control" value="1" min="1" max="10"
+                        step="1" data-decimals="0" required>*@
+                    <div class="input-group  input-spinner">
+                        <div class="input-group-append"><button class="btn btn-decrement btn-spinner" onclick="StikyIncreaseProductCount()" style="min-width: 26px"><i class="icon-plus"></i></button></div>
+                        <div class="form-control"><span readonly="readonly" id="stiky-txtProductCount">1</span></div>
+                        <div class="input-group-prepend"><button class="btn btn-decrement btn-spinner" onclick="StikyDecreaseProductCount()" style="min-width: 26px"><i class="icon-minus"></i></button></div>
+                    </div>
+                </div><!-- End .product-details-quantity -->
+
+                <div class="product-details-action">
+                    <a href="javascript:void(0)" onclick="AddToCart(@Model.Product.Id,$('#mainFeatureId').val(), $('#stiky-txtProductCount').val())" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
+                    <a href="javascript:void(0)" onclick="AddToWishList(@Model.Product.Id)" class="btn-product btn-wishlist" title="لیست علاقه مندی">
+                        <span>
+                            افزودن به علاقه
+                            مندی
+                        </span>
+                    </a>
+                </div><!-- End .product-details-action -->
+            </div><!-- End .col-6 -->
+        </div><!-- End .row -->
+    </div><!-- End .container -->
+</div><!-- End .sticky-bar -->
+
+
+
+
+
+
+
+<style>
+    .my-error-class {
+        color: darkred !important; /* red */
+    }
+</style>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        var addCount = 1;
+        function StikyIncreaseProductCount() {
+            addCount += 1;
+            $("#stiky-txtProductCount").html(addCount);
+        }
+
+        function StikyDecreaseProductCount() {
+            if (addCount > 1)
+                addCount -= 1;
+            $("#stiky-txtProductCount").html(addCount);
+        }
+
+        //$(document).ready(function () {
+        //    $('div.product-nav :first-child').addClass("active");
+
+        //    $("div.test2 :first-child").click(function (event) {
+        //        $("div.test2 :first-child").addClass("active");
+        //    })
+        //});
+
+
+        $(document).ready(function () {
+            //$('#glasscase').glassCase({
+            //    'thumbsPosition': 'bottom',
+            //    'widthDisplayPerc': 100,
+            //    isDownloadEnabled: false,
+            //    zoomPosition: 'left'
+            //});
+
+            // Get the container element
+            var btnContainer = document.getElementById("product-main-btn");
+
+            // Get all buttons with class="btn" inside the container
+            var btns = btnContainer.getElementsByClassName("test1");
+
+            console.log(btns)
+            // Loop through the buttons and add the active class to the current/clicked button
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function () {
+                    var current = document.getElementsByClassName("b active");
+                    console.log(current)
+                    current[0].className = current[0].className.replace(" b active", "");
+                    this.className += " b active";
+                });
+            }
+
+        });
+
+        function UpdateProductPrice(productId, mainFeatureId, target) {
+            //$(".product-side-price-box").LoadingOverlay("show", {
+            //    image: "",
+            //    fontawesome: "fa fa-spinner fa-spin"
+            //});
+
+            $.ajax({
+                type: 'GET',
+                url: '/Shop/GetProductPrice?productId=' + productId + '&mainFeatureId=' + mainFeatureId,
+                success: function (data) {
+                    var obj = JSON.parse(data);
+                    $("#productPrice").html(obj.price);
+                    $("#stiky-productPrice").html(obj.price);
+                    $("#mainFeatureId").val(mainFeatureId);
+                    $("#productPriceAfterDiscount").html(obj.priceAfterDiscount);
+                    $("#stiky-productPriceAfterDiscount").html(obj.priceAfterDiscount);
+
+                    //$(".active-color").removeClass("active-color");
+                    //var selected = target.getElementsByClassName("spn-product-code")[0];
+                    //console.log(selected);
+                    //selected.classList.add("active-color");
+
+                    //$(".product-side-price-box").LoadingOverlay("hide");
+                },
+                error: function (data) {
+                    console.log("error");
+                    console.log(data);
+                },
+                complete: function () {
+                }
+            });
+        }
+    </script>
+    <script>
+        $("#commentform").validate({
+            errorClass: "my-error-class",
+            rules: {
+                Name: "required",
+                Message: "required",
+                Email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                Name: "نام خود را وارد کنید",
+                Message: "پیام خود را وارد کنید",
+                Email: {
+                    required: "ایمیل خود را وارد کنید",
+                    email: "ایمیل وارد شده معتبر نیست"
+                },
+            }
+        });
+    </script>
+    <script>
+        function AnswerComment(parentId, parentName) {
+            $('#answerPerson').html("در حال پاسخ دادن به  " +
+                parentName +
+                "<a class='reply-btn btn btn-color small' style='margin-right:10px;cursor:pointer' onclick='removePerson()'>حذف</a>");
+            $('#ParentId').val(parentId);
+        }
+
+        function removePerson() {
+            $('#answerPerson').html("");
+            $('#ParentId').val("");
+        }
+    </script>
+}

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "پرداخت شکست خورد";
+}
+
+<div class="contant"></div>
+
+<div class="payment-result-page-container">
+
+    <div class="error-head-message">
+        <h1>فرآیند پرداخت با شکست مواجه شد!</h1>
+    </div>
+
+    <div class="payment-message-wrapper">
+        <div class="error-reasons-wrapper">
+            <h4>برخی دلایل برای شکست عملیت پرداخت:</h4>
+            <ul>
+                <li>
+                    1. بیش از 10 دقیقه از شروع اقدام برای پرداخت گذشته است.
+                </li>
+                <li>
+                    2. سفارش منقضی شده و دیگر امکان پرداخت برای سفارش وجود ندارد.
+                </li>
+                <li>
+                    3. اطلاعات ارسالی از سوی کاربر یا درگاه بانک نامعتبر است.
+                </li>
+            </ul>
+        </div>
+        <div class="error-image-wrapper">
+            <img src="~/Content/client/images/PaymentFailed.svg" />
+        </div>
+    </div>
+
+</div>
+
+
+

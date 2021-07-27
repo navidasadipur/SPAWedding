@@ -1,0 +1,200 @@
+﻿@model SPAWedding.Core.Models.StaticContentDetail
+
+@{
+    ViewBag.Title = "خانه";
+}
+
+@*@if (Model.ShortDescription.Equals("فعال"))
+{
+    <div id="newslater-popup" class="mfp-hide white-popup-block open align-center">
+        <div class="nl-popup-main">
+            <div class="nl-popup-inner">
+                <div class="newsletter-inner">
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div class="mtb-30">
+                                <h2 class="main_title">اشتراک در خبرنامه</h2>
+                                <span class="sub-title mb-30">ثبت نام کنید تا آخرین محصولات برای شما ایمیل شود</span>
+                                <form action="/Home/AddEmailSubscription" method="post">
+                                    <input name="Email" id="Name" type="email" required placeholder="ایمیل خود را وارد کنید">
+                                    <button type="submit" class="btn-color big-width btn" title="اشتراک">اشتراک</button>
+                                </form>
+                                <div class="check-box mt-30">
+                                    <span class="popup-bottom">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<!-- Banner start -->
+@Html.Action("SliderSection", "Home")
+<!-- Banner end -->
+<!-- Offers section Start -->
+@Html.Action("DiscountSection", "Home")
+<!-- Offers section End -->
+<!-- Site Services Block Start -->
+<!--
+<section id="services-part" class="menu-section services-part position-r pb-100">
+    <div class="container">
+        <div class="ser-feature-block mb_-30 center-sm">
+            <div class="row">
+                <div class="col-lg-4 col-12">
+                    <div class="services-box mb-30">
+                        <div class="services-box-inner">
+                            <div class="services-icon services1">
+                                <img src="/Content/client/images/ser-icon1.svg" alt="">
+                            </div>
+                            <div class="services-detail">
+                                <h3 class="ser-title">ارسال رایگان</h3>
+                                <div class="ser-subtitle">ارسال به تمام نقاط ایران</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="services-box mb-30">
+                        <div class="services-box-inner">
+                            <div class="services-icon services2">
+                                <img src="/Content/client/images/ser-icon2.svg" alt="">
+                            </div>
+                            <div class="services-detail">
+                                <h3 class="ser-title">هدایای ویژه</h3>
+                                <div class="ser-subtitle">هدایای ویژه در ایران استایل</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="services-box mb-30">
+                        <div class="services-box-inner">
+                            <div class="services-icon services3">
+                                <img src="/Content/client/images/ser-icon3.svg" alt="">
+                            </div>
+                            <div class="services-detail">
+                                <h3 class="ser-title">ضمانت خرید</h3>
+                                <div class="ser-subtitle">دارای نماد اعتماد و رسانه</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    -->
+<!-- Site Services Block End -->
+<!-- Product Section Start -->
+@Html.Action("TopSoldProductsSection", "Home", new { take = 8 })
+<!-- Product Section End -->
+<!-- Testimonial Section Start -->
+@Html.Action("TestimonialsSection", "Home")
+<!-- Testimonial Section End -->
+<!-- New Product Section Start -->
+@Html.Action("LatestProductsSection", "Home", new { take = 8 })
+<!-- New Product Section End -->
+<!-- Brand logo section strat -->
+@Html.Action("PartnersSection", "Home")
+<!-- Brand logo section end -->
+<!-- Blog section start -->
+@*Html.Action("LatestArticlesSection", "Home")*@
+<!-- Blog section end -->
+<!-- Newslatter section start -->
+<!-- Newslatter section end -->
+
+
+@*@Html.Action("FooterTopSection", "Home")*@
+
+
+    <main class="main">
+
+        @Html.Action("HomeTopSliderSection", "Home")
+
+        
+
+        <div class="featured-back" style="background-image: url(/Files/StaticContentImages/Image/@ViewBag.BackImage)">
+            <div class="container">
+                <div class="section-title">
+                    <ul class="nav nav-pills nav-border-anim" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="tab-featured-link" data-toggle="tab" href="#tab-featured"
+                               role="tab" aria-controls="tab-featured" aria-selected="true"><span>جدیدترین</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab-best-link" data-toggle="tab" href="#tab-best" role="tab"
+                               aria-controls="tab-best" aria-selected="false"><span>پرفروش ترین</span></a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link" id="tab-sale-link" data-toggle="tab" href="#tab-sale" role="tab"
+                               aria-controls="tab-sale" aria-selected="false"><span>فروش ویژه</span></a>
+                        </li>*@
+                    </ul>
+
+
+                    <a class="link" href="/Shop">مشاهده همه محصولات</a>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="tab-content">
+                            
+                            @Html.Action("LatestProductsSection", "Home", new { take = 8})
+
+                            @Html.Action("TopSoldProductsSection", "Home", new { take = 6})
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="mb-2"></div><!-- End .mb-6 -->
+            </div><!-- End .container -->
+        </div>
+
+
+        @Html.Action("OffersSection", "Home")
+
+        @Html.Action("ServicesSection", "Home")
+
+        @Html.Action("HighRateProductsSection", "Home", new { take = 5})
+
+        @Html.Action("LatestArticlesSection", "Home", new { take = 4})
+
+        <div class="newsletter m-0"
+             style="background-image: url(/Files/StaticContentImages/Image/@ViewBag.NewsBackImage);">
+            <div class="container">
+                <div class="subscribe text-center">
+                    <div class="intro">
+                        <h3 class="title text-center">@ViewBag.NewsTitle</h3>
+                        <h4 class="content">@ViewBag.NewsShorDescription</h4>
+                    </div>
+                    <div class="subscribe action">
+                        <form action="/Home/AddEmailSubscription" method="post">
+                            <div class="input-group">
+                                <input name="Email" id="Name" type="email" required placeholder="آدرس ایمیل خود را وارد کنید" aria-label="Email Adress">
+                                <div class="input-group-append">
+                                    <button class="btn btn-subscribe" type="submit">
+                                        <span>
+                                            همین حالا عضو
+                                            شوید
+                                        </span>
+                                    </button>
+                                </div><!-- .End .input-group-append -->
+                            </div><!-- .End .input-group -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+

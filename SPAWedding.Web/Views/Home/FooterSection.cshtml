@@ -1,0 +1,243 @@
+﻿@model SPAWedding.Web.ViewModels.FooterViewModel
+
+
+
+<footer class="footer footer-dark footer-2">
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6">
+                    <div class="widget widget-about">
+                        <img src="/Files/StaticContentImages/Image/@Model.Logo.Image" class="footer-logo mb-0"
+                             alt="Footer Logo" width="82" height="25">
+                        <p>
+                            @Html.Raw(Model.Logo.ShortDescription)
+                        </p>
+
+                        <div class="widget-about-info">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4">
+                                    <span class="widget-about-title">سوالی دارید؟ 7روز هفته/24ساعته</span>
+                                    <a href="tel:@Model.Phone.ShortDescription">@Model.Phone.ShortDescription</a>
+                                </div><!-- End .col-sm-6 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .widget-about-info -->
+                    </div><!-- End .widget about-widget -->
+                </div><!-- End .col-sm-12 col-lg-3 -->
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title">لینک های مفید</h4><!-- End .widget-title -->
+
+                        <ul class="widget-list">
+                            <li><a href="/Blog">بلاگ</a></li>
+                            <li><a href="/gallery">گالری</a></li>
+                            <li><a href="/Certificates">افتخارات</a></li>
+                            <li><a href="/faq">سوالات متداول</a></li>
+                            <li><a href="/about">درباره ما</a></li>
+                            <li><a href="/ContactUs">تماس با ما</a></li>
+                        </ul><!-- End .widget-list -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title">شبکه های اجتماعی</h4><!-- End .widget-title -->
+
+                        <div class="social-icons social-icons-color">
+                            <a href="@Model.Facebook.Link" class="social-icon social-facebook" title="@Model.Facebook.Title" target="_blank">
+                                <i class="icon-facebook-f"></i>
+                            </a>
+                            <a href="@Model.Twitter.Link" class="social-icon social-twitter" title="@Model.Twitter.Title" target="_blank">
+                                <i class="icon-twitter"></i>
+                            </a>
+                            <a href="@Model.Instagram.Link" class="social-icon social-instagram" title="@Model.Instagram.Title" target="_blank">
+                                <i class="icon-instagram"></i>
+                            </a>
+                            <a href="@Model.Youtube.Link" class="social-icon social-youtube" title="@Model.Youtube.Title" target="_blank">
+                                <i class="icon-youtube"></i>
+                            </a>
+                            <a href="@Model.Pinterest.Link" class="social-icon social-pinterest" title="@Model.Pinterest.Title" target="_blank">
+                                <i class="icon-pinterest"></i>
+                            </a>
+                        </div><!-- End .soial-icons -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .footer-middle -->
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="footer-copyright text-white"> <a href="https://www.spad.co/">© طراحی شده توسط اسپاد</a></p>
+            <!-- End .footer-copyright -->
+
+
+        </div><!-- End .container -->
+    </div><!-- End .footer-bottom -->
+</footer><!-- End .footer -->
+
+<button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+
+
+<!-- Mobile Menu -->
+<div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+<div class="mobile-menu-container mobile-menu-light">
+    <div class="mobile-menu-wrapper">
+        <span class="mobile-menu-close"><i class="icon-close"></i></span>
+
+        <form action="/shop" method="get" class="mobile-search">
+            <label for="mobile-search" id="search-form" class="sr-only">جستجو</label>
+            <input type="search" class="form-control" name="searchString" id="searchString"
+                   placeholder="جستجو در ..." required>
+            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+        </form>
+
+        <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="#mobile-menu-tab"
+                   role="tab" aria-controls="mobile-menu-tab" aria-selected="true">منو</a>
+            </li>
+
+        </ul>
+
+        @Html.Action("MobileHeaderSection", "Home")
+
+        <div class="social-icons">
+            <a href="@Model.Facebook.Link" class="social-icon" target="_blank" title="فیسبوک"><i class="icon-facebook-f"></i></a>
+            <a href="@Model.Twitter.Link" class="social-icon" target="_blank" title="توییتر"><i class="icon-twitter"></i></a>
+            <a href="@Model.Instagram.Link" class="social-icon" target="_blank" title="اینستاگرام"><i class="icon-instagram"></i></a>
+            <a href="@Model.Youtube.Link" class="social-icon" target="_blank" title="یوتیوب"><i class="icon-youtube"></i></a>
+        </div><!-- End .social-icons -->
+    </div><!-- End .mobile-menu-wrapper -->
+</div><!-- End .mobile-menu-container -->
+
+<div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon-close"></i></span>
+                </button>
+
+                <div class="form-box">
+                    <div class="form-tab">
+                        <ul class="nav nav-pills nav-fill nav-border-anim" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin"
+                                   role="tab" aria-controls="signin" aria-selected="true">ورود</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
+                                   aria-controls="register" aria-selected="false">ثبت نام</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="tab-content-5">
+                            <div class="tab-pane fade show active" id="signin" role="tabpanel"
+                                 aria-labelledby="signin-tab">
+                                <form action="#">
+                                    <div class="form-group">
+                                        <label for="singin-email">نام کاربری یا آدرس ایمیل *</label>
+                                        <input type="text" class="form-control" id="singin-email"
+                                               name="singin-email" required>
+                                    </div><!-- End .form-group -->
+
+                                    <div class="form-group">
+                                        <label for="singin-password">رمز عبور *</label>
+                                        <input type="password" class="form-control" id="singin-password"
+                                               name="singin-password" required>
+                                    </div><!-- End .form-group -->
+
+                                    <div class="form-footer">
+                                        <button type="submit" class="btn btn-outline-primary-2">
+                                            <span>ورود</span>
+                                            <i class="icon-long-arrow-left"></i>
+                                        </button>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="signin-remember">
+                                            <label class="custom-control-label" for="signin-remember">
+                                                مرا به خاطر
+                                                بسپار
+                                            </label>
+                                        </div><!-- End .custom-checkbox -->
+
+                                        <a href="#" class="forgot-link">فراموشی رمز عبور؟</a>
+                                    </div><!-- End .form-footer -->
+                                </form>
+                                <div class="form-choice">
+                                    <p class="text-center">یا ورود با</p>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <a href="#" class="btn btn-login btn-g">
+                                                <i class="icon-google"></i>
+                                                حساب گوگل
+                                            </a>
+                                        </div><!-- End .col-6 -->
+                                        <div class="col-sm-6">
+                                            <a href="#" class="btn btn-login btn-f">
+                                                <i class="icon-facebook-f"></i>
+                                                حساب فیسبوک
+                                            </a>
+                                        </div><!-- End .col-6 -->
+                                    </div><!-- End .row -->
+                                </div><!-- End .form-choice -->
+                            </div><!-- .End .tab-pane -->
+                            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                <form action="#">
+                                    <div class="form-group">
+                                        <label for="register-email">آدرس ایمیل شما *</label>
+                                        <input type="email" class="form-control" id="register-email"
+                                               name="register-email" required>
+                                    </div><!-- End .form-group -->
+
+                                    <div class="form-group">
+                                        <label for="register-password">رمز عبور *</label>
+                                        <input type="password" class="form-control" id="register-password"
+                                               name="register-password" required>
+                                    </div><!-- End .form-group -->
+
+                                    <div class="form-footer">
+                                        <button type="submit" class="btn btn-outline-primary-2">
+                                            <span>ثبت نام</span>
+                                            <i class="icon-long-arrow-left"></i>
+                                        </button>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="register-policy"
+                                                   required>
+                                            <label class="custom-control-label" for="register-policy">
+                                                با
+                                                <a href="#">قوانین و مقررات </a>موافقم *
+                                            </label>
+                                        </div><!-- End .custom-checkbox -->
+                                    </div><!-- End .form-footer -->
+                                </form>
+                                <div class="form-choice">
+                                    <p class="text-center">یا عضویت با</p>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <a href="#" class="btn btn-login btn-g">
+                                                <i class="icon-google"></i>
+                                                حساب گوگل
+                                            </a>
+                                        </div><!-- End .col-6 -->
+                                        <div class="col-sm-6">
+                                            <a href="#" class="btn btn-login  btn-f">
+                                                <i class="icon-facebook-f"></i>
+                                                حساب فیسبوک
+                                            </a>
+                                        </div><!-- End .col-6 -->
+                                    </div><!-- End .row -->
+                                </div><!-- End .form-choice -->
+                            </div><!-- .End .tab-pane -->
+                        </div><!-- End .tab-content -->
+                    </div><!-- End .form-tab -->
+                </div><!-- End .form-box -->
+            </div><!-- End .modal-body -->
+        </div><!-- End .modal-content -->
+    </div><!-- End .modal-dialog -->
+</div><!-- End .modal -->

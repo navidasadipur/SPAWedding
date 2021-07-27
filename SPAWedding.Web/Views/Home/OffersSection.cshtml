@@ -1,0 +1,150 @@
+﻿@model List<SPAWedding.Core.Models.Offer>
+
+
+@*<div class="sub-banner-part pb-100">
+    <div class="container">
+        @if (Model.Any())
+        {
+            <div class="row">
+                @if (Model.Count > 0)
+                {
+                    <div class="col-md-4">
+                        <div class="sub-banner-box">
+                            <a href="#">
+                                <img class="d-block" src="/Files/OffersImages/@Model[0].Image" alt="@Model[0].Title">
+                            </a>
+                        </div>
+                    </div>
+                }
+                <div class="col-md-8">
+                    <div class="row">
+                        @if (Model.Count > 1)
+                        {
+                            <div class="col-md-8">
+                                <div class="sub-banner-box">
+                                    <a href="#">
+                                        <img class="d-block" src="/Files/OffersImages/@Model[1].Image" alt="@Model[1].Title">
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                        @if (Model.Count > 2)
+                        {
+                            <div class="col-md-4">
+                                <div class="sub-banner-box">
+                                    <a href="#">
+                                        <img class="d-block" src="/Files/OffersImages/@Model[2].Image" style="margin: auto" alt="@Model[2].Title">
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="row">
+                        @if (Model.Count > 3)
+                        {
+                            <div class="col-12">
+                                <div class="sub-banner-box">
+                                    <a href="#">
+                                        <img class="d-block" src="/Files/OffersImages/@Model[3].Image" alt="@Model[3].Title">
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>*@
+
+
+<div class="container banner-container">
+    @if (Model.Any())
+    {
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-6 col-md-6 col-sm-6 banner-lg">
+                <a href="~/Offer?offerId=@item.Id">
+                    <img src="/Files/OffersImages/@item.Image">
+                </a>
+                <div class="banner-content">
+                    <div class="title">
+                        <a href="~/Offer?offerId=@item.Id">@item.Title</a>
+                    </div>
+                    <div class="content">
+                        <a href="~/Offer?offerId=@item.Id">
+                            <h3 class="highlight">@Html.Raw(item.Description)</h3>
+                            @*<h4>برای همه سنین</h4>*@
+                        </a>
+                    </div>
+                    <div class="action">
+                        <a href="~/Offer?offerId=@item.Id">خرید</a>
+                    </div>
+                </div>
+            </div>
+            }
+            
+
+            @*<div class="col-lg-6 col-md-6 col-sm-6 banner-lg">
+                    <a href="category.html">
+                        <img src="/Content/client/assets/images/medicine_images/banner/stationery-editable-psd-mockup-with-isometric-two-medication-boxes-pills-plastic-blister_105589-1507-3.jpg">
+                    </a>
+                    <div class="banner-content">
+                        <div class="title">
+                            <a href="category.html">مکمل های پرفروش</a>
+                        </div>
+                        <div class="content">
+                            <a href="category.html">
+                                <h3>مکمل قدرتمند</h3>
+                                <h4 class="highlight">برای استفاده روزانه</h4>
+                            </a>
+                        </div>
+                        <div class="action">
+                            <a href="category.html">خرید</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 banner-lg">
+                    <a href="category.html">
+                        <img src="/Content/client/assets/images/medicine_images/banner/mtiva_green-3.jpg">
+                    </a>
+                    <div class="banner-content">
+                        <div class="title">
+                            <a href="category.html">تا 30% تخفیف</a>
+                        </div>
+                        <div class="content">
+                            <a href="category.html">
+                                <h3 class="highlight">برندهای معروف</h3>
+                                <h4>برای همه سنین</h4>
+                            </a>
+                        </div>
+                        <div class="action">
+                            <a href="category.html">خرید</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 banner-lg">
+                    <a href="category.html">
+                        <img src="/Content/client/assets/images/medicine_images/banner/stationery-editable-psd-mockup-with-isometric-two-medication-boxes-pills-plastic-blister_105589-1507-3.jpg">
+                    </a>
+                    <div class="banner-content">
+                        <div class="title">
+                            <a href="category.html">مکمل های پرفروش</a>
+                        </div>
+                        <div class="content">
+                            <a href="category.html">
+                                <h3>مکمل قدرتمند</h3>
+                                <h4 class="highlight">برای استفاده روزانه</h4>
+                            </a>
+                        </div>
+                        <div class="action">
+                            <a href="category.html">خرید</a>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+                    }
+    </div>

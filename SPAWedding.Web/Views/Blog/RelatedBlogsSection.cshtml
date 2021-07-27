@@ -1,0 +1,80 @@
+﻿@model List<SPAWedding.Web.ViewModels.LatestArticlesViewModel>
+
+
+<div class="related-posts">
+    <h3 class="title">پست های مرتبط</h3><!-- End .title -->
+
+    <div class="owl-carousel owl-simple" data-toggle="owl" data-owl-options='{
+                                        "nav": false,
+                                        "dots": true,
+                                        "margin": 20,
+                                        "loop": false,
+                                        "rtl": true,
+                            "responsive": {
+                                            "0": {
+                                                "items":1
+                                            },
+                                            "480": {
+                                                "items":2
+                                            },
+                                            "768": {
+                                                "items":3
+                                            }
+                                        }
+                                    }'>
+        @foreach (var article in Model)
+        {
+            <article class="entry entry-grid">
+                <figure class="entry-media">
+                    <a href="~/blog/article/@article.Id/@article.Title.Replace(' ', '-')">
+                        <img src="/Files/ArticleImages/Thumb/@article.Image"
+                             alt="@article.Title">
+                    </a>
+                </figure><!-- End .entry-media -->
+
+                <div class="entry-body">
+                    <div class="entry-meta justify-content-start">
+                        <a href="#">@article.PersianDate</a>
+                        @*<span class="meta-separator">|</span>
+                        <a href="#">2 دیدگاه</a>*@
+                    </div><!-- End .entry-meta -->
+
+                    <h2 class="entry-title">
+                        <a href="~/blog/article/@article.Id/@article.Title.Replace(' ', '-')">@article.Title</a>
+                    </h2><!-- End .entry-title -->
+
+                    <div class="entry-cats">
+                        <a href="~/Blog?category=@article.Category.Id">@article.Category.Title</a>@*،
+                        <a href="#">فروشگاه</a>*@
+                    </div><!-- End .entry-cats -->
+                </div><!-- End .entry-body -->
+            </article><!-- End .entry -->
+        }
+
+        @*<article class="entry entry-grid">
+            <figure class="entry-media">
+                <a href="single.html">
+                    <img src="/Content/client/assets/images/medicine_images/blog-detail/Untitled-4.jpg"
+                         alt="توضیحات عکس">
+                </a>
+            </figure><!-- End .entry-media -->
+
+            <div class="entry-body">
+                <div class="entry-meta justify-content-start">
+                    <a href="#">22 فروردین 1399</a>
+                    <span class="meta-separator">|</span>
+                    <a href="#">2 دیدگاه</a>
+                </div><!-- End .entry-meta -->
+
+                <h2 class="entry-title">
+                    <a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی</a>
+                </h2><!-- End .entry-title -->
+
+                <div class="entry-cats">
+                    <a href="#">بهداشت</a>،
+                    <a href="#">فروشگاه</a>
+                </div><!-- End .entry-cats -->
+            </div><!-- End .entry-body -->
+        </article><!-- End .entry -->*@
+    </div><!-- End .owl-carousel -->
+</div><!-- End .related-posts -->

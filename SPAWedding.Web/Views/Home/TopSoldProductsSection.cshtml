@@ -1,0 +1,268 @@
+﻿@model List<SPAWedding.Web.ViewModels.ProductWithPriceViewModel>
+
+
+
+
+@*<section class="product-section ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-part text-center mb-30 mb-sm-20">
+                    <h2 class="main_title">محصولات پر فروش</h2>
+                </div>
+            </div>
+
+        </div>
+        <div class="position-r">
+            <div class="row">
+                <div class="product-slider owl-carousel position-initial">
+                    @foreach (var item in Model)
+                    {
+
+                        var discountTypeStr = ((int)item.DiscountType) == 1 ? "درصد" : "تومان";
+
+                        <div class="item">
+                            <div class="product-item">
+                                <a href="/Shop/Product/@item.Id">
+                                    <div class="product-image">
+                                        @if (item.Price > 200000)
+                                        {
+                                            <div class="new-label" title="ارسال رایگان"><span><i class="fas fa-shipping-fast"></i></span></div>
+                                        }
+                                        <img class="cart-item-image" src="/Files/ProductImages/Thumb/@item.Image" alt="@item.ShortTitle">
+                                    </div>
+
+
+                                </a>
+                                <div class="product-details-outer">
+                                    <div class="product-details">
+                                        <div class="product-title">
+                                            <a href="/Shop/Product/@item.Id">@item.ShortTitle</a>
+                                        </div>
+
+
+                                        <div class="price-section-wrapper">
+                                            @if (item.DiscountAmount > 0)
+                                            {
+                                                <div class="sale-label-container">
+                                                    <div class="sale-label"><span>@item.DiscountAmount @discountTypeStr</span></div>
+                                                </div>
+                                            }
+                                            <div class="price-wrapper">
+                                                @if (item.Price == 0)
+                                                {
+                                                    <a href="javascript:void(0)">-</a>
+                                                }
+                                                else if (item.PriceAfterDiscount < item.Price)
+                                                {
+                                                    <del class="price old-price">@item.Price.ToString("##,###")</del>
+                                                    <span class="price">@item.PriceAfterDiscount.ToString("##,###") تومان</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="price">@item.Price.ToString("##,###") تومان</span>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-details-btn">
+                                        <div class="hover-product-details">
+
+                                            <div class="product-title">
+                                                <a href="/Shop/Product/@item.Id">@item.ShortTitle</a>
+                                            </div>
+
+
+
+
+                                            <div class="price-section-wrapper">
+                                                @if (item.DiscountAmount > 0)
+                                                {
+                                                    <div class="sale-label-container">
+                                                        <div class="sale-label"><span>@item.DiscountAmount @discountTypeStr</span></div>
+                                                    </div>
+                                                }
+                                                <div class="price-wrapper">
+                                                    @if (item.Price == 0)
+                                                    {
+                                                        <a href="javascript:void(0)">-</a>
+                                                    }
+                                                    else if (item.PriceAfterDiscount < item.Price)
+                                                    {
+                                                        <del class="price old-price">@item.Price.ToString("##,###")</del>
+                                                        <span class="price">@item.PriceAfterDiscount.ToString("##,###") تومان</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="price">@item.Price.ToString("##,###") تومان</span>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @if (item.Price > 0 && item.PriceAfterDiscount > 0)
+                                        {
+                                            <a href="javascript:void(0)" onclick="AddToCart(@item.Id)" class="btn add-product-btn">اضافه کردن به سبد خرید</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a href="tel:@ViewBag.CallForProductNumber.Title" class="btn add-product-btn" style="">تماس بگیرید</a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+
+
+
+
+
+<div class="tab-pane fade" id="tab-best" role="tabpanel" aria-labelledby="tab-best-link">
+    <div class="row products">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-6">
+                <div class="product product-3 text-center">
+                    <figure class="product-media">
+                        @if (item.DiscountAmount > 0)
+                        {
+                            <span class="product-label label-sale">فروش ویژه</span>
+                        }
+
+                        @if (item.Price == 0)
+                        {
+                            <span class="product-label label-out">ناموجود</span>
+                        }
+
+                        <a href="/Shop/Product/@item.Id">
+                            <img src="/Files/ProductImages/Thumb/@item.Image"
+                                 alt="@item.ShortTitle" class="product-image">
+                        </a>
+
+                        <div class="product-action-vertical">
+                            <a href="javascript:void(0)" onclick="AddToWishList(@item.Id)"
+                               class="btn-product-icon btn-wishlist btn-expandable">
+                                <span>
+                                    افزودن
+                                    به لیست علاقه مندی
+                                </span>
+                            </a>
+                        </div><!-- End .product-action-vertical -->
+                    </figure><!-- End .product-media -->
+
+                    <div class="product-body">
+                        <div class="product-cat text-center">
+                            <a href="javascript:void(0)">@item.ProductGroupTitle</a>
+                        </div><!-- End .product-cat -->
+                        <h3 class="product-title text-center">
+                            <a href="/Shop/Product/@item.Id">
+                                @item.ShortTitle
+                            </a>
+                        </h3><!-- End .product-title -->
+                        <div class="product-price">
+
+                            @if (item.PriceAfterDiscount < item.Price)
+                            {
+                                <span class="new-price">@item.PriceAfterDiscount.ToString("##,###") تومان</span>
+                                <div class="old-price">
+                                    @item.Price.ToString("##,###")
+                                </div><!-- End .product-price -->
+                                @*<del class="price old-price">@item.Price.ToString("##,###") تومان</del>*@
+                            }
+                            else
+                            {
+                                <div class="new-price">
+                                    @item.Price.ToString("##,###") تومان
+                                </div><!-- End .product-price -->
+                                @*<span class="price">@item.Price.ToString("##,###") تومان</span>*@
+                            }
+                        </div><!-- End .product-price -->
+                    </div><!-- End .product-body -->
+
+                    <div class="product-footer">
+                        <div class="ratings-container">
+                            <div class="ratings">
+                                @{
+                                    var rate = (item.Rate < 6 ? item.Rate : 5);
+                                    rate = (rate > 0 ? rate : 0);
+                                    var ratingPercentage = (item.Rate * 100) / 5;
+                                }
+                                <div class="ratings-val" style="width: @ratingPercentage%;"></div>
+                                <!-- End .ratings-val -->
+                            </div><!-- End .ratings -->
+                            @*<span class="ratings-text">( 4 دیدگاه )</span>*@
+                        </div><!-- End .rating-container -->
+
+                        <div class="product-action">
+                            <a href="javascript:void(0)" onclick="AddToCart(@item.Id)" class="btn-product btn-cart"
+                               title="افزودن به سبد خرید"></a>
+                            <a href="/Shop/Product/@item.Id" class="btn-product btn-quickview"
+                               title="مشاهده سریع محصول"></a>
+                        </div><!-- End .product-action -->
+                    </div><!-- End .product-footer -->
+                </div><!-- End .product -->
+            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+        }
+        @*<div class="col-lg-4 col-6">
+            <div class="product product-3 text-center">
+                <figure class="product-media">
+                    <span class="product-label label-sale">فروش ویژه</span>
+                    <a href="product.html">
+                        <img src="./Content/client/assets/images/medicine_images/products/custom-surgical-face-mask-boxes-2.png"
+                             alt="تصویر محصول" class="product-image">
+                    </a>
+
+                    <div class="product-action-vertical">
+                        <a href="#"
+                           class="btn-product-icon btn-wishlist btn-expandable">
+                            <span>
+                                افزودن
+                                به لیست علاقه مندی
+                            </span>
+                        </a>
+                    </div><!-- End .product-action-vertical -->
+                </figure><!-- End .product-media -->
+
+                <div class="product-body">
+                    <div class="product-cat text-center">
+                        <a href="#">ملزومات بهداشتی</a>
+                    </div><!-- End .product-cat -->
+                    <h3 class="product-title text-center">
+                        <a href="product.html">
+                            محصول
+                        </a>
+                    </h3><!-- End .product-title -->
+                    <div class="product-price">
+                        <span class="new-price">23,000 تومان</span>
+                        <span class="old-price">40,000</span>
+                    </div><!-- End .product-price -->
+                </div><!-- End .product-body -->
+
+                <div class="product-footer">
+                    <div class="ratings-container">
+                        <div class="ratings">
+                            <div class="ratings-val" style="width: 60%;"></div>
+                            <!-- End .ratings-val -->
+                        </div><!-- End .ratings -->
+                        <span class="ratings-text">( 4 دیدگاه )</span>
+                    </div><!-- End .rating-container -->
+
+                    <div class="product-action">
+                        <a href="#" class="btn-product btn-cart"
+                           title="افزودن به سبد خرید"></a>
+                        <a href="product.html" class="btn-product btn-quickview"
+                           title="مشاهده سریع محصول"></a>
+                    </div><!-- End .product-action -->
+                </div><!-- End .product-footer -->
+            </div><!-- End .product -->
+        </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->*@
+        
+    </div>
+</div>

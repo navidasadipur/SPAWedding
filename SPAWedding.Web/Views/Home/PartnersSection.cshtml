@@ -1,0 +1,25 @@
+﻿@model List<SPAWedding.Core.Models.Partner>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="brands-text text-center mx-auto mb-6">
+                <h2 class="title">برند های معروفی که با ما همکاری می کنند</h2>
+                <!-- End .title -->
+            </div><!-- End .brands-text -->
+            <div class="brands-display">
+                <div class="row justify-content-center">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <a href="#" class="brand">
+                                <img src="/Files/PartnersImages/@item.Image" alt="نام برند">
+                            </a>
+                        </div><!-- End .col-md-3 -->
+                    }
+                    
+                </div><!-- End .row -->
+            </div><!-- End .brands-display -->
+        </div><!-- End .col-lg-10 offset-lg-1 -->
+    </div><!-- End .row -->
+</div><!-- End .container -->

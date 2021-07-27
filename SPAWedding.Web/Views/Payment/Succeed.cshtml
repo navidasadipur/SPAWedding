@@ -1,0 +1,44 @@
+﻿
+@model SPAWedding.Core.Models.Invoice
+@{
+    ViewBag.Title = "پرداخت موفق";
+}
+
+<div class="contant"></div>
+
+
+<div class="payment-result-page-container">
+
+    <div class="success-head-message">
+        <h1>فرآیند پرداخت با موفقیت انجام شد!</h1>
+    </div>
+
+    <div class="payment-message-wrapper">
+        <div class="success-status-wrapper">
+            <h4 class="mb-30">در صورت بروز مشکل از کد زیر برای پیگیری سفارش خود استفاده کنید</h4>
+            <ul class="mb-20">
+                <li>
+                    <input type="text" readonly="readonly" value="@Model.InvoiceNumber" class="form-control" style="text-align:center" />
+                </li>
+            </ul>
+
+            <div class="payment-page-button">
+                <a class="btn btn-color" href="/Customer/Dashboard/Invoices">مشاهده سفارشات</a>
+            </div>
+
+        </div>
+        <div class="error-image-wrapper">
+            <img src="~/Content/client/images/PaymentSuccess.svg" />
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+

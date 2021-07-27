@@ -1,0 +1,55 @@
+﻿@model SPAWedding.Web.ViewModels.AboutViewModel
+
+@{
+    ViewBag.Title = "درباره ما";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.BanerImage')">
+        <div class="container">
+            <h1 class="page-title">@ViewBag.Title</h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/home">خانه</a></li>
+                @*<li class="breadcrumb-item"><a href="#">صفحات</a></li>*@
+                <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content pb-3">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="about-text text-center mt-3">
+                        <h2 class="title text-center mb-2">@Model.Title</h2><!-- End .title text-center mb-2 -->
+                        <p class="text-center">
+                            @Model.AboutDescription
+                        </p>
+                        <img src="/Files/StaticContentImages/Image/@Model.SignatureImage" alt="signature"
+                             class="mx-auto mb-5">
+
+                        <img src="/Files/StaticContentImages/Image/@Model.Image" alt="image"
+                             class="mx-auto mb-6">
+                    </div><!-- End .about-text -->
+                </div><!-- End .col-lg-10 offset-1 -->
+            </div><!-- End .row -->
+
+            @Html.Action("AboutOurPropertiesSection", "Home")
+
+        </div><!-- End .container -->
+
+        <div class="mb-2"></div><!-- End .mb-2 -->
+
+        @Html.Action("OurTeamsSection", "Home")
+       
+        @Html.Action("PartnersSection", "Home");
+
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
+

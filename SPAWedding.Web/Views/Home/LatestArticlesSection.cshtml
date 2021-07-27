@@ -1,0 +1,166 @@
+﻿@model List<SPAWedding.Web.ViewModels.LatestArticlesViewModel>
+
+@*<section class="blog-section pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-part text-center mb-30 mb-sm-20">
+                    <h2 class="main_title">آخرین اخبار</h2>
+                </div>
+            </div>
+        </div>
+        <div class="blog-contant list-view mb_-30">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="blog-item first-blog">
+                        <div class="blog-image">
+                            <a href="/Blog/Article/@Model[1].Id/@Model[1].Title">
+                                <img src="~/Files/ArticleImages/Image/@Model[1].Image" alt="@Model[0].Title">
+                            </a>
+                        </div>
+                        <div class="blog-detail">
+                            <span class="bloger-date">@Model[0].Author @Model[0].PersianDate</span>
+                            <h3 class="head-three mb-10">
+                                <a href="@Model[1].Id/@Model[1].Title">
+                                    @Model[0].Title
+                                </a>
+                            </h3>
+                            <p>
+                                @Model[0].ShortDescription
+                            </p>
+                            <a href="#" class="readmore-btn">بیشتر بخوانید</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="blog-item">
+                                <div class="blog-image">
+                                    <a href="@Model[1].Id/@Model[1].Title">
+                                        <img src="/Files/ArticleImages/Thumb/@Model[1].Image" alt="@Model[1].Title">
+                                    </a>
+                                </div>
+                                <div class="blog-detail">
+                                    <span class="bloger-date">@Model[1].Author @Model[1].PersianDate</span>
+                                    <h3 class="head-three mb-10">
+                                        <a href="@Model[1].Id/@Model[1].Title">@Model[1].Title</a>
+                                    </h3>
+                                    <p>
+                                        @Model[1].ShortDescription
+                                    </p>
+                                    <a href="#" class="readmore-btn">بیشتر بخوانید</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="blog-item">
+                                <div class="blog-image">
+                                    <a href="@Model[1].Id/@Model[1].Title">
+                                        <img src="/Files/ArticleImages/Thumb/@Model[2].Image" alt="@Model[2].Title">
+                                    </a>
+                                </div>
+                                <div class="blog-detail">
+                                    <span class="bloger-date">@Model[2].Author @Model[2].PersianDate</span>
+                                    <h3 class="head-three mb-10">
+                                        <a href="@Model[1].Id/@Model[1].Title">
+                                            @Model[2].Title
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        @Model[2].ShortDescription
+                                    </p>
+                                    <a href="#" class="readmore-btn">بیشتر بخوانید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+
+
+<div class="container post">
+
+    <div class="section-title">
+        <div>
+            <p class="title"><span>جدیدترین اخبار</span></p>
+        </div>
+
+        <a class="link" href="/Blog">مشاهده همه خبرها</a>
+    </div>
+
+    <div class="owl-carousel owl-simple mb-4" data-toggle="owl" data-owl-options='{
+                        "nav": true,
+                        "dots": false,
+                        "items": 3,
+                        "margin": 20,
+                        "loop": false,
+                        "rtl": true,
+                            "responsive": {
+                            "0": {
+                                "items":1,
+                                "dots":true
+                            },
+                            "520": {
+                                "items":2,
+                                "dots":true
+                            },
+                            "768": {
+                                "items":3
+                            }
+                        }
+                    }'>
+
+        @foreach (var article in Model)
+        {
+            <article class="entry">
+                <figure class="entry-media">
+                    <a href="/Blog/Article/@article.Id/@article.Title.Replace(' ', '-')">
+                        <img src="~/Files/ArticleImages/Thumb/@article.Image" alt="@article.Title">
+                    </a>
+                </figure><!-- End .entry-media -->
+
+                <div class="entry-body text-center">
+                    <div class="entry-meta">
+                        <a href="#">@article.PersianDate</a>@*، 0 دیدگاه*@ 
+                    </div><!-- End .entry-meta -->
+
+                    <h3 class="entry-title text-center">
+                        <a href="/Blog/Article/@article.Id/@article.Title.Replace(' ', '-')">@article.Title</a>
+                    </h3><!-- End .entry-title -->
+
+                    <div class="entry-content">
+                        <a href="/Blog/Article/@article.Id/@article.Title.Replace(' ', '-')" class="read-more">ادامه خواندن</a>
+                    </div><!-- End .entry-content -->
+                </div><!-- End .entry-body -->
+            </article><!-- End .entry -->
+        }
+        @*<article class="entry">
+            <figure class="entry-media">
+                <a href="single.html">
+                    <img src="./Content/client/assets/images/medicine_images/news/download-2.jpg" alt="توضیحات عکس">
+                </a>
+            </figure><!-- End .entry-media -->
+
+            <div class="entry-body text-center">
+                <div class="entry-meta">
+                    <a href="#">22 فروردین 1399</a>، 0 دیدگاه
+                </div><!-- End .entry-meta -->
+
+                <h3 class="entry-title text-center">
+                    <a href="single.html">هرآنچه در مورد امگا 3 باید بدانید</a>
+                </h3><!-- End .entry-title -->
+
+                <div class="entry-content">
+                    <a href="single.html" class="read-more">ادامه خواندن</a>
+                </div><!-- End .entry-content -->
+            </div><!-- End .entry-body -->
+        </article><!-- End .entry -->*@
+
+
+    </div><!-- End .owl-carousel -->
+
+</div>

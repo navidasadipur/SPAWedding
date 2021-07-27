@@ -1,0 +1,401 @@
+﻿@model List<SPAWedding.Core.Models.ProductGroup>
+@using SPAWedding.Core.Models
+@{
+    //var mainProductGroups = ViewBag.MainProductGroups as List<ProductGroup>;
+}
+
+
+@*<header id="header">
+        <div class="header-top-row">
+            <div class="top-row-container position-r">
+                <div class="row m-0">
+                    <div class="col-lg-12 p-0 flex">
+                        <!--col-lg-3 col-md-4 col-4 p-0-->
+                        <div class="navbar-header">
+
+                            <div class="header-side">
+                                <form method="get" id="search-form" class="header-search-form search-form desktop desktop-search">
+                                    <input tupe="text" name="searchString" class="searchString" autocomplete="off" />
+                                    <button type="submit"></button>
+                                </form>
+                                <button data-target=".navbar-collapse" data-toggle="collapse"
+                                        class="navbar-toggle d-block d-lg-none d-xl-none" type="button">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                            </div>
+
+                            <div class="header-middle">
+
+                                <a class="navbar-brand page-scroll" href="/">
+                                    <!--<img alt="Logo" src="/Content/client/images/logo.png">-->
+                                    <span class="text-logo">SPAWedding</span>
+                                </a>
+
+                        </div>
+
+                        <div class="header-side left-header-side">
+
+                            <div class="header-right-link">
+                                <ul>
+                                    <li class="account-icon account">
+                                        <a href="#">
+                                            <span></span>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <small class="header-small">
+                                                    خوش آمدید
+                                                </small>
+                                            }
+                                            else
+                                            {
+                                                <small class="header-small">
+                                                    کاربر مهمان
+                                                </small>
+                                            }
+                                        </a>
+                                        <div class="header-link-dropdown account-link-dropdown">
+                                            <ul class="link-dropdown-list">
+                                                <li>
+                                                    <span class="dropdown-title">خوش آمدید</span>
+                                                    <ul>
+                                                        @if (User.Identity.IsAuthenticated)
+                                                        {
+                                                            <li><a href="/Customer/Dashboard/Index">پروفایل</a></li>
+                                                            <li><a href="/Shop/WishList">علامندی ها</a></li>
+                                                            <li>
+                                                                <form id="logoutForm" action="/Customer/Auth/LogOff" method="post"></form>
+                                                                <a href="javascript:document.getElementById('logoutForm').submit()" class="menu-link menu-toggle">
+                                                                    خروج
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                        else
+                                                        {
+                                                            <li><a href="/Customer/Auth/AccountLogin">ورود/ثبت نام</a></li>
+
+                                                        }
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="cart-icon" id="cartSection">
+                                        @Html.Action("CartSection", "Home")
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+                <div class="row m-0 mobile-search">
+                    <div class="mobile">
+                        <form method="get" id="search-form" class="header-search-form search-form ">
+                            <input tupe="text" name="searchString" class="searchString" autocomplete="off" />
+                            <button type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+    <div class="header-bottom-row">
+        <div class="container position-r">
+            <div class="row m-0">
+                <div class="col-lg-12 p-0 position-initial flex">
+                    <!--col-lg-9 col-md-8 col-8 p-0 position-initial-->
+                                    <div class="left-side">
+                                        <div class="overlay"></div>
+                                        <div class="onscroll-logo-container"><span class="scroll-text-logo">SPAWedding</span></div>
+
+                                        <div id="menu" class="navbar-collapse collapse">
+                                            <ul class="nav navbar-nav">
+                                                <li class="level">
+                                                    <a href="/" class="nav-link">صفحه اصلی</a>
+                                                </li>
+                                                <li class="level dropdown">
+                        <span class="opener plus"></span>
+                        <a href="/Shop/Productlist" class="nav-link">محصولات</a>
+                        <div class="megamenu mobile-sub-menu">
+                            <div class="megamenu-inner-top">
+                                <ul class="sub-menu-level1">
+                                    <li class="level2 ">
+                                        <a href="#"><span>دسته بندی های اصلی</span></a>
+                                        <ul class="sub-menu-level2">
+                                            @foreach (var item in mainProductGroups)
+                                            {
+                                                <li class="level3">
+                                                    <a href="/Shop/Productlist/@item.Id/@item.Title.Replace(' ','-')">
+                                                        <span>■</span>@item.Title
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+
+                                    <li class="level2 d-none d-lg-block">
+                                        <a href="#" class="m-0">
+                                            <img src="images/drop_banner3.jpg" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                                        <li class="level dropdown">
+                                            <span class="opener plus"></span>
+                                            <a href="/Shop/Productlist" class="nav-link">محصولات</a>
+                                            <div class="megamenu full mobile-sub-menu">
+                                                <div class="megamenu-inner-top">
+                                                    <div class="row sub-menu-level1">
+                                                        @foreach (var item in mainProductGroups)
+                                                        {
+                                                            <div class="col-lg-4 level2 ">
+                                                                <a href="/Shop/Productlist/@item.Id"><span>@item.Title</span></a>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <ul class="sub-menu-level2">
+                                                                            @for (int i = 0; i < item.Children.Count / 2; i++)
+                                                                            {
+                                                                                <li class="level3"><a href="/Shop/Productlist/@item.Children.ToList()[i].Id"><span>■</span>@item.Children.ToList()[i].Title</a></li>
+                                                                            }
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <ul class="sub-menu-level2">
+                                                                            @for (int i = item.Children.Count / 2; i < item.Children.Count; i++)
+                                                                            {
+                                                                                <li class="level3"><a href="/Shop/Productlist/@item.Children.ToList()[i].Id"><span>■</span>@item.Children.ToList()[i].Title</a></li>
+                                                                            }
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                                    <li class="level dropdown">
+                                                        <span class="opener plus"></span>
+                                                        <a href="/Shop" class="nav-link">محصولات</a>
+
+                                                        <div class="megamenu full mobile-sub-menu">
+                                                            <!-- mobile menu -->
+                                                            <div class="row sub-menu-level1 mega-nav-des">
+
+                                                                @{
+                                                                    var index = 1;
+                                                                    foreach (var item in mainProductGroups)
+                                                                    {
+
+                                                                        for (int i = 0; i < item.Children.Count; i++)
+                                                                        {
+                                                                            <div class="col-lg-3 level2 ">
+                                                                                <a href="/Shop/Productlist/@item.Children.ToList()[i].Id"><span>@item.Children.ToList()[i].Title</span></a>
+                                                                                <ul class="sub-menu-level2">
+                                                                                    @{
+                                                                                        var subItem = item.Children.ToList()[i];
+                                                                                        for (int j = 0; j < subItem.Children.Count; j++)
+                                                                                        {
+                                                                                            <li class="level3"><a href="/Shop/Productlist/@subItem.Children.ToList()[j].Id"><span>■</span>@subItem.Children.ToList()[j].Title</a></li>
+                                                                                        }
+                                                                                    }
+                                                                                </ul>
+                                                                            </div>
+                                                                        }
+                                                                        index++;
+                                                                    }
+                                                                }
+                                                            </div>
+
+                                                            <!-- menu pills -->
+                                                            <ul class="nav nav-pills mega-nav-mob">
+                                                                @{
+                                                                    index = 1;
+                                                                    foreach (var item in mainProductGroups)
+                                                                    {
+                                                                        if (index == 1)
+                                                                        {
+                                                                            <li class="mega-tab"><a href="#tab-@index" onclick="javascript: ;/* window.location.href = '/Shop/Productlist/item.Id';*/" data-toggle="tab" class="mega-tab active">@item.Title</a></li>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <li class="mega-tab"><a href="#tab-@index" onclick="javascript: ;/* window.location.href = '/Shop/Productlist/item.Id';*/" data-toggle="tab" class="mega-tab">@item.Title</a></li>
+                                                                        }
+                                                                        index++;
+                                                                    }
+                                                                }
+                                                            </ul>
+
+                                                            <!-- Tab panes -->
+                                                            <div class="tab-content well mega-nav-mob">
+
+                                                                @{
+                                                                    index = 1;
+                                                                    foreach (var item in mainProductGroups)
+                                                                    {
+                                                                        var cssClass = "";
+                                                                        if (index == 1)
+                                                                        {
+                                                                            cssClass = "active";
+                                                                        }
+                                                                        <div class="tab-pane @cssClass" id="tab-@index">
+                                                                            <div class="row sub-menu-level1">
+
+                                                                                @for (int i = 0; i < item.Children.Count; i++)
+                                                                                {
+                                                                                    <div class="col-lg-3 level2 ">
+                                                                                        <a href="/Shop/Productlist/@item.Children.ToList()[i].Id"><span>@item.Children.ToList()[i].Title</span></a>
+                                                                                        <ul class="sub-menu-level2">
+                                                                                            @{
+                                                                                                var subItem = item.Children.ToList()[i];
+                                                                                                for (int j = 0; j < subItem.Children.Count; j++)
+                                                                                                {
+                                                                                                    <li class="level3"><a href="/Shop/Productlist/@subItem.Children.ToList()[j].Id"><span>■</span>@subItem.Children.ToList()[j].Title</a></li>
+                                                                                                }
+                                                                                            }
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                }
+                                                                            </div>
+                                                                        </div>
+                                                                        index++;
+                                                                    }
+                                                                }
+
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+
+                                                    <li class="level">
+                                                        <a href="/Blog" class="nav-link">بلاگ</a>
+                                                    </li>
+                                                    <li class="level">
+                                                        <a href="/ContactUs" class="nav-link">تماس با ما</a>
+                                                    </li>
+                                                    <li class="level">
+                                                        <a href="/Home/Guide" class="nav-link">راهنمایی آنلاین</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+    </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>*@
+
+
+
+                                        <header class="header header-7">
+                                            <div class="sticky-wrapper">
+                                                <div class="header-middle sticky-header">
+                                                    <div class="container">
+                                                        <div class="header-left">
+                                                            <button class="mobile-menu-toggler">
+                                                                <span class="sr-only">فهرست</span>
+                                                                <i class="icon-bars"></i>
+                                                            </button>
+
+                                                            <a href="/" class="logo">
+                                                                <img src="/Files/StaticContentImages/Image/@ViewBag.LogoImage" alt="Molla Logo" width="82" height="25">
+                                                            </a>
+                                                        </div><!-- End .header-left -->
+
+                                                        <div class="header-right">
+
+                                                            <nav class="main-nav">
+                                                                <ul class="menu sf-arrows sf-js-enabled" style="touch-action: pan-y;">
+                                                                    <li>
+                                                                        <a href="/" class="p-0">خانه</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="/shop" class="sf-with-ul">فروشگاه </a>
+
+                                                                        <ul>
+                                                                            <li>
+                                                                                <a href="/Customer/auth/login">حساب کاربری من</a>
+                                                                            </li>
+                                                                            <li><a href="/Shop/Checkout">پرداخت</a></li>
+                                                                            <li><a href="/Shop/Cart">سبد خرید</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    @if (Model != null)
+                                                                    {
+                                                                        foreach (var group in Model)
+                                                                        {
+                                                                            <li>
+                                                                                @if (group.Children != null)
+                                                                                {
+                                                                                    <a href="/Shop/ProductList/@group.Id" class="sf-with-ul">@group.Title</a>
+                                                                                    <ul>
+                                                                                        @foreach (var group2 in group.Children)
+                                                                                        {
+                                                                                            <li>
+                                                                                                @if (group2.Children != null)
+                                                                                                {
+                                                                                                    <a href="/Shop/ProductList/@group2.Id" class="sf-with-ul">@group2.Title</a>
+                                                                                                    <ul>
+
+                                                                                                        @foreach (var item in group2.Children)
+                                                                                                        {
+                                                                                                            <li>
+                                                                                                                <a href="/Shop/ProductList/@item.Id">@item.Title</a>
+                                                                                                            </li>
+                                                                                                        }
+
+                                                                                                    </ul>
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    <a href="/Shop/ProductList/@group2.Id">@group2.Title</a>
+                                                                                                }
+                                                                                            </li>
+                                                                                        }
+                                                                                    </ul>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <a href="/Shop/ProductList/@group.Id">@group.Title</a>
+                                                                                }
+                                                                            </li>
+                                                                        }
+                                                                    }
+                                                                </ul>
+                                                            </nav>
+
+                                                            <div class="header-search">
+                                                                <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
+                                                                <form action="/shop"  id="search-form" method="get">
+                                                                    <div class="header-search-wrapper">
+                                                                        <label for="searchString" class="sr-only">جستجو</label>
+                                                                        <input type="search" class="form-control" name="searchString" id="searchString"
+                                                                               placeholder="جستجوی محصول ..." required="">
+                                                                    </div><!-- End .header-search-wrapper -->
+                                                                </form>
+                                                            </div><!-- End .header-search -->
+
+                                                            <div id="wishListSection">
+                                                                @Html.Action("wishListSection", "Home")
+                                                            </div>
+
+
+                                                            <div class="dropdown cart-dropdown" id="cartSection">
+                                                                @Html.Action("CartSection", "Home")
+
+                                                            </div><!-- End .cart-dropdown -->
+                                                        </div><!-- End .header-right -->
+                                                    </div><!-- End .container -->
+                                                </div>
+                                            </div><!-- End .header-middle -->
+                                        </header>

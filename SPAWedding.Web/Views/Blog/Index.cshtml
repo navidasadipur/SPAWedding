@@ -1,0 +1,191 @@
+﻿@model List<SPAWedding.Web.ViewModels.LatestArticlesViewModel>
+
+
+
+
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.BanerImage')">
+        <div class="container">
+            <h1 class="page-title">@ViewBag.Title</h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                <li class="breadcrumb-item"><a href="/Blog">اخبار</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <aside class="col-lg-3 order--2">
+                    <div class="sidebar">
+                        @Html.Action("ArticleCategoriesSection", "Blog")
+
+
+                        @Html.Action("TopArticlesSection", "Blog", new { take = 4 })
+
+                        @Html.Action("AdBlogSection", "Blog")
+
+                        @Html.Action("TagsSection", "Blog")
+
+
+                        @*<div class="widget widget-text">
+                                <h3 class="widget-title">درباره بخش اخبار</h3><!-- End .widget-title -->
+
+                                <div class="widget-text-content">
+                                    <p>
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم، لورم ایپسوم متن ساختگی با
+                                        تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با لورم ایپسوم متن ساختگی با
+                                        تولید سادگی نامفهوم
+                                    </p>
+                                </div><!-- End .widget-text-content -->
+                            </div><!-- End .widget -->*@
+                    </div><!-- End .sidebar -->
+                </aside><!-- End .col-lg-3 -->
+
+                <div class="col-lg-9 order-sm--1">
+                    @foreach (var article in Model)
+                    {
+                        <article class="entry entry-list">
+                            <div class="row align-items-center">
+                                <div class="col-md-5">
+                                    <figure class="entry-media">
+                                        <a href="/Blog/Article/@article.Id/@article.Title.Replace(' ', '-')">
+                                            <img src="~/Files/ArticleImages/Image/@article.Image"
+                                                 alt="@article.Title">
+                                        </a>
+                                    </figure><!-- End .entry-media -->
+                                </div><!-- End .col-md-5 -->
+
+                                <div class="col-md-7">
+                                    <div class="entry-body">
+                                        <div class="entry-meta">
+                                            <span class="entry-author">
+                                                نویسنده : <a href="#">@article.Author</a>
+                                            </span>
+                                            <span class="meta-separator">|</span>
+                                            <a href="#">@article.PersianDate</a>
+                                            <!--<span class="meta-separator">|</span>
+                                            <a href="#">2 دیدگاه</a>-->
+                                        </div><!-- End .entry-meta -->
+
+                                        <h2 class="entry-title">
+                                            <a href="/Blog/Article/@article.Id/@article.Title.Replace(' ', '-')">@article.Title</a>
+                                        </h2><!-- End .entry-title -->
+                                        @*<div class="entry-cats">
+                                                <a href="#">بهداشت</a>،
+                                                <a href="#">فروشگاه</a>
+                                            </div> <!-- End .entry-cats -->*@
+
+                                        <div class="entry-content">
+                                            <p>
+                                                @article.ShortDescription
+                                                ...
+                                            </p>
+                                            <a href="/Blog/Article/@article.Id/@article.Title.Replace(' ', '-')" class="read-more">
+                                                ادامه
+                                                خواندن
+                                            </a>
+                                        </div><!-- End .entry-content -->
+                                    </div><!-- End .entry-body -->
+                                </div><!-- End .col-md-7 -->
+                            </div><!-- End .row -->
+                        </article><!-- End .entry -->
+                    }
+
+                    @*<article class="entry entry-list">
+                            <div class="row align-items-center">
+                                <div class="col-md-5">
+                                    <figure class="entry-media">
+                                        <a href="single.html">
+                                            <img src="./Content/client/assets/images/medicine_images/Untitled-3.jpg"
+                                                 alt="توضیحات عکس">
+                                        </a>
+                                    </figure><!-- End .entry-media -->
+                                </div><!-- End .col-md-5 -->
+
+                                <div class="col-md-7">
+                                    <div class="entry-body">
+                                        <div class="entry-meta">
+                                            <span class="entry-author">
+                                                نویسنده : <a href="#">مدیر سایت</a>
+                                            </span>
+                                            <span class="meta-separator">|</span>
+                                            <a href="#">22 فروردین 1399</a>
+                                            <span class="meta-separator">|</span>
+                                            <a href="#">2 دیدگاه</a>
+                                        </div><!-- End .entry-meta -->
+
+                                        <h2 class="entry-title">
+                                            <a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی</a>
+                                        </h2><!-- End .entry-title -->
+
+                                        <div class="entry-cats">
+                                            <a href="#">بهداشت</a>،
+                                            <a href="#">فروشگاه</a>
+                                        </div><!-- End .entry-cats -->
+
+                                        <div class="entry-content">
+                                            <p>
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی
+                                                با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+                                                ...
+                                            </p>
+                                            <a href="single.html" class="read-more">
+                                                ادامه
+                                                خواندن
+                                            </a>
+                                        </div><!-- End .entry-content -->
+                                    </div><!-- End .entry-body -->
+                                </div><!-- End .col-md-7 -->
+                            </div><!-- End .row -->
+                        </article><!-- End .entry -->
+
+                    *@
+
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            @{
+                                if (ViewBag.CurrentPage > 1)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link page-link-prev" href="/Blog?pageNumber=@(ViewBag.CurrentPage - 1)@(ViewBag.CategoryId != null ? $"&Category={ViewBag.CategoryId}" : null)@(ViewBag.SearchString != null ? $"&searchString={ViewBag.SearchString}" : null)"
+                                           aria-label="Previous" tabindex="-1"
+                                           aria-disabled="true">
+                                            <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>قبلی
+                                        </a>
+                                    </li>
+                                }
+                                for (int i = 1; i <= ViewBag.PageCount; i++)
+                                {
+                                    <li class="page-item active" aria-current="page">
+                                        <a class="page-link @(i == ViewBag.CurrentPage ? "active" : null)"
+                                           href="/Blog?pageNumber=@i@(ViewBag.CategoryId != null ? $"&category={ViewBag.CategoryId}" : null)@(ViewBag.SearchString != null ? $"&searchString={ViewBag.SearchString}" : null)">
+                                            @i
+                                        </a>
+                                    </li>
+                                }
+                                if (ViewBag.CurrentPage < ViewBag.PageCount)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link page-link-next" href="/Blog?pageNumber=@(ViewBag.CurrentPage + 1)@(ViewBag.CategoryId != null ? $"&category={ViewBag.CategoryId}" : null)@(ViewBag.SearchString != null ? $"&searchString={ViewBag.SearchString}" : null)"
+                                           aria-label="Next">
+                                            بعدی <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>
+                                        </a>
+                                    </li>
+                                }
+
+                            }
+                        </ul>
+                        </nav>
+                    </div><!-- End .col-lg-9 -->
+
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End .page-content -->
+    </main><!-- End .main -->

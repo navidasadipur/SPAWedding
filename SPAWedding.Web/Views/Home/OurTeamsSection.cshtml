@@ -1,0 +1,40 @@
+﻿@model List<SPAWedding.Core.Models.OurTeam>
+
+<div class="bg-light-2 pt-6 pb-7 mb-6">
+    <div class="container">
+        <h2 class="title text-center mb-4">آشنایی با تیم ما</h2><!-- End .title text-center mb-2 -->
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 col-lg-3">
+                    <div class="member member-2 text-center">
+                        <figure class="member-media">
+                            <img src="/Files/OurTeamImages/@item.Image" alt="توضیح عکس">
+
+                            <figcaption class="member-overlay">
+                                <div class="social-icons social-icons-simple">
+                                    <a href="@item.FaceBookLink" class="social-icon" title="فیسبوک" target="_blank">
+                                        <i class="icon-facebook-f"></i>
+                                    </a>
+                                    <a href="@item.TwitterLink" class="social-icon" title="توییتر" target="_blank">
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="@item.InstagramLink" class="social-icon" title="اینستاگرام" target="_blank">
+                                        <i class="icon-instagram"></i>
+                                    </a>
+                                </div><!-- End .soial-icons -->
+                            </figcaption><!-- End .member-overlay -->
+                        </figure><!-- End .member-media -->
+                        <div class="member-content">
+                            <h3 class="member-title">@item.Title<span>@item.Role</span></h3>
+                            <!-- End .member-title -->
+                        </div><!-- End .member-content -->
+                    </div><!-- End .member -->
+                </div><!-- End .col-lg-3 -->
+            }
+
+        </div><!-- End .row -->
+
+    </div><!-- End .container -->
+</div><!-- End .bg-light-2 pt-6 pb-6 -->
