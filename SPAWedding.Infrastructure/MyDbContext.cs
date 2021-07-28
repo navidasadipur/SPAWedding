@@ -15,6 +15,7 @@ namespace SPAWedding.Infrastructure
         public DbSet<ArticleHeadLine> ArticleHeadLines { get; set; }
         public DbSet<ArticleTag> ArticleTags { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseAuthor> CourseAuthors { get; set; }
         public DbSet<CourseCategory> CourseCategories { get; set; }
         public DbSet<CourseComment> CourseComments { get; set; }
         public DbSet<CourseHeadLine> CourseHeadLines { get; set; }
