@@ -7,13 +7,13 @@ namespace SPAWedding.Infratructure.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ChangeInvoceTable : IMigrationMetadata
+    public sealed partial class CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescriptionAddCourseAndCourseCategoriesAndCourseCommentsAndCourseHeadLines : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeInvoceTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescriptionAddCourseAndCourseCategoriesAndCourseCommentsAndCourseHeadLines));
         
         string IMigrationMetadata.Id
         {
-            get { return "202105310735360_ChangeInvoceTable"; }
+            get { return "202107280656019_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescriptionAddCourseAndCourseCategoriesAndCourseCommentsAndCourseHeadLines"; }
         }
         
         string IMigrationMetadata.Source

@@ -7,13 +7,13 @@ namespace SPAWedding.Infratructure.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddDescripotionToOfferModel : IMigrationMetadata
+    public sealed partial class CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescription : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDescripotionToOfferModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescription));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106010811559_AddDescripotionToOfferModel"; }
+            get { return "202107280746030_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescription"; }
         }
         
         string IMigrationMetadata.Source

@@ -14,6 +14,10 @@ namespace SPAWedding.Infrastructure
         public DbSet<ArticleComment> ArticleComments { get; set; }
         public DbSet<ArticleHeadLine> ArticleHeadLines { get; set; }
         public DbSet<ArticleTag> ArticleTags { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseCategory> CourseCategories { get; set; }
+        public DbSet<CourseComment> CourseComments { get; set; }
+        public DbSet<CourseHeadLine> CourseHeadLines { get; set; }
         public DbSet<StaticContentType> StaticContentTypes { get; set; }
         public DbSet<StaticContentDetail> StaticContentDetails { get; set; }
         public DbSet<ContactForm> ContactForms { get; set; }
@@ -55,6 +59,5 @@ namespace SPAWedding.Infrastructure
         public DbSet<SMSLog> SMSLogs { get; set; }
         public DbSet<OurTeam> OurTeams { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
-
     }
 }

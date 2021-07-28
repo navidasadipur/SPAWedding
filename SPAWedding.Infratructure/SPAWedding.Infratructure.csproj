@@ -111,13 +111,21 @@
     <Compile Include="Migrations\202105030548321_AllowHtmlAttributeAddedToShortDescriptionOfStatic.Designer.cs">
       <DependentUpon>202105030548321_AllowHtmlAttributeAddedToShortDescriptionOfStatic.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105310735360_ChangeInvoceTable.cs" />
-    <Compile Include="Migrations\202105310735360_ChangeInvoceTable.Designer.cs">
-      <DependentUpon>202105310735360_ChangeInvoceTable.cs</DependentUpon>
+    <Compile Include="Migrations\202107280656019_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescriptionAddCourseAndCourseCategoriesAndCourseCommentsAndCourseHeadLines.cs" />
+    <Compile Include="Migrations\202107280656019_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescriptionAddCourseAndCourseCategoriesAndCourseCommentsAndCourseHeadLines.Designer.cs">
+      <DependentUpon>202107280656019_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescriptionAddCourseAndCourseCategoriesAndCourseCommentsAndCourseHeadLines.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106010811559_AddDescripotionToOfferModel.cs" />
-    <Compile Include="Migrations\202106010811559_AddDescripotionToOfferModel.Designer.cs">
-      <DependentUpon>202106010811559_AddDescripotionToOfferModel.cs</DependentUpon>
+    <Compile Include="Migrations\202107280746030_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescription.cs" />
+    <Compile Include="Migrations\202107280746030_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescription.Designer.cs">
+      <DependentUpon>202107280746030_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107280749062_UncommentDescriptionInOfferAndUncommentCompanyNameAndCountryAndCityAndDescription.cs" />
+    <Compile Include="Migrations\202107280749062_UncommentDescriptionInOfferAndUncommentCompanyNameAndCountryAndCityAndDescription.Designer.cs">
+      <DependentUpon>202107280749062_UncommentDescriptionInOfferAndUncommentCompanyNameAndCountryAndCityAndDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107280751478_test.cs" />
+    <Compile Include="Migrations\202107280751478_test.Designer.cs">
+      <DependentUpon>202107280751478_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
@@ -185,11 +193,17 @@
     <EmbeddedResource Include="Migrations\202105030548321_AllowHtmlAttributeAddedToShortDescriptionOfStatic.resx">
       <DependentUpon>202105030548321_AllowHtmlAttributeAddedToShortDescriptionOfStatic.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105310735360_ChangeInvoceTable.resx">
-      <DependentUpon>202105310735360_ChangeInvoceTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107280656019_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescriptionAddCourseAndCourseCategoriesAndCourseCommentsAndCourseHeadLines.resx">
+      <DependentUpon>202107280656019_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescriptionAddCourseAndCourseCategoriesAndCourseCommentsAndCourseHeadLines.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106010811559_AddDescripotionToOfferModel.resx">
-      <DependentUpon>202106010811559_AddDescripotionToOfferModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107280746030_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescription.resx">
+      <DependentUpon>202107280746030_CommentDescriptionInOfferAndCommentCompanyNameAndCountryAndCityAndDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107280749062_UncommentDescriptionInOfferAndUncommentCompanyNameAndCountryAndCityAndDescription.resx">
+      <DependentUpon>202107280749062_UncommentDescriptionInOfferAndUncommentCompanyNameAndCountryAndCityAndDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107280751478_test.resx">
+      <DependentUpon>202107280751478_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
