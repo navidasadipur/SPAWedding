@@ -53,7 +53,7 @@ namespace SPAWedding.Web.ViewModels
         public int Id { get; set; }
         [Display(Name = "عنوان")]
         public string Title { get; set; }
-        [Display(Name = "نویسنده")]
+        [Display(Name = "مدرس")]
         public string Author { get; set; }
         [Display(Name = "دسته بندی")]
         public string CourseCategory { get; set; }

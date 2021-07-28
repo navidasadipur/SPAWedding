@@ -2,7 +2,7 @@
 @using Kendo.Mvc.UI
 @using SPAWedding.Infrastructure.Helpers;
 @{
-    ViewBag.Title = "مقاله ها";
+    ViewBag.Title = "کلاس ها";
 }
 <input type="hidden" id="nav_active" value="course_control">
 <input type="hidden" id="nav_item_active" value="courses">
@@ -11,7 +11,7 @@
         <div class="card-title">
             <h3 class="card-label">
                 @ViewBag.Title
-                <span class="d-block text-muted pt-2 font-size-sm">ویرایش مقاله ها</span>
+                <span class="d-block text-muted pt-2 font-size-sm">ویرایش کلاس ها</span>
             </h3>
         </div>
         <div class="card-toolbar">
@@ -114,7 +114,7 @@ columns.Bound(item => @item.Id).IncludeInMenu(false).Sortable(false).Title("دس
         function btnDelete(id) {
             $.get("/Admin/Courses/Delete/" + id, function (result) {
                 $("#myModal").modal();
-                $("#myModalLabel").html("حذف مقاله");
+                $("#myModalLabel").html("حذف کلاس");
                 $("#myModalHeader");
                 $("#myModalBody").html(result);
             });
