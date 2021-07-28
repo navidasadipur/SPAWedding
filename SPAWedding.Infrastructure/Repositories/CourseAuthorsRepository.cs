@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SPAWedding.Infrastructure.Repositories
 {
-    public class CourseAuthorRepository : BaseRepository<CourseAuthor, MyDbContext>
+    public class CourseAuthorsRepository : BaseRepository<CourseAuthor, MyDbContext>
     {
         private readonly MyDbContext _context;
         private readonly LogsRepository _logger;
-        public CourseAuthorRepository(MyDbContext context, LogsRepository logger) : base(context, logger)
+        public CourseAuthorsRepository(MyDbContext context, LogsRepository logger) : base(context, logger)
         {
             _context = context;
             _logger = logger;
