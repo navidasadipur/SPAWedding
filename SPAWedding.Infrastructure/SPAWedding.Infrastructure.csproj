@@ -7,8 +7,8 @@
     <ProjectGuid>{0D2FF993-9241-444D-8BB7-44B31CCD4165}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Seshin.Infratructure</RootNamespace>
-    <AssemblyName>Seshin.Infratructure</AssemblyName>
+    <RootNamespace>SPAWedding.Infratructure</RootNamespace>
+    <AssemblyName>SPAWedding.Infratructure</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

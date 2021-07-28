@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPAWedding.Web", "SPAWeddin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPAWedding.Core", "SPAWedding.Core\SPAWedding.Core.csproj", "{C9289F3F-FB24-495E-A361-11D0F3C81456}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPAWedding.Infratructure", "SPAWedding.Infratructure\SPAWedding.Infratructure.csproj", "{0D2FF993-9241-444D-8BB7-44B31CCD4165}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPAWedding.Infrastructure", "SPAWedding.Infrastructure\SPAWedding.Infrastructure.csproj", "{0D2FF993-9241-444D-8BB7-44B31CCD4165}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

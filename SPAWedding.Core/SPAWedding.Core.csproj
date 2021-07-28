@@ -7,8 +7,8 @@
     <ProjectGuid>{C9289F3F-FB24-495E-A361-11D0F3C81456}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Seshin.Core</RootNamespace>
-    <AssemblyName>Seshin.Core</AssemblyName>
+    <RootNamespace>SPAWedding.Core</RootNamespace>
+    <AssemblyName>SPAWedding.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

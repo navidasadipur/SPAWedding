@@ -12,8 +12,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Seshin.Web</RootNamespace>
-    <AssemblyName>Seshin.Web</AssemblyName>
+    <RootNamespace>SPAWedding.Web</RootNamespace>
+    <AssemblyName>SPAWedding.Web</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -4992,9 +4992,9 @@
       <Project>{c9289f3f-fb24-495e-a361-11d0f3c81456}</Project>
       <Name>SPAWedding.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SPAWedding.Infratructure\SPAWedding.Infratructure.csproj">
+    <ProjectReference Include="..\SPAWedding.Infrastructure\SPAWedding.Infrastructure.csproj">
       <Project>{0d2ff993-9241-444d-8bb7-44b31ccd4165}</Project>
-      <Name>SPAWedding.Infratructure</Name>
+      <Name>SPAWedding.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
