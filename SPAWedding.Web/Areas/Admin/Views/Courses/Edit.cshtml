@@ -1,10 +1,10 @@
-﻿@model SPAWedding.Core.Models.Article
+﻿@model SPAWedding.Core.Models.Course
 
 @{
     ViewBag.Title = "مقاله ها";
 }
-<input type="hidden" id="nav_active" value="article_control">
-<input type="hidden" id="nav_item_active" value="articles">
+<input type="hidden" id="nav_active" value="course_control">
+<input type="hidden" id="nav_item_active" value="courses">
 @{
     if (ViewBag.Message != null)
     {
@@ -20,7 +20,7 @@
                 ویرایش مقاله
             </h3>
         </div>
-        @using (Html.BeginForm("Edit", "Articles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Edit", "Courses", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
@@ -41,22 +41,22 @@
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.ArticleCategoryId, "دسته بندی", new { })
+                @Html.LabelFor(model => model.CourseCategoryId, "دسته بندی", new { })
                 <div class="col-md-5">
-                    @Html.DropDownList("ArticleCategoryId", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ArticleCategoryId, "", new { @class = "form-text text-danger" })
+                    @Html.DropDownList("CourseCategoryId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CourseCategoryId, "", new { @class = "form-text text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-label">تصویر</label>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <div class="image-input image-input-outline" id="article-image">
-                        <div class="image-input-wrapper" style="background-image: url(/Files/ArticleImages/Thumb/@Model.Image)"></div>
+                    <div class="image-input image-input-outline" id="course-image">
+                        <div class="image-input-wrapper" style="background-image: url(/Files/CourseImages/Thumb/@Model.Image)"></div>
 
                         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="آپلود تصویر">
                             <i class="fa fa-pen icon-sm text-muted"></i>
-                            <input type="file" name="ArticleImage" accept=".png, .jpg, .jpeg" />
-                            <input type="hidden" name="article_image_remove" />
+                            <input type="file" name="CourseImage" accept=".png, .jpg, .jpeg" />
+                            <input type="hidden" name="course_image_remove" />
                         </label>
 
                         <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="حذف تصویر">
@@ -76,7 +76,7 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "form-text text-danger" })
             </div>
             <div class="form-group">
-                <label for="ArticleTags">برچسب ها</label>
+                <label for="CourseTags">برچسب ها</label>
                 <input type="text" name="Tags" id="Tags" value="@ViewBag.Tags" placeholder="لطفا برچسب ها را با - از هم جدا کنید" class="form-control" />
             </div>
         </div>
@@ -101,6 +101,6 @@
             $('#Description').ckeditor();
 
         });
-        var avatar1 = new KTImageInput('article-image');
+        var avatar1 = new KTImageInput('course-image');
     </script>
 }

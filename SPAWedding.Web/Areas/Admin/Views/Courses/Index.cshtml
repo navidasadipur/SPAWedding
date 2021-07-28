@@ -1,11 +1,11 @@
-﻿@model List<SPAWedding.Web.ViewModels.ArticleInfoViewModel>
+﻿@model List<SPAWedding.Web.ViewModels.CourseInfoViewModel>
 @using Kendo.Mvc.UI
 @using SPAWedding.Infrastructure.Helpers;
 @{
     ViewBag.Title = "مقاله ها";
 }
-<input type="hidden" id="nav_active" value="article_control">
-<input type="hidden" id="nav_item_active" value="articles">
+<input type="hidden" id="nav_active" value="course_control">
+<input type="hidden" id="nav_item_active" value="courses">
 <div class="card card-custom">
     <div class="card-header flex-wrap border-0 pt-6 pb-0">
         <div class="card-title">
@@ -16,7 +16,7 @@
         </div>
         <div class="card-toolbar">
             <!--begin::Button-->
-            <a href="/Admin/Articles/Create" class="btn btn-primary font-weight-bolder">
+            <a href="/Admin/Courses/Create" class="btn btn-primary font-weight-bolder">
                 <span class="svg-icon svg-icon-md">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -39,7 +39,7 @@
 {
 columns.Bound(model => model.Title).Width(400);
 columns.Bound(model => model.Author);
-columns.Bound(model => model.ArticleCategory);
+columns.Bound(model => model.CourseCategory);
 @*columns.Bound(model => model.AddedDate).Title("تاریخ ثبت").Template(
     @<text>
         @item.PersianAddedDate
@@ -47,10 +47,10 @@ columns.Bound(model => model.ArticleCategory);
     );*@
 columns.Bound(item => @item.Id).IncludeInMenu(false).Sortable(false).Title("دستورات").Filterable(false).Groupable(false).Template(
         @<text>
-            <a class='btn btn-sm btn-clean btn-icon mr-2' href="/Admin/Articles/Edit/@item.Id"><i class='far fa-edit text-primary'></i></a>
-            <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("articlesdelete") ? $"btnDelete({item.Id})" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
-            @Html.ActionLink("سرتیتر ها", "Index", "ArticleHeadLines", new { articleId = @item.Id }, new { @class = "btn btn-primary btn-sm ml-2" })
-            @Html.ActionLink("کامنت ها", "Index", "ArticleComments", new { articleId = @item.Id }, new { @class = "btn btn-primary btn-sm ml-2" })
+            <a class='btn btn-sm btn-clean btn-icon mr-2' href="/Admin/Courses/Edit/@item.Id"><i class='far fa-edit text-primary'></i></a>
+            <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("coursesdelete") ? $"btnDelete({item.Id})" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
+            @Html.ActionLink("سرتیتر ها", "Index", "CourseHeadLines", new { courseId = @item.Id }, new { @class = "btn btn-primary btn-sm ml-2" })
+            @Html.ActionLink("کامنت ها", "Index", "CourseComments", new { courseId = @item.Id }, new { @class = "btn btn-primary btn-sm ml-2" })
         </text>
         ).Width(300);
 })
@@ -112,7 +112,7 @@ columns.Bound(item => @item.Id).IncludeInMenu(false).Sortable(false).Title("دس
     </script>
     <script>
         function btnDelete(id) {
-            $.get("/Admin/Articles/Delete/" + id, function (result) {
+            $.get("/Admin/Courses/Delete/" + id, function (result) {
                 $("#myModal").modal();
                 $("#myModalLabel").html("حذف مقاله");
                 $("#myModalHeader");
