@@ -30,6 +30,9 @@ namespace SPAWedding.Core.Models
         public int? CourseCategoryId { get; set; }
         public CourseCategory CourseCategory { get; set; }
 
+        public int? CourseAuthorId { get; set; }
+        public CourseAuthor CourseAuthor { get; set; }
+
         public string UserId { get; set; }
         public User User { get; set; }
 

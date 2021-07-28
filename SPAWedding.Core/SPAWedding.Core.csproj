@@ -79,6 +79,7 @@
     <Compile Include="Models\AdditionalFeature.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\CourseAuthor.cs" />
     <Compile Include="Models\CourseCategory.cs" />
     <Compile Include="Models\ArticleCategory.cs" />
     <Compile Include="Models\CourseComment.cs" />
