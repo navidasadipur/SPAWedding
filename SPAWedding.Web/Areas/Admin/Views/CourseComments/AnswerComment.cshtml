@@ -1,4 +1,4 @@
-﻿@model SPAWedding.Core.Models.ArticleComment
+﻿@model SPAWedding.Core.Models.CourseComment
 @{
     ViewBag.Title = "کامنت ها";
     Layout = null;
@@ -9,7 +9,7 @@
 
 <div class="form-horizontal">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <input type="hidden" id="ArticleId" name="ArticleId" value="@ViewBag.ArticleId">
+    <input type="hidden" id="CourseId" name="CourseId" value="@ViewBag.CourseId">
     <input type="hidden" id="ParentId" name="ParentId" value="@ViewBag.ParentId">
     <div class="form-group">
         <label for="Message">پاسخ</label>

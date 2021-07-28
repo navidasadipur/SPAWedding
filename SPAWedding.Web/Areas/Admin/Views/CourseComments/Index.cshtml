@@ -1,26 +1,26 @@
-﻿@model List<SPAWedding.Web.ViewModels.CommentWithPersianDateViewModel>
+﻿@model List<SPAWedding.Web.ViewModels.CourseCommentWithPersianDateViewModel>
 @using Kendo.Mvc.UI
 @using SPAWedding.Infrastructure.Helpers;
 @{
     ViewBag.Title = "کامنت ها";
 }
-<input type="hidden" id="nav_active" value="article_control">
-<input type="hidden" id="nav_item_active" value="articles">
+<input type="hidden" id="nav_active" value="course_control">
+<input type="hidden" id="nav_item_active" value="courses">
 <div class="card card-custom">
     <div class="card-header flex-wrap border-0 pt-6 pb-0">
         <div class="card-title">
             <h3 class="card-label">
                 @ViewBag.Title
-                <span class="d-block text-muted pt-2 font-size-sm">ویرایش کامنت های مقاله ی @ViewBag.ArticleName</span>
+                <span class="d-block text-muted pt-2 font-size-sm">ویرایش کامنت های مقاله ی @ViewBag.CourseName</span>
             </h3>
 
         </div>
         <div class="card-toolbar">
-            <a href="/Admin/Articles" class="btn btn-light-success" style="margin-left:20px">
+            <a href="/Admin/Courses" class="btn btn-light-success" style="margin-left:20px">
                 <i class="flaticon2-arrow"></i> بازگشت
             </a>
             <!--begin::Button-->
-            <a href="/Admin/ArticleComments/Create?articleId=@ViewBag.ArticleId" class="btn btn-primary font-weight-bolder">
+            <a href="/Admin/CourseComments/Create?courseId=@ViewBag.CourseId" class="btn btn-primary font-weight-bolder">
                 <span class="svg-icon svg-icon-md">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -48,9 +48,9 @@
 
                         columns.Bound(item => @item.Id).IncludeInMenu(false).Sortable(false).Title("دستورات").Filterable(false).Groupable(false).Template(
                             @<text>
-                                <a class='btn btn-sm btn-clean btn-icon mr-2' href="/Admin/ArticleComments/Edit/@item.Comment.Id"><i class='far fa-edit text-primary'></i></a>
-                                <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("articlecommentsdelete") ? $"btnDelete({item.Comment.Id})" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
-                                @*<a class='btn btn-primary btn-sm' onclick="@(CheckPermission.Check("articlecommentsanswercomment") ? $"btnAnswerComment({item.Comment.ArticleId},{item.Comment.Id})" : "accessDenied()")">پاسخ دادن</a>*@
+                                <a class='btn btn-sm btn-clean btn-icon mr-2' href="/Admin/CourseComments/Edit/@item.Comment.Id"><i class='far fa-edit text-primary'></i></a>
+                                <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("coursecommentsdelete") ? $"btnDelete({item.Comment.Id})" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
+                                @*<a class='btn btn-primary btn-sm' onclick="@(CheckPermission.Check("coursecommentsanswercomment") ? $"btnAnswerComment({item.Comment.CourseId},{item.Comment.Id})" : "accessDenied()")">پاسخ دادن</a>*@
                             </text>
                                 ).Width(255);
                         })
@@ -113,15 +113,15 @@
     </script>
     <script>
         function btnDelete(id) {
-            $.get("/Admin/ArticleComments/Delete/" + id, function (result) {
+            $.get("/Admin/CourseComments/Delete/" + id, function (result) {
                 $("#myModal").modal();
                 $("#myModalLabel").html("حذف کامنت");
                 $("#myModalHeader");
                 $("#myModalBody").html(result);
             });
         }
-        function btnAnswerComment(articleId, parentCommentId) {
-            $.get("/Admin/ArticleComments/AnswerComment?articleId=" + articleId + "&parentCommentId=" + parentCommentId, function (result) {
+        function btnAnswerComment(courseId, parentCommentId) {
+            $.get("/Admin/CourseComments/AnswerComment?courseId=" + courseId + "&parentCommentId=" + parentCommentId, function (result) {
                 $("#myModal").modal();
                 $("#myModalLabel").html("پاسخ به کامنت");
                 $("#myModalHeader");

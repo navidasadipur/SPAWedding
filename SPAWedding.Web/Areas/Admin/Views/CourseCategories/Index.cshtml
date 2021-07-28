@@ -1,11 +1,11 @@
-﻿@model IEnumerable<SPAWedding.Core.Models.ArticleCategory>
+﻿@model IEnumerable<SPAWedding.Core.Models.CourseCategory>
 @using Kendo.Mvc.UI
 @using SPAWedding.Infrastructure.Helpers;
 @{
     ViewBag.Title = "دسته بندی";
 }
-<input type="hidden" id="nav_active" value="article_control">
-<input type="hidden" id="nav_item_active" value="article_categories">
+<input type="hidden" id="nav_active" value="course_control">
+<input type="hidden" id="nav_item_active" value="course_categories">
 <div class="card card-custom">
     <div class="card-header flex-wrap border-0 pt-6 pb-0">
         <div class="card-title">
@@ -16,7 +16,7 @@
         </div>
         <div class="card-toolbar">
             <!--begin::Button-->
-            <a onclick="@(CheckPermission.Check("articlecategoriescreate") ? $"btnCreate()" : "accessDenied()")" class="btn btn-primary font-weight-bolder">
+            <a onclick="@(CheckPermission.Check("coursecategoriescreate") ? $"btnCreate()" : "accessDenied()")" class="btn btn-primary font-weight-bolder">
                 <span class="svg-icon svg-icon-md">
                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -41,8 +41,8 @@
 
     columns.Bound(item => @item.Id).IncludeInMenu(false).Sortable(false).Title("دستورات").Filterable(false).Groupable(false).Template(
         @<text>
-            <a class='btn btn-sm btn-clean btn-icon mr-2' onclick="@(CheckPermission.Check("articlecategoriesedit") ? $"btnEdit({item.Id})" : "accessDenied()")"><i class='far fa-edit text-primary'></i></a>
-            <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("articlecategoriesdelete") ? $"btnDelete({item.Id})" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
+            <a class='btn btn-sm btn-clean btn-icon mr-2' onclick="@(CheckPermission.Check("coursecategoriesedit") ? $"btnEdit({item.Id})" : "accessDenied()")"><i class='far fa-edit text-primary'></i></a>
+            <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("coursecategoriesdelete") ? $"btnDelete({item.Id})" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
         </text>
         ).Width(255);
 })
@@ -105,7 +105,7 @@
     </script>
     <script>
         function btnCreate() {
-            $.get("/Admin/ArticleCategories/Create", function (result) {
+            $.get("/Admin/CourseCategories/Create", function (result) {
                 $("#myModal").modal();
                 $("#myModalLabel").html("افرودن دسته");
                 $("#myModalHeader");
@@ -114,7 +114,7 @@
             console.log("trigered")
         }
         function btnEdit(id) {
-            $.get("/Admin/ArticleCategories/Edit/" + id, function (result) {
+            $.get("/Admin/CourseCategories/Edit/" + id, function (result) {
                 $("#myModal").modal();
                 $("#myModalLabel").html("ویرایش دسته");
                 $("#myModalHeader");
@@ -122,7 +122,7 @@
             });
         }
         function btnDelete(id) {
-            $.get("/Admin/ArticleCategories/Delete/" + id, function (result) {
+            $.get("/Admin/CourseCategories/Delete/" + id, function (result) {
                 $("#myModal").modal();
                 $("#myModalLabel").html("حذف دسته");
                 $("#myModalHeader");
