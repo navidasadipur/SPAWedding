@@ -69,8 +69,6 @@ namespace SPAWedding.Web.Controllers
 
             var popup = _staticContentRepo.GetSingleContentByTypeId((int)StaticContentTypes.Popup);
 
-            ViewBag.BackImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.BackGroundImage).Image;
-
             ViewBag.NewsBackImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.NewsBackImage).Image;
             ViewBag.NewsTitle = _staticContentRepo.GetStaticContentDetail((int)StaticContents.NewsBackImage).Title;
             ViewBag.NewsShorDescription = _staticContentRepo.GetStaticContentDetail((int)StaticContents.NewsBackImage).ShortDescription;
@@ -80,32 +78,35 @@ namespace SPAWedding.Web.Controllers
 
         public ActionResult HeaderSection()
         {
-            
-            var allMainGroups = _productGroupRepo.GetMainProductGroups();
 
-            foreach (var group in allMainGroups)
-            {
-                group.Children = _productGroupRepo.GetChildrenProductGroups(group.Id);
-            }
+            //var allMainGroups = _productGroupRepo.GetMainProductGroups();
 
-            ViewBag.LogoImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Logo).Image;
+            //foreach (var group in allMainGroups)
+            //{
+            //    group.Children = _productGroupRepo.GetChildrenProductGroups(group.Id);
+            //}
 
-            var wishListModel = new WishListModel();
+            //ViewBag.LogoImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Logo).Image;
 
-            HttpCookie cartCookie = Request.Cookies["wishList"] ?? new HttpCookie("wishList");
+            ////WishList 
+            //var wishListModel = new WishListModel();
 
-            if (!string.IsNullOrEmpty(cartCookie.Values["wishList"]))
-            {
-                string cartJsonStr = cartCookie.Values["wishList"];
-                wishListModel = new WishListModel(cartJsonStr);
-            }
+            //HttpCookie cartCookie = Request.Cookies["wishList"] ?? new HttpCookie("wishList");
 
-            if (wishListModel.WishListItems != null)
-            {
-                ViewBag.WishListCount = wishListModel.WishListItems.Count();
-            }
+            //if (!string.IsNullOrEmpty(cartCookie.Values["wishList"]))
+            //{
+            //    string cartJsonStr = cartCookie.Values["wishList"];
+            //    wishListModel = new WishListModel(cartJsonStr);
+            //}
 
-            return PartialView(allMainGroups);
+            //if (wishListModel.WishListItems != null)
+            //{
+            //    ViewBag.WishListCount = wishListModel.WishListItems.Count();
+            //}
+
+            ViewBag.HeaderImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HeaderBackGroundImage).Image;
+
+            return PartialView(/*allMainGroups*/);
         }
 
         public ActionResult MobileHeaderSection()

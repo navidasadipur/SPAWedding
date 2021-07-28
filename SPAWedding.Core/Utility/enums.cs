@@ -43,7 +43,7 @@ namespace SPAWedding.Core.Utility
         DiscountNews = 5027,
 
         Logo = 14,
-        BackGroundImage = 2,
+        HeaderBackGroundImage = 13,
         NewsBackImage = 8,
 
         BlogAd = 32,
