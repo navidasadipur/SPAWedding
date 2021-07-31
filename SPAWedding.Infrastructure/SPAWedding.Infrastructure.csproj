@@ -135,6 +135,10 @@
     <Compile Include="Migrations\202107311217282_modifyAttributeOfCourse.Designer.cs">
       <DependentUpon>202107311217282_modifyAttributeOfCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107311322493_makeDurationAndSessionsNumberNullable.cs" />
+    <Compile Include="Migrations\202107311322493_makeDurationAndSessionsNumberNullable.Designer.cs">
+      <DependentUpon>202107311322493_makeDurationAndSessionsNumberNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107311217282_modifyAttributeOfCourse.resx">
       <DependentUpon>202107311217282_modifyAttributeOfCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107311322493_makeDurationAndSessionsNumberNullable.resx">
+      <DependentUpon>202107311322493_makeDurationAndSessionsNumberNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -32,9 +32,9 @@ namespace SPAWedding.Core.Models
         [Display(Name = "تاریخ پایان")]
         public DateTime? EndDate { get; set; }
         [Display(Name = "طول دوره(ساعت)")]
-        public long DurationInHours { get; set; }
+        public long? DurationInHours { get; set; }
         [Display(Name = "تعداد جلسات")]
-        public int SessionsNumber { get; set; }
+        public int? SessionsNumber { get; set; }
 
         public int? CourseCategoryId { get; set; }
         public CourseCategory CourseCategory { get; set; }
