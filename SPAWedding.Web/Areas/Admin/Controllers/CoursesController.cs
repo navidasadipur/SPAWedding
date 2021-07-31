@@ -39,6 +39,9 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.CourseCategoryId = new SelectList(_repo.GetCourseCategories(), "Id", "Title");
+
+            ViewBag.CourseAuthorId = new SelectList(_repo.GetCourseAuthors(), "Id", "LastName");
+
             return View();
         }
 
@@ -88,6 +91,9 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
             }
             ViewBag.Tags = Tags;
             ViewBag.CourseCategoryId = new SelectList(_repo.GetCourseCategories(), "Id", "Title", course.CourseCategoryId);
+
+            ViewBag.CourseAuthorId = new SelectList(_repo.GetCourseAuthors(), "Id", "LastName", course.CourseAuthorId);
+
             return View(course);
         }
 
@@ -108,6 +114,9 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
             //ViewBag.Tags = _repo.GetCourseTagsStr(id.Value);
 
             ViewBag.CourseCategoryId = new SelectList(_repo.GetCourseCategories(), "Id", "Title", course.CourseCategoryId);
+
+            ViewBag.CourseAuthorId = new SelectList(_repo.GetCourseAuthors(), "Id", "LastName", course.CourseAuthorId);
+
             return View(course);
         }
 
@@ -155,6 +164,9 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
             }
             ViewBag.Tags = Tags;
             ViewBag.CourseCategoryId = new SelectList(_repo.GetCourseCategories(), "Id", "Title", course.CourseCategoryId);
+
+            ViewBag.CourseAuthorId = new SelectList(_repo.GetCourseAuthors(), "Id", "LastName", course.CourseAuthorId);
+
             return View(course);
         }
 
