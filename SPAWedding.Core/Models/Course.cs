@@ -9,7 +9,7 @@ namespace SPAWedding.Core.Models
     public class Course : IBaseEntity
     {
         public int Id { get; set; }
-        [Display(Name = "عنوان مقاله")]
+        [Display(Name = "عنوان دوره")]
         [MaxLength(600,ErrorMessage = "{0} باید از 600 کارکتر کمتر باشد")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string Title { get; set; }
@@ -26,6 +26,15 @@ namespace SPAWedding.Core.Models
         [Display(Name = "تصویر")]
         public string Image { get; set; }
         public DateTime? AddedDate { get; set; }
+
+        [Display(Name = "تاریخ شروع")]
+        public DateTime? StartDate { get; set; }
+        [Display(Name = "تاریخ پایان")]
+        public DateTime? EndDate { get; set; }
+        [Display(Name = "طول دوره(ساعت)")]
+        public long DurationInHours { get; set; }
+        [Display(Name = "تاریخ پایان")]
+        public int SessionsNumber { get; set; }
 
         public int? CourseCategoryId { get; set; }
         public CourseCategory CourseCategory { get; set; }

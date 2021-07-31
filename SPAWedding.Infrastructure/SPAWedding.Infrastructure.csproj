@@ -127,6 +127,10 @@
     <Compile Include="Migrations\202107280751478_test.Designer.cs">
       <DependentUpon>202107280751478_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107310716030_ModifyCourseModel.cs" />
+    <Compile Include="Migrations\202107310716030_ModifyCourseModel.Designer.cs">
+      <DependentUpon>202107310716030_ModifyCourseModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -209,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107280751478_test.resx">
       <DependentUpon>202107280751478_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107310716030_ModifyCourseModel.resx">
+      <DependentUpon>202107310716030_ModifyCourseModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
