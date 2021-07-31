@@ -33,6 +33,12 @@ namespace SPAWedding.Infrastructure.Repositories
         {
             return _context.CourseCategories.Where(a => a.IsDeleted == false).ToList();
         }
+
+        public List<CourseAuthor> GetCourseAuthors()
+        {
+            return _context.CourseAuthors.Where(a => a.IsDeleted == false).ToList();
+        }
+
         public void AddCourse(Course course)
         {
             var user = GetCurrentUser();
