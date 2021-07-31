@@ -27,7 +27,7 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title")] CourseAuthor courseAuthor)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Filed,AboutAuthor,MoreInfo")] CourseAuthor courseAuthor)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title")] CourseAuthor courseAuthor)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Filed,AboutAuthor,MoreInfo")] CourseAuthor courseAuthor)
         {
             if (ModelState.IsValid)
             {

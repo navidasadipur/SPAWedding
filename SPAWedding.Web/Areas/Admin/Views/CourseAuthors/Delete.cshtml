@@ -1,13 +1,21 @@
 ﻿@model SPAWedding.Core.Models.CourseAuthor
 <h4 class="card-label">
-    آیا مطمئن هستید که می خواهید این دسته را حذف کنید؟
+    آیا مطمئن هستید که می خواهید این مدرس را حذف کنید؟
 </h4>
 <dl class="row" style="padding-top:10px">
     <dt class="col-sm-4">
-        @Html.DisplayNameFor(model => model.Title)
+        @Html.DisplayNameFor(model => model.FirstName)
     </dt>
     <dd class="col-sm-8">
-        @Html.DisplayFor(model => model.Title)
+        @Html.DisplayFor(model => model.FirstName)
+    </dd>
+</dl>
+<dl class="row" style="padding-top:10px">
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.LastName)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.LastName)
     </dd>
 </dl>
 <div style="float:left">
