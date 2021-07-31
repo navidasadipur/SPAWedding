@@ -66,7 +66,33 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.StartDate, new { })
 
-                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control " } })
+                            <script src="~/Content/admin/Vendors/Clockpicker/bootstrap-clockPicker.min.js"></script>
+                            <script src="~/Content/admin/Vendors/kamaDatepicker/kamadatepicker.min.js"></script>
+                            @Html.EditorFor(Model => Model.StartDate, new { htmlAttributes = new { @class = "form-control ", @required = "", type = "hidden" } })
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <div class="datetime-picker-wrapper">
+                                        <input type="text" id="txtStartDate" name="txtStartDate" value="" class="datepicker-input form-control" onchange="HidePicker(event, 'txtStartTime')" placeholder="تاریخ" autocomplete="off" />
+                                        <script type="text/javascript">
+                                            var customOptions = {
+                                                placeholder: "روز / ماه / سال"
+                                                , twodigit: false
+                                                , closeAfterSelect: false
+                                                , nextButtonIcon: "fa fa-arrow-circle-right"
+                                                , previousButtonIcon: "fa fa-arrow-circle-left"
+                                                , buttonsColor: "blue"
+                                                , forceFarsiDigits: true
+                                                , markToday: true
+                                                , markHolidays: true
+                                                , highlightSelectedDay: true
+                                                , sync: true
+                                                , gotoToday: true
+                                            }
+                                            kamaDatepicker('txtStartDate', customOptions);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
                             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "form-text text-danger" })
                         </div>
                     </div>
@@ -76,7 +102,33 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.EndDate, new { })
 
-                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control " } })
+                            <script src="~/Content/admin/Vendors/Clockpicker/bootstrap-clockPicker.min.js"></script>
+                            <script src="~/Content/admin/Vendors/kamaDatepicker/kamadatepicker.min.js"></script>
+                            @Html.EditorFor(Model => Model.EndDate, new { htmlAttributes = new { @class = "form-control ", @required = "", type = "hidden" } })
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <div class="datetime-picker-wrapper">
+                                        <input type="text" id="txtEndDate" name="txtEndDate" value="" class="datepicker-input form-control" onchange="HidePicker(event, 'txtEndTime')" placeholder="تاریخ" autocomplete="off" />
+                                        <script type="text/javascript">
+                                            var customOptions = {
+                                                placeholder: "روز / ماه / سال"
+                                                , twodigit: false
+                                                , closeAfterSelect: false
+                                                , nextButtonIcon: "fa fa-arrow-circle-right"
+                                                , previousButtonIcon: "fa fa-arrow-circle-left"
+                                                , buttonsColor: "blue"
+                                                , forceFarsiDigits: true
+                                                , markToday: true
+                                                , markHolidays: true
+                                                , highlightSelectedDay: true
+                                                , sync: true
+                                                , gotoToday: true
+                                            }
+                                            kamaDatepicker('txtEndDate', customOptions);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
                             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "form-text text-danger" })
 
                         </div>
@@ -155,6 +207,28 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script src="/ckeditor/ckeditor.js"></script>
     <script src="/ckeditor/adapters/jquery.js"></script>
+
+    <script>
+        function HidePicker(e, next) {
+            e.target.nextSibling.classList.add("bd-hide");
+
+            console.log($("#" + next));
+            $("#" + next).focus();
+            PutTime();
+        }
+
+        function PutTime() {
+            var date = $("#txtEndDate").val();
+            var time = $("#txtEndTime").val();
+            $("#DeadLine").val(date + " " + time);
+    }
+
+            function PutTime() {
+            var date = $("#txtStartDate").val();
+            var time = $("#txtEndTime").val();
+            $("#DeadLine").val(date + " " + time);
+        }
+    </script>
     <script>
         $(function () {
             $('#Description').ckeditor();
