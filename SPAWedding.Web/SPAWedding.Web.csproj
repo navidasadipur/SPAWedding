@@ -4940,7 +4940,7 @@
     <Content Include="Views\Home\FooterSection.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\OurTeamsSection.cshtml" />
-    <Content Include="Views\Home\AboutOurPropertiesSection.cshtml" />
+    <Content Include="Views\Home\NewClassesSection.cshtml" />
     <Content Include="Views\Home\ContactSocialsSection.cshtml" />
     <Content Include="Views\Home\Certificate.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />

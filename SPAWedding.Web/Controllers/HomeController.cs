@@ -29,23 +29,25 @@ namespace SPAWedding.Web.Controllers
         private readonly FaqGroupsRepository _faqGroupsRepo;
         private readonly EmailSubscriptionRepository _emailSubscriptionRepo;
         private readonly CertificatesRepository _certificatesRepo;
+        private readonly CoursesRepository _coursesRepo;
         private readonly ProductsRepository _productsRepo;
 
         public HomeController(
-            StaticContentDetailsRepository staticContentRepo,
-            OffersRepository offersRepo, 
-            ProductsRepository productsRepo,
-            ProductService productService,
-            TestimonialsRepository testimonialRepo, 
-            PartnersRepository partnersRepo,
-            ArticlesRepository articlesRepo,
-            DiscountsRepository discountsRepo,
-            EmailSubscriptionRepository emailSubscriptionRepo,
-            ContactFormsRepository contactFormRepo,
-            ProductGroupsRepository productGroupRepo,
-            OurTeamRepository ourTeamRepo,
-            FaqGroupsRepository faqGroupsRepo,
-            CertificatesRepository certificatesRepository
+            StaticContentDetailsRepository staticContentRepo
+            , OffersRepository offersRepo
+            , ProductsRepository productsRepo
+            , ProductService productService
+            , TestimonialsRepository testimonialRepo
+            , PartnersRepository partnersRepo
+            , ArticlesRepository articlesRepo
+            , DiscountsRepository discountsRepo
+            , EmailSubscriptionRepository emailSubscriptionRepo
+            , ContactFormsRepository contactFormRepo
+            , ProductGroupsRepository productGroupRepo
+            , OurTeamRepository ourTeamRepo
+            , FaqGroupsRepository faqGroupsRepo
+            , CertificatesRepository certificatesRepo
+            , CoursesRepository coursesRepo
             )
         {
             _discountRepo = discountsRepo;
@@ -57,10 +59,11 @@ namespace SPAWedding.Web.Controllers
             _articlesRepo = articlesRepo;
             _contactFormRepo = contactFormRepo;
             _productGroupRepo = productGroupRepo;
-            this._ourTeamRepo = ourTeamRepo;
-            this._faqGroupsRepo = faqGroupsRepo;
+            _ourTeamRepo = ourTeamRepo;
+            _faqGroupsRepo = faqGroupsRepo;
             _emailSubscriptionRepo = emailSubscriptionRepo;
-            _certificatesRepo = certificatesRepository;
+            _certificatesRepo = certificatesRepo;
+            _coursesRepo = coursesRepo;
             _productsRepo = productsRepo;
         }
 
@@ -330,13 +333,12 @@ namespace SPAWedding.Web.Controllers
             return View(model);
         }
 
-        public ActionResult AboutOurPropertiesSection()
+        public ActionResult NewClassesSection(int take)
         {
-            var model = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.AboutProperties);
+            var model = _coursesRepo.GetLatestCourses(take);
 
             return PartialView(model);
         }
-        
 
         public ActionResult OurTeamsSection()
         {

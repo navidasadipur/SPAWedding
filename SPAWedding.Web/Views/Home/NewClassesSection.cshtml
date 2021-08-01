@@ -1,0 +1,83 @@
+﻿@model List<SPAWedding.Core.Models.Course>
+
+
+<div class="col-md-12 mt-3">
+    <div class="text-center">
+        <div class="separator-medium"></div>
+        <h3>جدیدترین کلاس ها</h3>
+        <div class="white-space"></div>
+    </div>
+
+    <div class="wrapper-content">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+
+                        <!-- BLOG ITEM -->
+
+                        <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
+                            <a href="blog-details.html">
+                                <img src="~/Files/CourseImages/Thumb/@item.Image" alt="class-@item.Title">
+                            </a>
+                            <div class="blog-info text-center">
+                                <h6>@item.Title</h6>
+                                <p>
+                                    @item.ShortDescription
+                                </p>
+                                <a class="btn btn-small btn-clr-reverse" href="blog-details.html">بیشتر</a>
+                            </div>
+                        </div>
+
+                        <!-- / BLOG ITEM -->
+
+                    </div>
+                }
+
+                @*<div class="col-md-4">
+                    <!-- BLOG ITEM -->
+                    <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
+                        <a href="blog-details.html">
+                            <img src="/Content/client/img/masonry14.jpg" alt="Post 1">
+                        </a>
+                        <div class="blog-info text-center">
+                            <h6>هر آنچه باید درباره ما بدانید</h6>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
+                                از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای
+                                آن
+                            </p>
+                            <a class="btn btn-small btn-clr-reverse" href="blog-details.html">بیشتر</a>
+                        </div>
+                    </div>
+                    <!-- / BLOG ITEM -->
+                </div>*@
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@*<div class="row justify-content-center">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-sm-6">
+            <div class="icon-box icon-box-sm text-center">
+                <span class="icon-box-icon">
+                    @Html.Raw(item.ShortDescription)
+                </span>
+                <div class="icon-box-content">
+                    <h3 class="icon-box-title">@item.Title </h3><!-- End .icon-box-title -->
+                    <div class="center">
+                        @Html.Raw(item.Description)
+                    </div>
+                </div><!-- End .icon-box-content -->
+            </div><!-- End .icon-box -->
+        </div><!-- End .col-lg-4 col-sm-6 -->
+
+    }
+</div><!-- End .row -->*@
