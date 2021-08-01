@@ -68,7 +68,23 @@
 
                             <script src="~/Content/admin/Vendors/Clockpicker/bootstrap-clockPicker.min.js"></script>
                             <script src="~/Content/admin/Vendors/kamaDatepicker/kamadatepicker.min.js"></script>
-                            @Html.EditorFor(Model => Model.StartDate, new { htmlAttributes = new { @class = "form-control ", @required = "", type = "hidden" } })
+                            @Html.EditorFor(Model => Model.StartDate, new { htmlAttributes = new { @class = "form-control ", type = "hidden" } })
+
+                            @{
+                                var stratDate = "";
+                                if (Model.StartDate != null)
+                                {
+                                    stratDate = Model.StartDate.ToString().Split(' ')[0];
+
+                                    System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
+
+                                    stratDate = pc.GetYear(Model.StartDate.Value).ToString();
+                                    stratDate += "/";
+                                    stratDate += pc.GetMonth(Model.StartDate.Value) < 10 ? "0" + pc.GetMonth(Model.StartDate.Value) : pc.GetMonth(Model.StartDate.Value).ToString();
+                                    stratDate += "/";
+                                    stratDate += pc.GetDayOfMonth(Model.StartDate.Value) < 10 ? "0" + pc.GetDayOfMonth(Model.StartDate.Value) : pc.GetDayOfMonth(Model.StartDate.Value).ToString();
+                                }
+                            }
                             <div class="form-group">
                                 <div class="col-md-10">
                                     <div class="datetime-picker-wrapper">
@@ -105,6 +121,21 @@
                             <script src="~/Content/admin/Vendors/Clockpicker/bootstrap-clockPicker.min.js"></script>
                             <script src="~/Content/admin/Vendors/kamaDatepicker/kamadatepicker.min.js"></script>
                             @Html.EditorFor(Model => Model.EndDate, new { htmlAttributes = new { @class = "form-control ", @required = "", type = "hidden" } })
+                            @{
+                                var endDate = "";
+                                if (Model.EndDate != null)
+                                {
+                                    endDate = Model.EndDate.ToString().Split(' ')[0];
+
+                                    System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
+
+                                    endDate = pc.GetYear(Model.EndDate.Value).ToString();
+                                    endDate += "/";
+                                    endDate += pc.GetMonth(Model.EndDate.Value) < 10 ? "0" + pc.GetMonth(Model.EndDate.Value) : pc.GetMonth(Model.EndDate.Value).ToString();
+                                    endDate += "/";
+                                    endDate += pc.GetDayOfMonth(Model.EndDate.Value) < 10 ? "0" + pc.GetDayOfMonth(Model.EndDate.Value) : pc.GetDayOfMonth(Model.EndDate.Value).ToString();
+                                }
+                            }
                             <div class="form-group">
                                 <div class="col-md-10">
                                     <div class="datetime-picker-wrapper">
@@ -214,19 +245,19 @@
 
             console.log($("#" + next));
             $("#" + next).focus();
-            PutTime();
+            PutEndDate();
+            PutStartDate() 
         }
 
-        function PutTime() {
+        function PutEndDate() {
             var date = $("#txtEndDate").val();
-            var time = $("#txtEndTime").val();
-            $("#DeadLine").val(date + " " + time);
+            $("#EndDate").val(date);
     }
 
-            function PutTime() {
-            var date = $("#txtStartDate").val();
-            var time = $("#txtEndTime").val();
-            $("#DeadLine").val(date + " " + time);
+            function PutStartDate() {
+                var date = $("#txtStartDate").val();
+                console.log(date);
+            $("#StartDate").val(date);
         }
     </script>
     <script>
