@@ -40,6 +40,8 @@ namespace SPAWedding.Core.Utility
         Phone = 7,
         ContactUsMap = 4,
         ContactUs = 32,
+        Faq = 20,
+        certificate = 25,
 
         DiscountNews = 5027,
 

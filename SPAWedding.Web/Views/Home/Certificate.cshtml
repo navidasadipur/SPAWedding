@@ -11,7 +11,7 @@
                     <h1>@ViewBag.Title</h1>
                     <div class="page-title-description breadcrumbs">
                         <ul>
-                            <li><a href="index.html">خانه</a><span>/</span></li>
+                            <li><a href="/">خانه</a><span>/</span></li>
                             <li>@ViewBag.Title</li>
                         </ul>
                     </div>
@@ -24,15 +24,9 @@
 
 <div class="wrapper-content">
     <div class="container">
-
         <div class="row">
             <div class="col-md-offset-2 col-md-8 text-center text-description">
-
-                <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                    مورد نیاز، و کاربردهای آن
-                </p>
+                @Html.Raw(ViewBag.Certificate.Description)
             </div>
         </div>
     </div>
@@ -40,85 +34,18 @@
     <section id="gallery">
         <div class="gallery-section">
             <div class="container-fluid">
-
                 <div class="row">
-
-                    <div class="gallery-box delay col-md-4">
-                        <div class="box delay">
-                            <a class="delay-1" href="/Content/client/img/certificate/certificate.jpg" data-fancybox="gallery1">
-                                <img alt="" src="/Content/client/img/certificate/certificate.jpg" class="img-fluid">
-                            </a>
+                    @foreach (var item in Model)
+                    {
+                        <div class="gallery-box delay col-md-4">
+                            <div class="box delay">
+                                <a class="delay-1" href="/Files/CertificatesImages/@item.Image" data-fancybox="gallery1">
+                                    <img alt="" src="/Files/CertificatesImages/@item.Image" class="img-fluid">
+                                </a>
+                            </div>
                         </div>
+                    }
                     </div>
-
-                    <div class="gallery-box delay col-md-4">
-                        <div class="box delay">
-                            <a class="delay-1" href="/Content/client/img/certificate/certificate.jpg" data-fancybox="gallery1">
-                                <img alt="" src="/Content/client/img/certificate/certificate.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div class="gallery-box delay col-md-4">
-                        <div class="box delay">
-                            <a class="delay-1" href="/Content/client/img/certificate/certificate.jpg" data-fancybox="gallery1">
-                                <img alt="" src="/Content/client/img/certificate/certificate.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div class="gallery-box delay col-md-4">
-                        <div class="box delay">
-                            <a class="delay-1" href="/Content/client/img/certificate/certificate.jpg" data-fancybox="gallery1">
-                                <img alt="" src="/Content/client/img/certificate/certificate.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="gallery-box delay col-md-4">
-                        <div class="box delay">
-                            <a class="delay-1" href="/Content/client/img/certificate/certificate.jpg" data-fancybox="gallery1">
-                                <img alt="" src="/Content/client/img/certificate/certificate.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="gallery-box delay col-md-4">
-                        <div class="box delay">
-                            <a class="delay-1" href="/Content/client/img/certificate/certificate.jpg" data-fancybox="gallery1">
-                                <img alt="" src="/Content/client/img/certificate/certificate.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="gallery-box delay col-md-4">
-                        <div class="box delay">
-                            <a class="delay-1" href="/Content/client/img/certificate/certificate.jpg" data-fancybox="gallery1">
-                                <img alt="" src="/Content/client/img/certificate/certificate.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="gallery-box delay col-md-4">
-                        <div class="box delay">
-                            <a class="delay-1" href="/Content/client/img/certificate/certificate.jpg" data-fancybox="gallery1">
-                                <img alt="" src="/Content/client/img/certificate/certificate.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="gallery-box delay col-md-4">
-                        <div class="box delay">
-                            <a class="delay-1" href="/Content/client/img/certificate/certificate.jpg" data-fancybox="gallery1">
-                                <img alt="" src="/Content/client/img/certificate/certificate.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-
-                </div>
-
             </div>
         </div>
     </section>

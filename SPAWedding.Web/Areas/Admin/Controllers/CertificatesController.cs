@@ -38,7 +38,7 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                     var newFileName = Guid.NewGuid() + Path.GetExtension(CertificateImage.FileName);
                     CertificateImage.SaveAs(Server.MapPath("/Files/CertificatesImages/Temp/" + newFileName));
                     // Resize Image
-                    ImageResizer image = new ImageResizer(800, 800, true);
+                    ImageResizer image = new ImageResizer(500, 700, true);
                     image.Resize(Server.MapPath("/Files/CertificatesImages/Temp/" + newFileName),
                         Server.MapPath("/Files/CertificatesImages/" + newFileName));
 
@@ -85,7 +85,7 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                     var newFileName = Guid.NewGuid() + Path.GetExtension(CertificateImage.FileName);
                     CertificateImage.SaveAs(Server.MapPath("/Files/CertificatesImages/Temp/" + newFileName));
                     // Resize Image
-                    ImageResizer image = new ImageResizer(800, 800, true);
+                    ImageResizer image = new ImageResizer(500, 700, true);
                     image.Resize(Server.MapPath("/Files/CertificatesImages/Temp/" + newFileName),
                         Server.MapPath("/Files/CertificatesImages/" + newFileName));
 

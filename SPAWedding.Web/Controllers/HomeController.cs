@@ -308,12 +308,7 @@ namespace SPAWedding.Web.Controllers
         {
             var model = _faqGroupsRepo.GetAllFaqGroupsWithFaqs();
 
-            ViewBag.BanerTitle = _staticContentRepo.GetStaticContentDetail(3).Title;
-            ViewBag.ShortDescription = _staticContentRepo.GetStaticContentDetail(3).ShortDescription;
-            ViewBag.Link = _staticContentRepo.GetStaticContentDetail(3).Link;
-            ViewBag.Image = _staticContentRepo.GetStaticContentDetail(3).Image;
-
-            ViewBag.BanerImage = _staticContentRepo.GetStaticContentDetail(13).Image;
+            ViewBag.Faq = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Faq);
 
             return View(model);
         }
@@ -494,7 +489,7 @@ namespace SPAWedding.Web.Controllers
         {
             var certificates = _certificatesRepo.GetAll();
 
-            ViewBag.BanerImage = _staticContentRepo.GetStaticContentDetail(13).Image;
+            ViewBag.Certificate = _staticContentRepo.GetStaticContentDetail((int)StaticContents.certificate);
 
             return View(certificates);
         }
