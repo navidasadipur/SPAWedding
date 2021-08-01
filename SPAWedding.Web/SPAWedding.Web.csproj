@@ -4942,7 +4942,7 @@
     <Content Include="Views\Home\OurTeamsSection.cshtml" />
     <Content Include="Views\Home\AboutOurPropertiesSection.cshtml" />
     <Content Include="Views\Home\ContactSocialsSection.cshtml" />
-    <Content Include="Views\Home\Certificates.cshtml" />
+    <Content Include="Views\Home\Certificate.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Blog\AdBlogSection.cshtml" />
     <Content Include="Views\Blog\TagsSection.cshtml" />

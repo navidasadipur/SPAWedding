@@ -365,21 +365,8 @@ namespace SPAWedding.Web.Controllers
                 Email = email,
                 Address = address
             };
-
-            var banner = "";
-            try
-            {
-                banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ ارتباط با ما").Image;
-                banner = "/Files/StaticContentImages/Image/" + banner;
-            }
-            catch
-            {
-
-            }
-
-            ViewBag.banner = banner;
-
-            ViewBag.BanerImage = _staticContentRepo.GetStaticContentDetail(13).Image;
+            
+            ViewBag.ContactUs = _staticContentRepo.GetStaticContentDetail((int)StaticContents.ContactUs);
 
             return View(vm);
         }
@@ -414,7 +401,7 @@ namespace SPAWedding.Web.Controllers
                 _contactFormRepo.Add(contactForm);
                 return RedirectToAction("ContactUsSummary");
             }
-            return RedirectToAction("Contact");
+            return RedirectToAction("ContactUs");
         }
 
         public ActionResult ContactUsSummary()
@@ -500,8 +487,8 @@ namespace SPAWedding.Web.Controllers
             return View();
         }
 
-        [Route("Certificates")]
-        public ActionResult Certificates()
+        [Route("Certificate")]
+        public ActionResult Certificate()
         {
             var certificates = _certificatesRepo.GetAll();
 
