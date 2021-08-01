@@ -44,12 +44,8 @@
 
         <div class="row">
             <div class="col-md-offset-2 col-md-8 text-center text-description">
-                <h4>گالری</h4>
-                <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                    مورد نیاز، و کاربردهای آن
-                </p>
+                <h4>@ViewBag.Gallery.ShortDescription</h4>
+                @Html.Raw(ViewBag.Gallery.Description)
             </div>
         </div>
     </div>
@@ -60,11 +56,15 @@
             <div class="container-fluid">
 
                 <div class="gallery-box delay">
-                    <div class="box delay">
-                        <a class="delay-1" href="/Content/client/img/NewImages/n (40).jpg" data-fancybox="gallery1">
-                            <img alt="" src="/Content/client/img/NewImages/n (40).jpg" class="img-fluid">
-                        </a>
-                    </div>
+                    @foreach (var item in Model)
+                    {
+                        <div class="box delay">
+                            <a class="delay-1" href="/Content/client/img/NewImages/n (40).jpg" data-fancybox="gallery1">
+                                <img alt="" src="/Content/client/img/NewImages/n (40).jpg" class="img-fluid">
+                            </a>
+                        </div>
+                    }
+
                     <div class="box delay">
                         <a class="delay-1" href="/Content/client/img/NewImages/n (16).jpg" data-fancybox="gallery1">
                             <img alt="" src="/Content/client/img/NewImages/n (16).jpg" class="img-fluid">
@@ -165,66 +165,66 @@
 
 
 @*<div class="page-header text-center" style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.BanerImage')">
-        <div class="container">
-            <h1 class="page-title">@ViewBag.Title</h1>
-        </div><!-- End .container -->
-    </div><!-- End .page-header -->
-    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">خانه</a></li>
-            <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
-            </ol>
-        </div><!-- End .container -->
-    </nav><!-- End .breadcrumb-nav -->
+            <div class="container">
+                <h1 class="page-title">@ViewBag.Title</h1>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
+        <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+                </ol>
+            </div><!-- End .container -->
+        </nav><!-- End .breadcrumb-nav -->
 
-    <div class="container mt-4">
-        <div class="text-center">
-            <button class="btn mybtn-default filter-button" data-filter="all">همه</button>
-            @foreach (var group in allGroups)
-            {
-                <button class="btn mybtn-default filter-button" data-filter="@group.Id">@group.Title</button>
-            }
-        </div>
-        <div class="row justify-content-center align-items-center">
-            @foreach (var product in Model)
-            {
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter @product.ProductGroupId">
-                    <img src="Content/client/pic/g1.jpg" class="img-responsive">
-                </div>
-            }
-
-        </div>
-    </div>*@
-
-
-@section scripts
-{
-
-    <script>
-        $(document).ready(function () {
-
-            $(".filter-button").click(function () {
-                var value = $(this).attr('data-filter');
-
-                if (value == "all") {
-                    //$('.filter').removeClass('hidden');
-                    $('.filter').show('1000');
+        <div class="container mt-4">
+            <div class="text-center">
+                <button class="btn mybtn-default filter-button" data-filter="all">همه</button>
+                @foreach (var group in allGroups)
+                {
+                    <button class="btn mybtn-default filter-button" data-filter="@group.Id">@group.Title</button>
                 }
-                else {
-                    //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-                    //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-                    $(".filter").not('.' + value).hide('3000');
-                    $('.filter').filter('.' + value).show('3000');
-
+            </div>
+            <div class="row justify-content-center align-items-center">
+                @foreach (var product in Model)
+                {
+                    <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter @product.ProductGroupId">
+                        <img src="Content/client/pic/g1.jpg" class="img-responsive">
+                    </div>
                 }
+
+            </div>
+        </div>
+
+
+    @section scripts
+    {
+
+        <script>
+            $(document).ready(function () {
+
+                $(".filter-button").click(function () {
+                    var value = $(this).attr('data-filter');
+
+                    if (value == "all") {
+                        //$('.filter').removeClass('hidden');
+                        $('.filter').show('1000');
+                    }
+                    else {
+                        //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+                        //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                        $(".filter").not('.' + value).hide('3000');
+                        $('.filter').filter('.' + value).show('3000');
+
+                    }
+                });
+
+                if ($(".filter-button").removeClass("active")) {
+                    $(this).removeClass("active");
+                }
+                $(this).addClass("active");
+
             });
-
-            if ($(".filter-button").removeClass("active")) {
-                $(this).removeClass("active");
-            }
-            $(this).addClass("active");
-
-        });
-    </script>
-}
+        </script>
+    }*@

@@ -42,6 +42,7 @@ namespace SPAWedding.Core.Utility
         ContactUs = 32,
         Faq = 20,
         certificate = 25,
+        Gallery = 17,
 
         DiscountNews = 5027,
 

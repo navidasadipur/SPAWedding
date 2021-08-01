@@ -499,7 +499,7 @@ namespace SPAWedding.Web.Controllers
         {
             var model = _productsRepo.GetAllProductsWithGalleries();
 
-            ViewBag.BanerImage = _staticContentRepo.GetStaticContentDetail(13).Image;
+            ViewBag.Gallery = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Gallery);
 
             return View(model);
         }
