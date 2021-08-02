@@ -68,7 +68,7 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                     image.Resize(Server.MapPath("/Files/ArticleImages/Temp/" + newFileName),
                         Server.MapPath("/Files/ArticleImages/Image/" + newFileName));
 
-                    ImageResizer thumb = new ImageResizer(300,300,true);
+                    ImageResizer thumb = new ImageResizer(480,320,true);
                     thumb.Resize(Server.MapPath("/Files/ArticleImages/Temp/" + newFileName),
                         Server.MapPath("/Files/ArticleImages/Thumb/" + newFileName));
 
@@ -132,7 +132,7 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                     image.Resize(Server.MapPath("/Files/ArticleImages/Temp/" + newFileName),
                         Server.MapPath("/Files/ArticleImages/Image/" + newFileName));
 
-                    ImageResizer thumb = new ImageResizer(300, 300, true);
+                    ImageResizer thumb = new ImageResizer(480, 320, true);
                     thumb.Resize(Server.MapPath("/Files/ArticleImages/Temp/" + newFileName),
                         Server.MapPath("/Files/ArticleImages/Thumb/" + newFileName));
 

@@ -64,16 +64,17 @@
     @Html.Action("HeaderSection", "Home", new { area = "" })
     <!-- Header end -->
     @RenderBody()
+
+    <div class="footer-margin"></div>
+
     <!-- Footer section start -->
     @Html.Action("FooterSection", "Home", new { area = "" })
     <!-- Footer section end -->
-   
     <!-- SCROLL UP -->
     <a href="#" class="scrollup">
         <i class="fa fa-angle-up"></i>
     </a>
     <!-- / SCROLL UP -->
-
     <!-- JavaScript core
     ================================================== -->
 
@@ -104,9 +105,7 @@
 
     <!--Additional js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
-
-
-
+    <script src="~/Content/client/js/jquery.magnific-popup.min.js"></script>
 
     <script>
         $('.timer').each(function () {
@@ -416,7 +415,7 @@
     </script>
     @RenderSection("scripts", required: false)
     @RenderSection("LoadingOverlay", required: false)
-    <script src="~/Content/client/js/jquery.magnific-popup.min.js"></script>
+
     <script>
 
         //$(".spn-product-code").hover(function (e) {
