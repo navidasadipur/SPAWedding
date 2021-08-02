@@ -1,4 +1,4 @@
-﻿@model List<SPAWedding.Web.ViewModels.LatestArticlesViewModel>
+﻿@*@model List<SPAWedding.Web.ViewModels.LatestArticlesViewModel>
 
 
 <div class="related-posts">
@@ -35,8 +35,7 @@
                 <div class="entry-body">
                     <div class="entry-meta justify-content-start">
                         <a href="#">@article.PersianDate</a>
-                        @*<span class="meta-separator">|</span>
-                        <a href="#">2 دیدگاه</a>*@
+
                     </div><!-- End .entry-meta -->
 
                     <h2 class="entry-title">
@@ -44,37 +43,11 @@
                     </h2><!-- End .entry-title -->
 
                     <div class="entry-cats">
-                        <a href="~/Blog?category=@article.Category.Id">@article.Category.Title</a>@*،
-                        <a href="#">فروشگاه</a>*@
+                        <a href="~/Blog?category=@article.Category.Id">@article.Category.Title</a>
+
                     </div><!-- End .entry-cats -->
                 </div><!-- End .entry-body -->
             </article><!-- End .entry -->
         }
-
-        @*<article class="entry entry-grid">
-            <figure class="entry-media">
-                <a href="single.html">
-                    <img src="/Content/client/assets/images/medicine_images/blog-detail/Untitled-4.jpg"
-                         alt="توضیحات عکس">
-                </a>
-            </figure><!-- End .entry-media -->
-
-            <div class="entry-body">
-                <div class="entry-meta justify-content-start">
-                    <a href="#">22 فروردین 1399</a>
-                    <span class="meta-separator">|</span>
-                    <a href="#">2 دیدگاه</a>
-                </div><!-- End .entry-meta -->
-
-                <h2 class="entry-title">
-                    <a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                </h2><!-- End .entry-title -->
-
-                <div class="entry-cats">
-                    <a href="#">بهداشت</a>،
-                    <a href="#">فروشگاه</a>
-                </div><!-- End .entry-cats -->
-            </div><!-- End .entry-body -->
-        </article><!-- End .entry -->*@
     </div><!-- End .owl-carousel -->
-</div><!-- End .related-posts -->
+</div><!-- End .related-posts -->*@
