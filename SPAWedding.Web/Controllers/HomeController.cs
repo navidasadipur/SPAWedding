@@ -30,6 +30,7 @@ namespace SPAWedding.Web.Controllers
         private readonly EmailSubscriptionRepository _emailSubscriptionRepo;
         private readonly CertificatesRepository _certificatesRepo;
         private readonly CoursesRepository _coursesRepo;
+        private readonly GalleriesRepository _galleryRepo;
         private readonly ProductsRepository _productsRepo;
 
         public HomeController(
@@ -48,6 +49,7 @@ namespace SPAWedding.Web.Controllers
             , FaqGroupsRepository faqGroupsRepo
             , CertificatesRepository certificatesRepo
             , CoursesRepository coursesRepo
+            , GalleriesRepository galleryRepo
             )
         {
             _discountRepo = discountsRepo;
@@ -64,6 +66,7 @@ namespace SPAWedding.Web.Controllers
             _emailSubscriptionRepo = emailSubscriptionRepo;
             _certificatesRepo = certificatesRepo;
             _coursesRepo = coursesRepo;
+            _galleryRepo = galleryRepo;
             _productsRepo = productsRepo;
         }
 
@@ -497,11 +500,11 @@ namespace SPAWedding.Web.Controllers
         [Route("Gallery")]
         public ActionResult Gallery()
         {
-            var model = _productsRepo.GetAllProductsWithGalleries();
+            var AllImages = _galleryRepo.GetAll();
 
             ViewBag.Gallery = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Gallery);
 
-            return View(model);
+            return View(AllImages);
         }
 
         public ActionResult ServicesSection()
