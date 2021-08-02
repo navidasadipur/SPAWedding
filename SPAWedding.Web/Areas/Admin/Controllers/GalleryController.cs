@@ -42,7 +42,7 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                     ImageResizer imageCut = new ImageResizer(1200,1200,true);
 
                     imageCut.Resize(Server.MapPath("/Files/GalleryImages/Temp/" + newFileName),
-                        Server.MapPath("/Files/GalleryImages/" + newFileName));
+                        Server.MapPath("/Files/GalleryImages/Image" + newFileName));
 
                     ImageResizer thumb = new ImageResizer(600, 600, true);
 
@@ -85,8 +85,8 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                 #region Upload Image
                 if (GalleryImage != null)
                 {
-                    if (System.IO.File.Exists(Server.MapPath("/Files/GalleryImages/" + gallery.Image)))
-                        System.IO.File.Delete(Server.MapPath("/Files/GalleryImages/" + gallery.Image));
+                    if (System.IO.File.Exists(Server.MapPath("/Files/GalleryImages/Image" + gallery.Image)))
+                        System.IO.File.Delete(Server.MapPath("/Files/GalleryImages/Image" + gallery.Image));
 
                     if (System.IO.File.Exists(Server.MapPath("/Files/GalleryImages/Thumb/" + gallery.Image)))
                         System.IO.File.Delete(Server.MapPath("/Files/GalleryImages/Thumb/" + gallery.Image));
@@ -99,7 +99,7 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                     ImageResizer imageCut = new ImageResizer(1200, 1200, true);
 
                     imageCut.Resize(Server.MapPath("/Files/GalleryImages/Temp/" + newFileName),
-                        Server.MapPath("/Files/GalleryImages/" + newFileName));
+                        Server.MapPath("/Files/GalleryImages/Image" + newFileName));
 
                     ImageResizer thumb = new ImageResizer(600, 600, true);
 
@@ -140,11 +140,11 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
             //#region Delete Image
             //if (image.Image != null)
             //{
-            //    if (System.IO.File.Exists(Server.MapPath("/Files/GalleryImages/" + image.Image)))
-            //        System.IO.File.Delete(Server.MapPath("/Files/GalleryImages/" + image.Image));
+            //    if (System.IO.File.Exists(Server.MapPath("/Files/GalleryImages/Image" + image.Image)))
+            //        System.IO.File.Delete(Server.MapPath("/Files/GalleryImages/Image" + image.Image));
 
-            //    if (System.IO.File.Exists(Server.MapPath("/Files/GalleryImages/" + image.Image)))
-            //        System.IO.File.Delete(Server.MapPath("/Files/GalleryImages/" + image.Image));
+            //    if (System.IO.File.Exists(Server.MapPath("/Files/GalleryImages/Image" + image.Image)))
+            //        System.IO.File.Delete(Server.MapPath("/Files/GalleryImages/Image" + image.Image));
             //}
             //#endregion
 

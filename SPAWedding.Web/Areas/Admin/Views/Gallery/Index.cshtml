@@ -40,7 +40,7 @@
     columns.Bound(model => model.Title);
     columns.Bound(item => @item.Image).Filterable(false).Groupable(false)
                 .Template(@<text>
-                              <img src="~/Files/GalleryImages/@item.Image" style="height: 50px" alt="@item.Title"/>
+                              <img src="~/Files/GalleryImages/thumb/@item.Image" style="height: 50px" alt="@item.Title"/>
                            </text>);
 
     columns.Bound(item => @item.Id).IncludeInMenu(false).Sortable(false).Title("دستورات").Filterable(false).Groupable(false).Template(
