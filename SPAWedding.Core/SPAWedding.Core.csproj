@@ -98,6 +98,7 @@
     <Compile Include="Models\EPaymentLog.cs" />
     <Compile Include="Models\Faq.cs" />
     <Compile Include="Models\Feature.cs" />
+    <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\GeoDivision.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\InvoiceItem.cs" />
