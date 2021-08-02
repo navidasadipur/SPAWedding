@@ -3,689 +3,145 @@
     ViewBag.Title = $"مقاله {Model.Title}";
 }
 
-
-@*<div class="contant">
-    <div id="banner-part" class="banner inner-banner" style="background-image:url(@ViewBag.Banner)">
-        <div class="container">
-            <div class="bread-crumb-main">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h1 class="banner-title">مقاله @Model.Title</h1>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="breadcrumb">
-                            <ul class="inline">
-                                <li><a href="/">خانه</a></li>
-                                <li><a href="/Blog">بلاگ</a></li>
-                                <li><a href="#">@Model.Title</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="ptb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-8">
-                    <div class="blog-detail-part pb-md-60">
-                        <img src="~/Files/ArticleImages/Image/@Model.Image" alt="@Model.Title" class="blog-img">
-                        <div class="blog-detail">
-                            <div class="blog-detail-inner">
-                                <span>@Model.Author @Model.PersianDate</span>
-                                <h2>@Model.Title</h2>
-                                <p>
-                                    @Model.ShortDescription
-                                </p>
-                                @Html.Raw(Model.Description)
-                                @foreach (var item in Model.HeadLines)
-                                {
-                                    <blockquote>
-                                        <h3>@item.Title</h3>
-                                        <p>@Html.Raw(item.Description)</p>
-                                    </blockquote>
-                                }
-
-                                <div class="tag-social">
-                                    @*<div class="social-icon float-right">
-                                            <ul>
-                                                <li>اشتراک گذاری :</li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-facebook" title="facebook"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-twitter" title="twitter"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-instagram" title="instagram"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-youtube" title="youtube"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="detail-tags float-left mt-1">
-                                            <div class="small-title mb-0">عطر مردانه</div>
-                                            <span><a href="#">عطر و ادکلن</a></span>
-                                            <span><a href="#">ادکلن</a></span>
-                                        </div>*@@*
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="line"></div>
-                                <div class="comments-part">
-                                    <h3 class="mb-30">درباره نویسنده</h3>
-                                    <div class="comment mb-0 position-r">
-                                        <div class="comment-user" style="max-width: 70px">
-                                            <img src="/Files/UserAvatars/@Model.AuthorImage" alt="@Model.Author">
-                                        </div>
-                                        <div class="comment-detail">
-                                            <div class="mb-2">
-                                                <h4 class="head-four">@Model.Author</h4>
-                                            </div>
-                                            <p class="comment-msg">
-                                                @Model.AuthorInfo
-                                            </p>
-                                            @*<div class="social-icon ml-auto">
-                                                    <a href="#" title="Follow on Facebook">
-                                                        <i class="fa active fa-facebook"></i>
-                                                    </a>
-                                                    <a href="#" title="Follow on twitter"><i class="fa fa-twitter"></i></a>
-                                                    <a href="#" title="Follow on linkedin">
-                                                        <i class="fa  fa-linkedin"></i>
-                                                    </a>
-                                                </div>*@@*
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="line"></div>
-                            </div>
-                            <div class="comment-part">
-                                <h3 class="mb-30">@Model.ArticleComments.Count دیدگاه</h3>
-                                <ul class="comment-list mt-30">
-                                    @foreach (var comment in Model.ArticleComments.Where(c => c.ParentId == null))
-                                    {
-                                        <li>
-                                            <div class="comment-user" style="max-width: 70px">
-                                                <img src="/Files/UserAvatars/user-avatar.png" alt="@comment.Name">
-                                            </div>
-                                            <div class="comment-detail">
-                                                <span class="bloger-date">@comment.Name @comment.AddedDate</span>
-                                                <p>
-                                                    @comment.Message
-                                                </p>
-                                                <a onclick="AnswerComment('@comment.Id','@comment.Name')" class="reply-btn btn btn-color small">پاسخ</a>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                        foreach (var childComment in Model.ArticleComments.Where(c => c.ParentId == comment.Id))
-                                        {
-                                            <li>
-                                                <ul class="comment-list child-comment">
-                                                    <li>
-                                                        <div class="comment-user" style="max-width: 70px">
-                                                            <img src="/Files/UserAvatars/user-avatar.png" alt="@childComment.Name">
-                                                        </div>
-                                                        <div class="comment-detail">
-                                                            <span class="bloger-date">@childComment.Name @childComment.AddedDate</span>
-                                                            <p>
-                                                                @childComment.Message
-                                                            </p>
-                                                            @*<a href="#" class="reply-btn btn btn-color small">پاسخ</a>*@@*
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-
-                                                </ul>
-                                            </li>
-                                        }
-                                    }
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="leave-comment-part main-form pt-100">
-                            <h4 id="answerPerson"></h4>
-                            <h3 class="mb-30">دیدگاه خود را بنویسید</h3>
-                            @using (Html.BeginForm("PostComment", "Blog", FormMethod.Post, new { id = "commentform" }))
-                            {
-                                <input type="hidden" id="ArticleId" name="ArticleId" value="@Model.Id">
-                                <input type="hidden" id="ParentId" name="ParentId" value="">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" name="Name" id="Name" placeholder="نام و نام خانوادگی" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" name="Email" id="Email" placeholder="ایمیل" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <textarea placeholder="پیغام" name="Message" id="Message" rows="4" required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn-color">ارسال دیدگاه</button>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div id="sidebar-main" class="sidebar sidebar-default sidebar-separate sidebar-fixed">
-                        <div class="sidebar-content">
-                            <div class="sidebar-default">
-                                <form method="get" action="/Blog" id="form" class="category-content searching">
-                                    <input type="text" name="searchString" title="searchString" value="@ViewBag.SearchString" placeholder="جستجو...">
-                                    <a href="#" onclick="$('#form').submit()">
-                                        <i class="fa fa-search" title="جستجو"></i>
-                                    </a>
-                                </form>
-                            </div>
-                            @Html.Action("ArticleCategoriesSection", "Blog")
-                            @if (Model.Tags.Any())
-                            {
-                                <div class="sidebar-default">
-                                    <div class="category-content">
-                                        <h2 class="cat-title">برچسب ها</h2>
-                                        <div class="tags-grp row mlr_-5">
-                                            <ul>
-                                                @foreach (var tag in Model.Tags)
-                                                {
-                                                    <li><a href="/Blog?searchString=@tag.Title" rel="tag">@tag.Title</a></li>
-                                                }
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                            @Html.Action("TopArticlesSection", "Blog", new { take = 3 })
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>*@
-
-
-
-
-
-<main class="main">
-    <div class="page-header text-center" style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.BanerImage')">
-        <div class="container">
-            <h1 class="page-title">جزئیات وبلاگ</h1>
-        </div><!-- End .container -->
-    </div><!-- End .page-header -->
-    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">خانه</a></li>
-                <li class="breadcrumb-item"><a href="/Blog">اخبار</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> @Model.Title</li>
-            </ol>
-        </div><!-- End .container -->
-    </nav><!-- End .breadcrumb-nav -->
-
-    <div class="page-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9">
-                    <article class="entry single-entry">
-                        <figure class="entry-media">
-                            <img src="/Files/ArticleImages/Image/@Model.Image"
-                                 alt="@Model.Title">
-                        </figure><!-- End .entry-media -->
-
-                        <div class="entry-body">
-                            <div class="entry-meta">
-                                <span class="entry-author">
-                                    نویسنده: <a href="#">@Model.Author</a>
-                                </span>
-                                <span class="meta-separator">|</span>
-                                <a href="#">@Model.PersianDate</a>
-                                <span class="meta-separator">|</span>
-                                <a href="#">@Model.ArticleComments.Count() دیدگاه</a>
-                            </div><!-- End .entry-meta -->
-
-                            <h2 class="entry-title">
-                                @Model.Title
-                            </h2><!-- End .entry-title -->
-
-                            <div class="entry-cats">
-                                <a href="/Blog?category=@Model.CategoryId">@Model.CategoryTitle</a>@*،
-                                    <a href="#">فروشگاه</a>*@
-                            </div><!-- End .entry-cats -->
-
-                            <div class="entry-content editor-content">
-
-                                <p>
-                                    @Html.Raw(Model.ShortDescription)
-                                </p>
-
-                                @Html.Raw(Model.Description)
-
-
-                                @*<div class="pb-1"></div><!-- End .mb-1 -->
-
-                                    <img src="/Content/client/assets/images/medicine_images/blog-detail/Untitled-2.jpg" alt="image"
-                                         class="float-right">
-
-                                    <h3>لورم ایپسوم متن ساختگی </h3>
-
-                                    <ul>
-                                        <li>
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم، لورم ایپسوم متن ساختگی با
-                                            تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                        </li>
-                                        <li>
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با
-                                            تولید سادگی نامفهوملورم ایپسوم متن ساختگی با تولید سادگی نامفهوملورم
-                                            ایپسوم متن ساختگی با تولید سادگی نامفهوم.
-                                        </li>
-                                        <li>
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با
-                                            تولید سادگی نامفهوملورم ایپسوم متن ساختگی با تولید سادگی نامفهوملورم
-                                            ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید
-                                            سادگی نامفهوم
-                                        </li>
-                                    </ul>
-
-                                    <div class="pb-1 clearfix"></div><!-- End .clearfix -->
-
-                                    <p>
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید
-                                        سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم <a href="#">
-                                            لورم
-                                            ایپسوم
-                                        </a> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن
-                                        ساختگی با تولید سادگی نامفهوملورم ایپسوم متن ساختگی با تولید سادگی
-                                        نامفهوملورم ایپسوم متن ساختگی با تولید سادگی نامفهوملورم ایپسوم متن ساختگی
-                                        با تولید سادگی نامفهوملورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                    </p>
-
-                                    <blockquote>
-                                        <p>
-                                            “ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با
-                                            تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ”
-                                        </p>
-                                    </blockquote>
-
-                                    <p>
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید
-                                        سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن
-                                        ساختگی با تولید سادگی نامفهوملورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوملورم ایپسوم متن ساختگی با تولید
-                                        سادگی نامفهوملورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                    </p>
-
-                                    <div class="pb-1"></div><!-- End .pb-1 -->*@
-                                @if (Model.HeadLines.Count() != null)
-                                {
-                                    foreach (var headLine in Model.HeadLines)
-                                    {
-                                        <h3>@headLine.Title</h3>
-                                        <p>
-                                            @Html.Raw(headLine.Description)
-                                        </p>
-                                    }
-                                }
-                                @*<h3>لورم ایپسوم متن ساختگی با تولید سادگی</h3>
-
-                                    <img src="/Content/client/assets/images/medicine_images/blog-detail/Untitled-3.jpg" alt="image">
-
-                                    <p>
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید
-                                        سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوملورم ایپسوم متن
-                                        ساختگی با تولید سادگی نامفهوملورم ایپسوم متن ساختگی با تولید سادگی
-                                        نامفهوملورم ایپسوم متن ساختگی با تولید سادگی نامفهوم <a href="#">
-                                            لورم
-                                            ایپسوم
-                                        </a> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن
-                                        ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی
-                                        نامفهوملورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                    </p>
-
-                                    <p>
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید
-                                        سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوملورم ایپسوم متن
-                                        ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با
-                                        تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم
-                                        ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید
-                                        سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن
-                                        ساختگی با تولید سادگی نامفهوم
-                                    </p>*@
-                            </div><!-- End .entry-content -->
-
-                            <div class="entry-footer row no-gutters flex-column flex-md-row">
-                                <div class="col-md">
-                                    @if (Model.Tags.Any())
-                                    {
-                                        <div class="entry-tags">
-                                            <span>برچسب : </span>
-                                            @foreach (var tag in Model.Tags)
-                                            {
-                                                <a href="/Blog?searchString=@tag.Title">@tag.Title</a>
-                                            }
-                                        </div><!-- End .entry-tags -->
-                                    }
-                                </div><!-- End .col -->
-
-                                @Html.Action("SocialsSection", "Blog")
-                                <!-- End .col-auto -->
-
-                            </div><!-- End .entry-footer row no-gutters -->
-                        </div><!-- End .entry-body -->
-
-                        <div class="entry-author-details">
-
-
-
-                            <figure class="author-media">
-                                <a href="#">
-                                    <img src="/Files/UserAvatars/Image/@Model.AuthorImage" alt="img">
-                                </a>
-                            </figure><!-- End .author-media -->
-                            <div class="author-body">
-                                <div class="author-header row no-gutters flex-column flex-md-row">
-                                    <div class="col-12">
-                                        <h4><a href="#">@Model.Author</a></h4>
-                                    </div><!-- End .col -->
-                                    <div class="col-auto mt-1 mt-md-0">
-                                        <p>
-                                            درباره نویسنده 
-                                        </p>
-                                    </div>
-                                    @*<div class="col-auto mt-1 mt-md-0">
-            <a href="#" class="author-link">
-                مشاهده همه پست های این نویسنده <i class="icon-long-arrow-left"></i>
-            </a>
-        </div> End .col*@
-                                </div><!-- End .row -->
-
-                                <div class="author-content">
-                                    <p>
-                                        @Model.AuthorInfo
-                                    </p>
-                                </div><!-- End .author-content -->
-                            </div><!-- End .author-body -->
-                        </div><!-- End .entry-author-details-->
-                    </article><!-- End .entry -->
-
-                    <nav class="pager-nav" aria-label="Page navigation">
-                        @{
-                            if (Model.Previous != null)
-                            {
-                                <a class="pager-link  pager-link-prev" href="/Blog/Article/@Model.Previous.Id/@Model.Previous.Title" aria-label="Previous" tabindex="-1">
-                                    پست قبلی
-                                    <span class="pager-link-title">@Model.Previous.Title</span>
-                                </a>
-                            }
-                            if (Model.Next != null)
-                            {
-                                <a class="pager-link  pager-link-next" href="/Blog/Article/@Model.Next.Id/@Model.Next.Title" aria-label="Next" tabindex="-1">
-                                    پست بعدی
-                                    <span class="pager-link-title">@Model.Next.Title</span>
-                                </a>
-                            }
-                        }
-                    </nav><!-- End .pager-nav -->
-
-                    @Html.Action("RelatedBlogsSection", "Blog", new { categoryId = Model.CategoryId, take = 4 })
-                    <!-- End .related-posts -->
-
-                    <div class="comments">
-                        <h3 class="title">@Model.ArticleComments.Count() دیدگاه</h3><!-- End .title -->
-
+<div class="page-title text-center">
+    <div class="block-parallax height40vh blend-bg text-center breadcrumb-back">
+        <div class="page-title-wrap">
+            <div class="page-title-inner">
+                <div class="page-title-align animate" data-animation="fadeIn" data-timeout="800">
+                    <h1>@ViewBag.Title</h1>
+                    <div class="page-title-description breadcrumbs">
                         <ul>
-                            @foreach (var comment in Model.ArticleComments)
-                            {
-                                <li>
-                                    <div class="comment">
-                                        <figure class="comment-media">
-                                            <a href="#">
-                                                <img src="/Content/client/assets/images/blog/single/anonymousUser.png" alt="img">
-                                            </a>
-                                        </figure>
-
-                                        <div class="comment-body">
-                                            @*<a href="#" class="comment-reply">پاسخ</a>*@
-                                            <div class="comment-user">
-                                                <p>نام: @comment.Name</p>
-                                                <span class="comment-date">@comment.AddedDate</span>
-                                            </div> <!-- End .comment-user -->
-
-                                            <div class="comment-content">
-                                                <p>
-                                                    @comment.Message
-                                                </p>
-                                            </div><!-- End .comment-content -->
-                                        </div><!-- End .comment-body -->
-                                    </div><!-- End .comment -->
-                                </li>
-                            }
-
-                            @*<li>
-            <div class="comment">
-                <figure class="comment-media">
-                    <a href="#">
-                        <img src="/Content/client/assets/images/blog/comments/1.jpg" alt="User name">
-                    </a>
-                </figure>
-
-                <div class="comment-body">
-                    <a href="#" class="comment-reply">پاسخ</a>
-                    <div class="comment-user">
-                        <h4><a href="#">کاربر 1</a></h4>
-                        <span class="comment-date">9 فروردین 1399 - 2:19 بعدازظهر</span>
-                    </div> <!-- End .comment-user -->
-
-                    <div class="comment-content">
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم، لورم
-                            ایپسوم متن
-                            ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با
-                            تولید
-                            سادگی نامفهوم.
-                        </p>
-                    </div><!-- End .comment-content -->
-                </div><!-- End .comment-body -->
-            </div><!-- End .comment -->
-
-            <ul>
-                <li>
-                    <div class="comment">
-                        <figure class="comment-media">
-                            <a href="#">
-                                <img src="/Content/client/assets/images/blog/comments/2.jpg"
-                                     alt="User name">
-                            </a>
-                        </figure>
-
-                        <div class="comment-body">
-                            <a href="#" class="comment-reply">پاسخ</a>
-                            <div class="comment-user">
-                                <h4><a href="#">کاربر 2</a></h4>
-                                <span class="comment-date">
-                                    9 فروردین 1399 - 2:19
-                                    بعدازظهر
-                                </span>
-                            </div><!-- End .comment-user -->
-
-                            <div class="comment-content">
-                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.</p>
-                            </div><!-- End .comment-content -->
-                        </div><!-- End .comment-body -->
-                    </div><!-- End .comment -->
-                </li>
-            </ul>
-        </li>
-
-                            <li>
-                                <div class="comment">
-                                    <figure class="comment-media">
-                                        <a href="#">
-                                            <img src="/Content/client/assets/images/blog/comments/3.jpg" alt="User name">
-                                        </a>
-                                    </figure>
-
-                                    <div class="comment-body">
-                                        <a href="#" class="comment-reply">پاسخ</a>
-                                        <div class="comment-user">
-                                            <h4><a href="#">کاربر 3</a></h4>
-                                            <span class="comment-date">9 فروردین 1399 - 2:19 بعدازظهر</span>
-                                        </div> <!-- End .comment-user -->
-
-                                        <div class="comment-content">
-                                            <p>
-                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن
-                                                ساختگی با تولید سادگی نامفهوم
-                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن
-                                                ساختگی با تولید سادگی نامفهوم
-                                            </p>
-                                        </div><!-- End .comment-content -->
-                                    </div><!-- End .comment-body -->
-                                </div><!-- End .comment -->
-                            </li>*@
+                            <li><a href="/">خانه</a><span>/</span></li>
+                            <li>@ViewBag.Title</li>
                         </ul>
-                    </div><!-- End .comments -->
-                    <div class="reply">
-                        <div class="heading">
-                            <h3 class="title">ارسال یک دیدگاه</h3><!-- End .title -->
-                            <p class="title-desc">
-                                ایمیل شما منتشر نخواهد شد، فیلد های اجباری با علامت * مشخص
-                                شده اند.
-                            </p>
-                        </div><!-- End .heading -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  / .block-parallax -->
+</div>
 
-                        @using (Html.BeginForm("PostComment", "Blog", FormMethod.Post, new { id = "commentform" }))
-                        {
-                            <input type="hidden" id="ArticleId" name="ArticleId" value="@Model.Id">
-                            <label for="Message" class="sr-only">دیدگاه</label>
-                            <textarea name="Message" id="Message" cols="30" rows="4"
-                                      class="form-control" required placeholder="دیدگاه شما *"></textarea>
+<div class="wrapper-content">
+    <div class="container">
+        <div class="row">
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="Name" class="sr-only">نام</label>
-                                    <input type="text" class="form-control" id="Name" name="Name"
-                                           required placeholder="نام شما *">
-                                </div><!-- End .col-md-6 -->
+            <div class="col-md-12">
+                <div>
+                    <img src="/Files/ArticleImages/Image/@Model.Image" alt="">
+                </div>
+                <h1 class="title-txt">@Model.Title</h1>
+                <p>
+                    @Model.ShortDescription
+                </p>
+                @Html.Raw(Model.Description)
 
-                                <div class="col-md-6">
-                                    <label for="Email" class="sr-only">ایمیل</label>
-                                    <input type="email" class="form-control" id="Email" name="Email"
-                                           required placeholder="ایمیل شما *">
-                                </div><!-- End .col-md-6 -->
-                            </div><!-- End .row -->
+                @foreach (var item in Model.HeadLines)
+                {
+                    <h2 class="title-txt">@item.Title</h2>
 
-                            <button type="submit" class="btn btn-outline-primary-2 float-right">
-                                <span>ارسال دیدگاه</span>
-                                <i class="icon-long-arrow-left"></i>
-                            </button>
-                        }
-                        </div><!-- End .reply -->
-                </div><!-- End .col-lg-9 -->
-
-                <aside class="col-lg-3">
-                    <div class="sidebar">
-                        <div class="widget widget-search">
-                            <h3 class="widget-title">جستجو</h3><!-- End .widget-title -->
-
-                            <form method="get" action="/Blog" id="form">
-                                <label for="ws" class="sr-only">جستجوی اخبار</label>
-                                <input type="search" class="form-control" name="searchString" id="ws" title="searchString"
-                                       placeholder="جستجوی خبر مورد نظر" required>
-                                <button type="submit" class="btn">
-                                    <i class="icon-search"></i><span class="sr-only">جستجو</span>
-                                </button>
-                                @*<a href="#" onclick="$('#form').submit()">*@
-                                </a>
-                            </form>
-                        </div><!-- End .widget -->
-
-                        @Html.Action("ArticleCategoriesSection", "Blog")
-                        <!-- End .widget -->
-
-                        @Html.Action("TopArticlesSection", "Blog", new { take = 4 })
-                        <!-- End .widget -->
-
-                        @Html.Action("AdBlogSection", "Blog")
-                        <!-- End .widget -->
-
-                        @Html.Action("TagsSection", "Blog")
-                        <!-- End .widget -->
-                        @*<div class="widget widget-text">
-                                <h3 class="widget-title">درباره بخش اخبار</h3><!-- End .widget-title -->
-
-                                <div class="widget-text-content">
-                                    <p>
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم، لورم ایپسوم متن ساختگی با
-                                        تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با لورم ایپسوم متن ساختگی با
-                                        تولید سادگی نامفهوم
-                                    </p>
-                                </div><!-- End .widget-text-content -->
-                            </div><!-- End .widget -->*@
-                    </div><!-- End .sidebar -->
-                </aside><!-- End .col-lg-3 -->
-            </div><!-- End .row -->
-        </div><!-- End .container -->
-    </div><!-- End .page-content -->
-</main><!-- End .main -->
-
-
-
-
-
-
-
-<style>
-    .my-error-class {
-        color: darkred !important; /* red */
-    }
-</style>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script>
-        $("#commentform").validate({
-            errorClass: "my-error-class",
-            rules: {
-                Name: "required",
-                Message: "required",
-                Email: {
-                    required: true,
-                    email: true
+                    @Html.Raw(item.Description)
                 }
-            },
-            messages: {
-                Name: "نام خود را وارد کنید",
-                Message: "پیام خود را وارد کنید",
-                Email: {
-                    required: "ایمیل خود را وارد کنید",
-                    email: "ایمیل وارد شده معتبر نیست"
-                },
-            }
-        });
-    </script>
-    <script>
-        function AnswerComment(parentId, parentName) {
-            $('#answerPerson').html("در حال پاسخ دادن به  " +
-                parentName +
-                "<a class='reply-btn btn btn-color small' style='margin-right:10px;cursor:pointer' onclick='removePerson()'>حذف</a>");
-            $('#ParentId').val(parentId);
-        }
 
-        function removePerson() {
-            $('#answerPerson').html("");
-            $('#ParentId').val("");
+                <div class="comment-part">
+                    <div class="comments">
+                        @foreach (var item in Model.ArticleComments)
+                        {
+                            <div class="comment-card">
+                                <div>
+                                    <img src="img/team1.jpg" class="comments-img" alt="">
+                                </div>
+                                <div class="comment-txt">
+                                    <div>
+                                        <span><i class="fa fa-user ml text-purple"></i>توسط @item.Name</span>
+                                        <span><i class="fa fa-clock-o ml mr-1 text-purple"></i>@item.AddedDate</span>
+                                    </div>
+                                    <span>
+                                        @item.Message
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <form action="/Blog/PostComment" method="post" id="commentform" novalidate="novalidate">
+                        <input type="hidden" id="ArticleId" name="ArticleId" value="@Model.Id">
+                        <input type="hidden" id="ParentId" name="ParentId" value="">
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <input type="text" name="Name" id="Name" value="" placeholder="نام کاربری">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="Email" id="Email" value="" placeholder="آدرس ایمیل">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea name="Message" id="Message" cols="40" rows="10"
+                                              placeholder="پیام خود را بنویسید"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div>
+                                    <input type="submit" class="btn btn-medium btn-clr w-100" value="ارسال">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!-- / .container -->
+
+
+        </div>
+    </div>
+    <!-- / .wrapper-content -->
+
+
+
+    <style>
+        .my-error-class {
+            color: darkred !important; /* red */
         }
-    </script>
-}
+    </style>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script>
+            $("#commentform").validate({
+                errorClass: "my-error-class",
+                rules: {
+                    Name: "required",
+                    Message: "required",
+                    Email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    Name: "نام خود را وارد کنید",
+                    Message: "پیام خود را وارد کنید",
+                    Email: {
+                        required: "ایمیل خود را وارد کنید",
+                        email: "ایمیل وارد شده معتبر نیست"
+                    },
+                }
+            });
+        </script>
+        <script>
+            function AnswerComment(parentId, parentName) {
+                $('#answerPerson').html("در حال پاسخ دادن به  " +
+                    parentName +
+                    "<a class='reply-btn btn btn-color small' style='margin-right:10px;cursor:pointer' onclick='removePerson()'>حذف</a>");
+                $('#ParentId').val(parentId);
+            }
+
+            function removePerson() {
+                $('#answerPerson').html("");
+                $('#ParentId').val("");
+            }
+        </script>
+    }

@@ -34,7 +34,7 @@ namespace SPAWedding.Web.Controllers
         public ActionResult Index(int pageNumber = 1, string searchString = null, int? category = null)
         {
             var articles = new List<Article>();
-            var take = 4;
+            var take = 6;
             var skip = pageNumber * take - take;
             var count = 0;
             if (category != null)
