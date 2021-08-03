@@ -16,5 +16,12 @@ namespace SPAWedding.Infrastructure.Repositories
             _context = context;
             _logger = logger;
         }
+
+        public CourseAuthor GetCourseAuthorByCourseId(int courseId)
+        {
+            var course = _context.Courses.Where(c => c.Id == courseId && c.IsDeleted == false).FirstOrDefault();
+
+            return _context.CourseAuthors.Where(ca => ca.Id == course.CourseAuthorId && ca.IsDeleted == false).FirstOrDefault();
+        }
     }
 }

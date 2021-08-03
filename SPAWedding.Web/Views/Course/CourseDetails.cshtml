@@ -1,7 +1,38 @@
 ﻿@model SPAWedding.Web.ViewModels.CourseDetailsViewModel
 @{
-    ViewBag.Title = $"کلاس {Model.Title}";
+    ViewBag.Title = $"اطلاعات کلاس {Model.Title}";
 }
+
+<style>
+    table,
+    th,
+    td {
+        text-align: center !important;
+    }
+
+    td,
+    th {
+        width: 25%;
+    }
+
+    .myBtn {
+        width: 70%;
+        padding: 20px;
+        background-color: #612D7F;
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 20px;
+        margin: auto;
+    }
+
+        .myBtn:hover {
+            opacity: 0.9;
+            padding: 19px;
+            background-color: #612D7F;
+            color: #fff !important;
+        }
+</style>
 
 <div class="page-title text-center">
     <div class="block-parallax height40vh blend-bg text-center breadcrumb-back">
@@ -43,26 +74,78 @@
                     @Html.Raw(item.Description)
                 }
 
-                <div class="comment-part">
-                    <div class="comments">
-                        @foreach (var item in Model.CourseComments)
-                        {
-                            <div class="comment-card">
-                                <div>
-                                    <img src="img/team1.jpg" class="comments-img" alt="">
-                                </div>
-                                <div class="comment-txt">
-                                    <div>
-                                        <span><i class="fa fa-user ml text-purple"></i>توسط @item.Name</span>
-                                        <span><i class="fa fa-clock-o ml mr-1 text-purple"></i>@item.AddedDate</span>
-                                    </div>
-                                    <span>
-                                        @item.Message
-                                    </span>
-                                </div>
-                            </div>
-                        }
+                <div style="margin: 50px 0 100px 0;">
+                    <table dir="rtl" class="table">
+                        <thead>
+                            <tr>
+                                <th>تاریخ شروع</th>
+                                <th>تاریخ پایان</th>
+                                <th>مدرس</th>
+                                <th>تعداد جلسات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@(Model.StartDate ?? "")</td>
+                                <td>@(Model.EndDate ?? "")</td>
+                                @if (Model.CourseAuthor != null)
+                                {
+                                    <td>@(Model.CourseAuthor.FirstName ?? "") @(Model.CourseAuthor.LastName ?? "")</td>
+                                }
+                                else
+                                {
+                                    <td>-</td>
+                                }
+
+                                @if (Model.SessionsNumber != null)
+                                {
+                                    <td>@Model.SessionsNumber</td>
+                                }
+                                else
+                                {
+                                    <td>-</td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="width: 100%; display: flex;margin: 60px 0 0 0;">
+                        <a class="myBtn" href="tel:0210034234">
+                            تماس
+                        </a>
                     </div>
+                </div>
+
+                <div class="comment-part">
+                    @if (@Model.CourseComments.Count() != 0)
+                    {
+                        <div class="comments">
+                            <h5 style="margin-bottom: 15px;">
+                                کامنت ها (@Model.CourseComments.Count())
+                            </h5>
+                            @foreach (var item in Model.CourseComments)
+                            {
+                                <div class="comment-card">
+                                    <div>
+                                        <img src="/Content/client/img/user.png" class="comments-img" alt="user-img">
+                                    </div>
+                                    <div class="comment-txt">
+                                        <div>
+                                            <span><i class="fa fa-user ml text-purple"></i>توسط @item.Name</span>
+                                            <span><i class="fa fa-clock-o ml mr-1 text-purple"></i>@item.AddedDate</span>
+                                        </div>
+                                        <span>
+                                            @item.Message
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                    <h5 style="margin: 70px 0 30px 0;text-align: right;">
+                        نظر خود را ارسال کنید
+                    </h5>
+
                     <form action="/Blog/PostComment" method="post" id="commentform" novalidate="novalidate">
                         <input type="hidden" id="CourseId" name="CourseId" value="@Model.Id">
                         <input type="hidden" id="ParentId" name="ParentId" value="">
@@ -91,6 +174,7 @@
                             </div>
                         </div>
                     </form>
+
                 </div>
 
             </div>
@@ -100,6 +184,103 @@
         </div>
     </div>
     <!-- / .wrapper-content -->
+    @*<div class="page-title text-center">
+            <div class="block-parallax height40vh blend-bg text-center breadcrumb-back">
+                <div class="page-title-wrap">
+                    <div class="page-title-inner">
+                        <div class="page-title-align animate" data-animation="fadeIn" data-timeout="800">
+                            <h1>@ViewBag.Title</h1>
+                            <div class="page-title-description breadcrumbs">
+                                <ul>
+                                    <li><a href="/">خانه</a><span>/</span></li>
+                                    <li>@ViewBag.Title</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  / .block-parallax -->
+        </div>
+
+        <div class="wrapper-content">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div>
+                            <img src="/Files/CourseImages/Image/@Model.Image" alt="">
+                        </div>
+                        <h1 class="title-txt">@Model.Title</h1>
+                        <p>
+                            @Model.ShortDescription
+                        </p>
+                        @Html.Raw(Model.Description)
+
+                        @foreach (var item in Model.HeadLines)
+                        {
+                            <h2 class="title-txt">@item.Title</h2>
+
+                            @Html.Raw(item.Description)
+                        }
+
+                        <div class="comment-part">
+                            <div class="comments">
+                                @foreach (var item in Model.CourseComments)
+                                {
+                                    <div class="comment-card">
+                                        <div>
+                                            <img src="/Content/client/img/team1.jpg" class="comments-img" alt="">
+                                        </div>
+                                        <div class="comment-txt">
+                                            <div>
+                                                <span><i class="fa fa-user ml text-purple"></i>توسط @item.Name</span>
+                                                <span><i class="fa fa-clock-o ml mr-1 text-purple"></i>@item.AddedDate</span>
+                                            </div>
+                                            <span>
+                                                @item.Message
+                                            </span>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <form action="/Blog/PostComment" method="post" id="commentform" novalidate="novalidate">
+                                <input type="hidden" id="CourseId" name="CourseId" value="@Model.Id">
+                                <input type="hidden" id="ParentId" name="ParentId" value="">
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <input type="text" name="Name" id="Name" value="" placeholder="نام کاربری">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="Email" id="Email" value="" placeholder="آدرس ایمیل">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea name="Message" id="Message" cols="40" rows="10"
+                                                      placeholder="پیام خود را بنویسید"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div>
+                                            <input type="submit" class="btn btn-medium btn-clr w-100" value="ارسال">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <!-- / .container -->
+
+
+                </div>
+            </div>
+            <!-- / .wrapper-content -->*@
 
 
 

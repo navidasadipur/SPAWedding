@@ -15,18 +15,22 @@ namespace SPAWedding.Web.Controllers
         private readonly CoursesRepository _coursesRepo;
         private readonly CourseCategoriesRepository _courseCategoriesRepo;
         private readonly StaticContentDetailsRepository _staticContentRepo;
+        private readonly CourseAuthorsRepository _courseAuthorsRepo;
+
         //private readonly CourseTagsRepository _courseTagsRepo;
 
         public CourseController(
             CoursesRepository coursesRepo
             , CourseCategoriesRepository courseCategoriesRepo
             , StaticContentDetailsRepository staticContentDetailsRepo
+            , CourseAuthorsRepository courseAuthorsRepo
             //, CourseTagsRepository courseTagsRepo
             )
         {
             _coursesRepo = coursesRepo;
             _courseCategoriesRepo = courseCategoriesRepo;
             _staticContentRepo = staticContentDetailsRepo;
+            _courseAuthorsRepo = courseAuthorsRepo;
             _courseCategoriesRepo = courseCategoriesRepo;
             //_courseTagsRepo = courseTagsRepo;
         }
@@ -56,7 +60,7 @@ namespace SPAWedding.Web.Controllers
             {
                 courses = _coursesRepo.GetCoursesList(skip, take);
                 count = _coursesRepo.GetCoursesCount();
-                ViewBag.Title = "بلاگ";
+                ViewBag.Title = "کلاس";
             }
 
             var pageCount = (int) Math.Ceiling((double) count / take);
@@ -70,7 +74,7 @@ namespace SPAWedding.Web.Controllers
             var banner = "";
             try
             {
-                banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ وبلاگ").Image;
+                banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ کلاس").Image;
                 banner = "/Files/StaticContentImages/Image/" + banner;
             }
             catch
@@ -145,6 +149,8 @@ namespace SPAWedding.Web.Controllers
 
             courseDetailsVm.CourseComments = courseCommentsVm;
 
+            courseDetailsVm.CourseAuthor = _courseAuthorsRepo.GetCourseAuthorByCourseId(id);
+
             //var courseTags = _coursesRepo.GetCourseTags(id);
             //courseDetailsVm.Tags = courseTags;
 
@@ -180,7 +186,7 @@ namespace SPAWedding.Web.Controllers
             var banner = "";
             try
             {
-                banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ وبلاگ").Image;
+                banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ وسلاس").Image;
                 banner = "/Files/StaticContentImages/Image/" + banner;
             }
             catch

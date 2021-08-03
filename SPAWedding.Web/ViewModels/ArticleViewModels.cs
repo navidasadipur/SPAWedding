@@ -104,7 +104,9 @@ namespace SPAWedding.Web.ViewModels
     {
         public ArticleDetailsViewModel()
         {
-
+            this.HeadLines = new List<ArticleHeadLine>();
+            this.Tags = new List<ArticleTag>();
+            this.ArticleComments = new List<ArticleCommentViewModel>();
         }
         public ArticleDetailsViewModel(Article article)
         {
@@ -119,6 +121,10 @@ namespace SPAWedding.Web.ViewModels
             this.AuthorImage = article.User != null ? article.User.Avatar : "user-avatar.png";
             this.AuthorInfo = article.User != null ? article.User.Information : "";
             this.PersianDate = article.AddedDate != null ? new PersianDateTime(article.AddedDate.Value).ToString("dddd d MMMM yyyy") : "-";
+
+            this.HeadLines = new List<ArticleHeadLine>();
+            this.Tags = new List<ArticleTag>();
+            this.ArticleComments = new List<ArticleCommentViewModel>();
         }
         public int Id { get; set; }
         public int CategoryId { get; set; }

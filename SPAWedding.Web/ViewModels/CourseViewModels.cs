@@ -53,7 +53,7 @@ namespace SPAWedding.Web.ViewModels
         public int Id { get; set; }
         [Display(Name = "عنوان")]
         public string Title { get; set; }
-        [Display(Name = "مدرس")]
+        [Display(Name = "نویسنده")]
         public string Author { get; set; }
         [Display(Name = "دسته بندی")]
         public string CourseCategory { get; set; }
@@ -104,7 +104,8 @@ namespace SPAWedding.Web.ViewModels
     {
         public CourseDetailsViewModel()
         {
-
+            this.HeadLines = new List<CourseHeadLine>();
+            this.CourseComments = new List<CourseCommentViewModel>();
         }
         public CourseDetailsViewModel(Course course)
         {
@@ -119,6 +120,13 @@ namespace SPAWedding.Web.ViewModels
             this.AuthorImage = course.User != null ? course.User.Avatar : "user-avatar.png";
             this.AuthorInfo = course.User != null ? course.User.Information : "";
             this.PersianDate = course.AddedDate != null ? new PersianDateTime(course.AddedDate.Value).ToString("dddd d MMMM yyyy") : "-";
+
+            this.StartDate = course.StartDate != null ? new PersianDateTime(course.StartDate.Value).ToString("dddd d MMMM yyyy") : "-";
+            this.EndDate = course.EndDate != null ? new PersianDateTime(course.EndDate.Value).ToString("dddd d MMMM yyyy") : "-";
+            this.SessionsNumber = course.SessionsNumber;
+
+            this.HeadLines = new List<CourseHeadLine>();
+            this.CourseComments = new List<CourseCommentViewModel>();
         }
         public int Id { get; set; }
         public int CategoryId { get; set; }
@@ -131,6 +139,12 @@ namespace SPAWedding.Web.ViewModels
         public string AuthorImage { get; set; }
         public string AuthorInfo { get; set; }
         public string PersianDate { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public int? SessionsNumber { get; set; }
+
+        public CourseAuthor CourseAuthor { get; set; }
+
         public List<CourseHeadLine> HeadLines { get; set; }
         //public List<CourseTag> Tags { get; set; }
         public List<CourseCommentViewModel> CourseComments { get; set; }

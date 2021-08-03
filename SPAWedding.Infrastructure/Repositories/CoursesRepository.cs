@@ -27,11 +27,11 @@ namespace SPAWedding.Infrastructure.Repositories
         }
         public List<Course> GetCourses()
         {
-            return _context.Courses.Where(a=>a.IsDeleted == false).Include(a => a.User).Include(a=>a.CourseCategory).OrderBy(a=>a.InsertDate).ToList();
+            return _context.Courses.Where(a=>a.IsDeleted == false).Include(a => a.User).Include(a=>a.CourseCategory).OrderByDescending(a=>a.InsertDate).ToList();
         }
         public List<CourseCategory> GetCourseCategories()
         {
-            return _context.CourseCategories.Where(a => a.IsDeleted == false).ToList();
+            return _context.CourseCategories.Where(a => a.IsDeleted == false).OrderByDescending(a => a.InsertDate).ToList();
         }
 
         public List<CourseAuthor> GetCourseAuthors()
