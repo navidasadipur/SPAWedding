@@ -43,13 +43,15 @@
                     @Html.Raw(item.Description)
                 }
 
-                <div class="comment-part">
+            <div class="comment-part">
+                @if (@Model.ArticleComments.Count() != 0)
+                {
                     <div class="comments">
                         @foreach (var item in Model.ArticleComments)
                         {
                             <div class="comment-card">
                                 <div>
-                                    <img src="img/team1.jpg" class="comments-img" alt="">
+                                    <img src="/Content/client/img/user.png" class="comments-img" alt="user-img">
                                 </div>
                                 <div class="comment-txt">
                                     <div>
@@ -63,6 +65,7 @@
                             </div>
                         }
                     </div>
+                }
                     <form action="/Blog/PostComment" method="post" id="commentform" novalidate="novalidate">
                         <input type="hidden" id="ArticleId" name="ArticleId" value="@Model.Id">
                         <input type="hidden" id="ParentId" name="ParentId" value="">
