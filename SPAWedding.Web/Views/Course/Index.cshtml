@@ -1,0 +1,100 @@
+﻿@model List<SPAWedding.Web.ViewModels.LatestCoursesViewModel>
+
+@{
+    ViewBag.Title = "کلاس ها";
+}
+
+<div class="page-title text-center">
+    <div class="block-parallax height40vh blend-bg text-center breadcrumb-back">
+        <div class="page-title-wrap">
+            <div class="page-title-inner">
+                <div class="page-title-align animate" data-animation="fadeIn" data-timeout="800">
+                    <h1>@ViewBag.Title</h1>
+                    <div class="page-title-description breadcrumbs">
+                        <ul>
+                            <li><a href="/">خانه</a><span>/</span></li>
+                            <li>@ViewBag.Title</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  / .block-parallax -->
+</div>
+
+<div class="wrapper-content">
+    <div class="container">
+        <div class="row">
+
+            @Html.Action("CourseCategoriesSection", "Course")
+
+            <div class="col-sm-12 col-md-9 mb-sm-2 ">
+                @foreach (var article in Model)
+                {
+                    <div class="col-sm-12 col-md-4">
+
+                        <!-- BLOG ITEM -->
+
+                        <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
+                            <a href="/Course/CourseDetails/@article.Id/@article.Title.Replace(' ', '-')">
+                                <img src="~/Files/CourseImages/Thumb/@article.Image" alt="@article.Title">
+                            </a>
+                            <div class="blog-info text-center">
+                                <h6>@article.Title</h6>
+                                <p>
+                                    @article.ShortDescription
+                                    ...
+                                </p>
+                                <a class="btn btn-small btn-clr-reverse" href="/Course/CourseDetails/@article.Id/@article.Title.Replace(' ', '-')">بیشتر</a>
+                            </div>
+                        </div>
+
+                        <!-- / BLOG ITEM -->
+
+                    </div>
+                }
+
+                    <div class="col-md-12">
+                        <div class="blog-navigation text-center">
+                            <ul>
+                                @{
+                                    if (ViewBag.CurrentPage > 1)
+                                    {
+                                        <li>
+                                            <a href="/Course?pageNumber=@(ViewBag.CurrentPage - 1)@(ViewBag.CategoryId != null ? $"&Category={ViewBag.CategoryId}" : null)@(ViewBag.SearchString != null ? $"&searchString={ViewBag.SearchString}" : null)">
+                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    }
+                                    for (int i = 1; i <= ViewBag.PageCount; i++)
+                                    {
+                                        <li class="@(i == ViewBag.CurrentPage ? "active" : null)">
+                                            <a href="/Course?pageNumber=@i@(ViewBag.CategoryId != null ? $"&category={ViewBag.CategoryId}" : null)@(ViewBag.SearchString != null ? $"&searchString={ViewBag.SearchString}" : null)"
+                                               class="">
+                                                @i
+                                            </a>
+                                        </li>
+                                    }
+                                    if (ViewBag.CurrentPage < ViewBag.PageCount)
+                                    {
+                                        <li>
+                                            <a href="/Course?pageNumber=@(ViewBag.CurrentPage + 1)@(ViewBag.CategoryId != null ? $"&category={ViewBag.CategoryId}" : null)@(ViewBag.SearchString != null ? $"&searchString={ViewBag.SearchString}" : null)">
+                                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+
+    </div>
+    <!-- / .container -->
+
+</div>
+<!-- / .wrapper-content -->

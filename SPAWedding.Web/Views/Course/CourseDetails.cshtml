@@ -1,0 +1,147 @@
+﻿@model SPAWedding.Web.ViewModels.CourseDetailsViewModel
+@{
+    ViewBag.Title = $"کلاس {Model.Title}";
+}
+
+<div class="page-title text-center">
+    <div class="block-parallax height40vh blend-bg text-center breadcrumb-back">
+        <div class="page-title-wrap">
+            <div class="page-title-inner">
+                <div class="page-title-align animate" data-animation="fadeIn" data-timeout="800">
+                    <h1>@ViewBag.Title</h1>
+                    <div class="page-title-description breadcrumbs">
+                        <ul>
+                            <li><a href="/">خانه</a><span>/</span></li>
+                            <li>@ViewBag.Title</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  / .block-parallax -->
+</div>
+
+<div class="wrapper-content">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div>
+                    <img src="/Files/CourseImages/Image/@Model.Image" alt="">
+                </div>
+                <h1 class="title-txt">@Model.Title</h1>
+                <p>
+                    @Model.ShortDescription
+                </p>
+                @Html.Raw(Model.Description)
+
+                @foreach (var item in Model.HeadLines)
+                {
+                    <h2 class="title-txt">@item.Title</h2>
+
+                    @Html.Raw(item.Description)
+                }
+
+                <div class="comment-part">
+                    <div class="comments">
+                        @foreach (var item in Model.CourseComments)
+                        {
+                            <div class="comment-card">
+                                <div>
+                                    <img src="img/team1.jpg" class="comments-img" alt="">
+                                </div>
+                                <div class="comment-txt">
+                                    <div>
+                                        <span><i class="fa fa-user ml text-purple"></i>توسط @item.Name</span>
+                                        <span><i class="fa fa-clock-o ml mr-1 text-purple"></i>@item.AddedDate</span>
+                                    </div>
+                                    <span>
+                                        @item.Message
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <form action="/Blog/PostComment" method="post" id="commentform" novalidate="novalidate">
+                        <input type="hidden" id="CourseId" name="CourseId" value="@Model.Id">
+                        <input type="hidden" id="ParentId" name="ParentId" value="">
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <input type="text" name="Name" id="Name" value="" placeholder="نام کاربری">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="Email" id="Email" value="" placeholder="آدرس ایمیل">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea name="Message" id="Message" cols="40" rows="10"
+                                              placeholder="پیام خود را بنویسید"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div>
+                                    <input type="submit" class="btn btn-medium btn-clr w-100" value="ارسال">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!-- / .container -->
+
+
+        </div>
+    </div>
+    <!-- / .wrapper-content -->
+
+
+
+    <style>
+        .my-error-class {
+            color: darkred !important; /* red */
+        }
+    </style>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script>
+            $("#commentform").validate({
+                errorClass: "my-error-class",
+                rules: {
+                    Name: "required",
+                    Message: "required",
+                    Email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    Name: "نام خود را وارد کنید",
+                    Message: "پیام خود را وارد کنید",
+                    Email: {
+                        required: "ایمیل خود را وارد کنید",
+                        email: "ایمیل وارد شده معتبر نیست"
+                    },
+                }
+            });
+        </script>
+        <script>
+            function AnswerComment(parentId, parentName) {
+                $('#answerPerson').html("در حال پاسخ دادن به  " +
+                    parentName +
+                    "<a class='reply-btn btn btn-color small' style='margin-right:10px;cursor:pointer' onclick='removePerson()'>حذف</a>");
+                $('#ParentId').val(parentId);
+            }
+
+            function removePerson() {
+                $('#answerPerson').html("");
+                $('#ParentId').val("");
+            }
+        </script>
+    }

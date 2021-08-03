@@ -1,0 +1,68 @@
+﻿@model List<SPAWedding.Web.ViewModels.CourseCategoriesViewModel>
+
+    <style>
+        .card-body > a > span{
+            margin-right: 0.25rem;
+        }
+        .card-body > a {
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <div class="col-sm-12 col-md-3 mb-sm-2 ">
+        <div class="bg-white p-2 rounded pb-3 CategoryCustom" style="
+                    margin: auto;margin-bottom: 20px;">
+
+            <h5 class="pb-1 mb-3 mt-1 pr-1 text-center pt-0" style="font-size: 22px;">
+                دسته بندی ها
+            </h5>
+
+            <div id="accordion" class=" border-0 ">
+
+                <div class="card border-0">
+                    @*<div class="card-header bg-white" id="headingOne">
+                        <h5 class=" d-flex justify-content-between w-100 border-0" style="font-size: 15px;"
+                            data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                            دسته بندی 1
+                            <i class="fas fa-angle-left"></i>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse " aria-labelledby="headingOne"
+                         data-parent="#accordion">*@
+                    <div class="card-body d-flex flex-column">
+                        @foreach (var item in Model)
+                        {
+                            <a href="/Blog?category=@item.Id">@item.Title<span>(@item.CourseCount)</span></a>
+                        }
+
+                    </div>
+                    @*</div>*@
+                </div>
+
+                @*<div class="card border-0">
+                    <div class="card-header bg-white" id="headingOne11">
+                        <h5 class=" d-flex justify-content-between w-100 border-0" style="font-size: 15px;"
+                            data-toggle="collapse" data-target="#collapseOne1" aria-expanded="true"
+                            aria-controls="collapseOne1">
+                            دسته بندی 1
+                            <i class="fas fa-angle-left"></i>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne1" class="collapse " aria-labelledby="headingOne11"
+                         data-parent="#accordion">
+                        <div class="card-body d-flex flex-column">
+                            <a href="#">زیر دسته 1</a>
+                            <a href="#">زیر دسته 2</a>
+                            <a href="#">زیر دسته 3</a>
+                        </div>
+                    </div>
+                </div>*@
+
+            </div>
+        </div>
+    </div>
+
+

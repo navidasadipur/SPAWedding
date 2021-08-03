@@ -139,6 +139,7 @@ namespace SPAWedding.Web.ViewModels
         public int? ParentId { get; set; }
         public int? ArticleId { get; set; }
         public int? ProductId { get; set; }
+        public int? CourseId { get; set; }
         [Display(Name = "نام")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(300, ErrorMessage = "{0} باید کمتر از 300 کارکتر باشد")]
@@ -154,6 +155,8 @@ namespace SPAWedding.Web.ViewModels
         [MaxLength(800, ErrorMessage = "{0} باید کمتر از 800 کارکتر باشد")]
         public string Message { get; set; }
     }
+
+
     public class CheckoutForm
     {
         [Display(Name = "نام و نام خانوادگی")]
