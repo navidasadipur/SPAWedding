@@ -18,7 +18,7 @@
                         <!-- BLOG ITEM -->
 
                         <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
-                            <a href="blog-details.html">
+                            <a href="/Course/CourseDetails/@item.Id/@item.Title.Replace(' ', '-')">
                                 <img src="~/Files/CourseImages/Thumb/@item.Image" alt="class-@item.Title">
                             </a>
                             <div class="blog-info text-center">
@@ -26,7 +26,7 @@
                                 <p>
                                     @item.ShortDescription
                                 </p>
-                                <a class="btn btn-small btn-clr-reverse" href="blog-details.html">بیشتر</a>
+                                <a class="btn btn-small btn-clr-reverse" href="/Course/CourseDetails/@item.Id/@item.Title.Replace(' ', '-')">بیشتر</a>
                             </div>
                         </div>
 
