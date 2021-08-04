@@ -239,11 +239,11 @@ namespace SPAWedding.Web.Controllers
 
         public ActionResult HomeGallerySection()
         {
-            //var AllImages = _galleryRepo.GetAll();
+            var AllImages = _galleryRepo.GetAll();
 
-            //ViewBag.Gallery = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Gallery);
+            ViewBag.Gallery = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Gallery);
 
-            return PartialView();
+            return PartialView(AllImages);
         }
 
         public ActionResult HomeNewCoursesSection(int take)

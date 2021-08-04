@@ -8,8 +8,43 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="item height100vh blend-bg" style="background-image: url(/content/client/img/NewImages/bg\ \(14\).jpg);">
+            @foreach (var item in Model)
+            {
+                <div class="carousel-item active">
+                    <div class="item height100vh blend-bg" style="background-image: url(@item.Image).jpg);">
+                        <div class="slider-overlay slider-bg"></div>
+                        <div class="slider-alignment">
+                            <div class="v-align-center">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-offset-2 col-md-8">
+                                            <div class="just-image-title-inner text-center">
+                                                <div class="just-image-title animate" data-animation="fadeIn"
+                                                     data-timeout="600">
+                                                    <span class="just-image-title-one">بهترین سالن زیبایی 1 @item.Title</span>
+                                                </div>
+                                                <div class="animate" data-animation="fadeIn" data-timeout="610">
+                                                    <div class="just-image-description">
+                                                        هر آنچه باید درباره سالن زیبایی ما بدانید
+                                                        @item.ShortDescription
+                                                    </div>
+                                                </div>
+                                                <div class="animate" data-animation="fadeIn" data-timeout="620">
+                                                    <p><a class="btn btn-large btn-clr" href="@item.Link">بیشتر</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="carousel-item">
+
+                <div class="item height100vh blend-bg" style="background-image: url(img/NewImages/bg\ \(1\).jpg);">
                     <div class="slider-overlay slider-bg"></div>
                     <div class="slider-alignment">
                         <div class="v-align-center">
@@ -19,7 +54,7 @@
                                         <div class="just-image-title-inner text-center">
                                             <div class="just-image-title animate" data-animation="fadeIn"
                                                  data-timeout="600">
-                                                <span class="just-image-title-one">بهترین سالن زیبایی 1</span>
+                                                <span class="just-image-title-one">بهترین سالن زیبایی</span>
                                             </div>
                                             <div class="animate" data-animation="fadeIn" data-timeout="610">
                                                 <div class="just-image-description">
