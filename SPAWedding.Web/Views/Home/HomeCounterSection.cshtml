@@ -1,0 +1,101 @@
+﻿@model List<SPAWedding.Core.Models.StaticContentDetail>
+
+
+
+<div class="content-section">
+
+    <div class="block-parallax bg-main font-wht text-center"
+         style="background-image: url('/content/client/img/new/bs\ \(5\).jpg')">
+        <div class="overlay-parallax counter-parallax">
+            <div class="container">
+
+                <div class="row" id="counter">
+
+                    <div class="col-md-3">
+                        <div class="counter-item text-center">
+                            <div class="counter-value" data-count="129">0</div>
+                            <div class="counter-text">مشتریان راضی</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="counter-item text-center">
+                            <div class="counter-value" data-count="400">100</div>
+                            <div class="counter-text">کاربران سایت</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="counter-item text-center">
+                            <div class="counter-value" data-count="4">0</div>
+                            <div class="counter-text">خریداران پکیج</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="counter-item text-center">
+                            <div class="counter-value" data-count="300">0</div>
+                            <div class="counter-text">مشتریان</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@*<div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <div class="intro-slider-container mt-2">
+                    <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl"
+                         data-owl-options='{
+                                        "dots": true,
+                                        "nav": true,
+                                        "rtl": true,
+                                "responsive": {
+                                            "1200": {
+                                                "nav": true,
+                                                "dots": true
+                                            }
+                                        }
+                                    }'>
+                        @foreach (var item in Model)
+                        {
+                            string link = "";
+                            if (!String.IsNullOrEmpty(item.Link))
+                            {
+                                link = item.Link;
+                            }
+
+                            <div class="intro-slide banner-lg"
+                                 style="background-image: url(/Files/StaticContentImages/Image/@item.Image);">
+                                <div class="intro">
+                                    <div class="title">
+                                        <a>@item.Title</a>
+                                    </div>
+                                    <div class="content">
+                                        <h3>@Html.Raw(item.ShortDescription)</h3>
+                                        <h4>@Html.Raw(item.Description)</h4>
+                                    </div>
+                                    <div class="action">
+                                        <a href="@item.Link">خرید</a>
+                                    </div>
+                                </div>
+                            </div><!-- End .intro-slide -->
+                        }
+
+
+                    </div><!-- End .intro-slider owl-carousel owl-simple -->
+
+                    <span class="slider-loader"></span><!-- End .slider-loader -->
+                </div><!-- End .intro-slider-container -->
+            </div>
+        </div>
+
+    </div>*@
+

@@ -1,53 +1,55 @@
 ﻿@model List<SPAWedding.Core.Models.StaticContentDetail>
 
 
-
-@*<section id="banner-part" class="menu-section pb-100">
-    <div class="banner main-banner owl-carousel">
-        @foreach (var item in Model.Where(m => m.Image != null))
-        {
-            string link = "";
-            if (!String.IsNullOrEmpty(item.Link))
-            {
-                link = item.Link;
-            }
-            <a href="@link" style="display:block;">
-                <div class="banner">
-
-                    <img src="/Files/StaticContentImages/Image/@item.Image" alt="@item.Title">
-                    <div class="banner-detail">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="banner-detail-inner">
-                                        @if (item.Title != null)
-                                        {
-                                            <span class="subtitle1">@item.Title</span>
-                                        }
-                                        @if (item.ShortDescription != null)
-                                        {
-                                            <h1 class="banner-title">@item.ShortDescription</h1>
-                                        }
-                                        @if (item.ShortDescription != null)
-                                        {
-                                            <div class="subtitle2">
-                                                <span class="part1">@Html.Raw(item.Description)</span>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="item height100vh blend-bg" style="background-image: url(/content/client/img/NewImages/bg\ \(14\).jpg);">
+                    <div class="slider-overlay slider-bg"></div>
+                    <div class="slider-alignment">
+                        <div class="v-align-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-offset-2 col-md-8">
+                                        <div class="just-image-title-inner text-center">
+                                            <div class="just-image-title animate" data-animation="fadeIn"
+                                                 data-timeout="600">
+                                                <span class="just-image-title-one">بهترین سالن زیبایی 1</span>
                                             </div>
-                                        }
+                                            <div class="animate" data-animation="fadeIn" data-timeout="610">
+                                                <div class="just-image-description">
+                                                    هر آنچه باید درباره سالن زیبایی ما بدانید
+                                                </div>
+                                            </div>
+                                            <div class="animate" data-animation="fadeIn" data-timeout="620">
+                                                <p><a class="btn btn-large btn-clr" href="about.html">درباره ما</a></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
-        }
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-</section>*@
 
 
-
-<div class="container">
+@*<div class="container">
 
     <div class="row">
         <div class="col-lg-12 col-12">
@@ -88,36 +90,6 @@
                             </div>
                         </div><!-- End .intro-slide -->
                     }
-                    @*<div class="intro-slide banner-lg"
-                         style="background-image: url(/Content/client/assets/images/medicine_images/header/102838-2.jpg);">
-                        <div class="intro">
-                            <div class="title">
-                                <a>پیشنهاد روزانه</a>
-                            </div>
-                            <div class="content">
-                                <h3><span>بیشتر از</span> 20% <span>تخفیف</span></h3>
-                                <h4>تخفیف مکمل های ورزشی</h4>
-                            </div>
-                            <div class="action">
-                                <a href="category.html">خرید</a>
-                            </div>
-                        </div>
-                    </div><!-- End .intro-slide -->
-
-                    <div class="intro-slide banner-lg"
-                         style="background-image: url(/Content/client/assets/images/medicine_images/header/Magnesium_tablets-4.jpg);">
-                        <div class="intro">
-                            <div class="title">
-                                <a>محصولات جدید</a>
-                            </div>
-                            <div class="content">
-                                <h3>برندهای منتخب<br>بیش از <span>30% تخفیف</span></h3>
-                            </div>
-                            <div class="action">
-                                <a href="category.html">خرید</a>
-                            </div>
-                        </div>
-                    </div><!-- End .intro-slide -->*@
 
 
                 </div><!-- End .intro-slider owl-carousel owl-simple -->
@@ -127,5 +99,5 @@
         </div>
     </div>
 
-</div>
+</div>*@
 

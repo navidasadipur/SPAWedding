@@ -4912,7 +4912,7 @@
     <Content Include="Views\Home\OffersSection.cshtml" />
     <Content Include="Views\Home\TopSoldProductsSection.cshtml" />
     <Content Include="Views\Home\TestimonialsSection.cshtml" />
-    <Content Include="Views\Home\LatestProductsSection.cshtml" />
+    <Content Include="Views\Home\HomePopularCoursesSection.cshtml" />
     <Content Include="Views\Home\PartnersSection.cshtml" />
     <Content Include="Views\Home\LatestArticlesSection.cshtml" />
     <Content Include="Views\Home\ContactUsForm.cshtml" />
@@ -4965,6 +4965,12 @@
     <Content Include="Views\Course\CourseCategoriesSection.cshtml" />
     <Content Include="Views\Course\CourseDetails.cshtml" />
     <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Home\HomeUnderSliderSection.cshtml" />
+    <Content Include="Views\Home\HomeAboutFounderSection.cshtml" />
+    <Content Include="Views\Home\HomeCounterSection.cshtml" />
+    <Content Include="Views\Home\HomeCourseProperties.cshtml" />
+    <Content Include="Views\Home\HomeGallerySection.cshtml" />
+    <Content Include="Views\Home\HomeNewCoursesSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

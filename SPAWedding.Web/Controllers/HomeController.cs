@@ -171,106 +171,153 @@ namespace SPAWedding.Web.Controllers
             return PartialView(vm);
         }
 
-        public ActionResult CartSection()
-        {
-            var cartModel = new CartModel();
+        //public ActionResult CartSection()
+        //{
+        //    var cartModel = new CartModel();
 
-            HttpCookie cartCookie = Request.Cookies["cart"] ?? new HttpCookie("cart");
+        //    HttpCookie cartCookie = Request.Cookies["cart"] ?? new HttpCookie("cart");
 
-            if (!string.IsNullOrEmpty(cartCookie.Values["cart"]))
-            {
-                string cartJsonStr = cartCookie.Values["cart"];
-                cartModel = new CartModel(cartJsonStr);
-            }
-            return PartialView(cartModel);
-        }
+        //    if (!string.IsNullOrEmpty(cartCookie.Values["cart"]))
+        //    {
+        //        string cartJsonStr = cartCookie.Values["cart"];
+        //        cartModel = new CartModel(cartJsonStr);
+        //    }
+        //    return PartialView(cartModel);
+        //}
 
-        public ActionResult WishListSection()
-        {
-            var wishListModel = new WishListModel();
+        //public ActionResult WishListSection()
+        //{
+        //    var wishListModel = new WishListModel();
 
-            HttpCookie cartCookie = Request.Cookies["wishList"] ?? new HttpCookie("wishList");
+        //    HttpCookie cartCookie = Request.Cookies["wishList"] ?? new HttpCookie("wishList");
 
-            if (!string.IsNullOrEmpty(cartCookie.Values["wishList"]))
-            {
-                string cartJsonStr = cartCookie.Values["wishList"];
-                wishListModel = new WishListModel(cartJsonStr);
-            }
+        //    if (!string.IsNullOrEmpty(cartCookie.Values["wishList"]))
+        //    {
+        //        string cartJsonStr = cartCookie.Values["wishList"];
+        //        wishListModel = new WishListModel(cartJsonStr);
+        //    }
 
-            return PartialView(wishListModel);
-        }
+        //    return PartialView(wishListModel);
+        //}
 
         public ActionResult HomeTopSliderSection()
         {
             var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
-            return PartialView(content);
+            return PartialView();
         }
 
-        public ActionResult OffersSection()
+        public ActionResult HomeUnderSliderSection()
         {
-            var offers = _offersRepo.GetAll();
-            offers = offers.OrderBy(o => o.Id).ToList();
-            return PartialView(offers);
+            var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            return PartialView();
         }
 
-        public ActionResult TopSoldProductsSection(int take)
+        public ActionResult HomeAboutFounderSection()
         {
-            var products = _productService.GetTopSoldProductsWithPrice(take);
-            var vm = new List<ProductWithPriceViewModel>();
-            foreach (var product in products)
-            {
-                var tempVm = new ProductWithPriceViewModel(product);
-
-                var group = _productGroupRepo.GetGroupByProductId(product.Id);
-
-                tempVm.ProductGroupId = group.Id;
-
-                tempVm.ProductGroupTitle = group.Title;
-
-                vm.Add(tempVm);
-            }
-
-            return PartialView(vm);
+            var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            return PartialView();
         }
 
-        public ActionResult TestimonialsSection()
+        public ActionResult HomeCounterSection()
         {
-            var testimonials = _testimonialRepo.GetAll();
-            var vm = testimonials.Select(testimonial => new TestimonialViewModel(testimonial)).ToList();
-
-            return PartialView(vm);
+            var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            return PartialView();
         }
-        public ActionResult LatestProductsSection(int take)
+
+        public ActionResult HomeCourseProperties()
         {
-            var products = _productService.GetLatestProductsWithPrice(take);
-            var vm = new List<ProductWithPriceViewModel>();
-            foreach (var product in products)
-            {
-                var tempVm = new ProductWithPriceViewModel(product);
-
-                var group = _productGroupRepo.GetGroupByProductId(product.Id);
-
-                tempVm.ProductGroupId = group.Id;
-
-                tempVm.ProductGroupTitle = group.Title;
-
-                vm.Add(tempVm);
-            }
-
-            
-            return PartialView(vm);
+            var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            return PartialView();
         }
 
-        public ActionResult HighRateProductsSection(int take)
+        public ActionResult HomePopularCoursesSection(int take)
         {
-            var products = _productService.GetHighRatedProductsWithPrice(take);
-            var vm = new List<ProductWithPriceViewModel>();
-            foreach (var product in products)
-                vm.Add(new ProductWithPriceViewModel(product));
+            var model = _coursesRepo.GetLatestCourses(take);
 
-            return PartialView(vm);
+            return PartialView(model);
         }
-        
+
+        public ActionResult HomeGallerySection()
+        {
+            //var AllImages = _galleryRepo.GetAll();
+
+            //ViewBag.Gallery = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Gallery);
+
+            return PartialView();
+        }
+
+        public ActionResult HomeNewCoursesSection(int take)
+        {
+            var model = _coursesRepo.GetLatestCourses(take);
+
+            return PartialView(model);
+        }
+
+        //public ActionResult OffersSection()
+        //{
+        //    var offers = _offersRepo.GetAll();
+        //    offers = offers.OrderBy(o => o.Id).ToList();
+        //    return PartialView(offers);
+        //}
+
+        //public ActionResult TopSoldProductsSection(int take)
+        //{
+        //    var products = _productService.GetTopSoldProductsWithPrice(take);
+        //    var vm = new List<ProductWithPriceViewModel>();
+        //    foreach (var product in products)
+        //    {
+        //        var tempVm = new ProductWithPriceViewModel(product);
+
+        //        var group = _productGroupRepo.GetGroupByProductId(product.Id);
+
+        //        tempVm.ProductGroupId = group.Id;
+
+        //        tempVm.ProductGroupTitle = group.Title;
+
+        //        vm.Add(tempVm);
+        //    }
+
+        //    return PartialView(vm);
+        //}
+
+        //public ActionResult TestimonialsSection()
+        //{
+        //    var testimonials = _testimonialRepo.GetAll();
+        //    var vm = testimonials.Select(testimonial => new TestimonialViewModel(testimonial)).ToList();
+
+        //    return PartialView(vm);
+        //}
+
+        //public ActionResult LatestProductsSection(int take)
+        //{
+        //    var products = _productService.GetLatestProductsWithPrice(take);
+        //    var vm = new List<ProductWithPriceViewModel>();
+        //    foreach (var product in products)
+        //    {
+        //        var tempVm = new ProductWithPriceViewModel(product);
+
+        //        var group = _productGroupRepo.GetGroupByProductId(product.Id);
+
+        //        tempVm.ProductGroupId = group.Id;
+
+        //        tempVm.ProductGroupTitle = group.Title;
+
+        //        vm.Add(tempVm);
+        //    }
+
+        //    return PartialView(vm);
+        //}
+
+        //public ActionResult HighRateProductsSection(int take)
+        //{
+        //    var products = _productService.GetHighRatedProductsWithPrice(take);
+        //    var vm = new List<ProductWithPriceViewModel>();
+        //    foreach (var product in products)
+        //        vm.Add(new ProductWithPriceViewModel(product));
+
+        //    return PartialView(vm);
+        //}
+
 
         public ActionResult LatestArticlesSection(int take)
         {
@@ -288,28 +335,28 @@ namespace SPAWedding.Web.Controllers
         }
 
 
-        public ActionResult DiscountSection()
-        {
-            var discountItems = _discountRepo.GetProductsWithDiscount();
-            var products = new List<DiscountProductViewModel>();
-            foreach(var item in discountItems)
-            {
-                var product = new DiscountProductViewModel();
-                product.Price = _productService.GetProductPrice(item.Product);
-                product.PriceAfterDiscount = _productService.GetProductPriceAfterDiscount(item.Product);
-                product.ProductId = item.ProductId.Value;
-                product.Image = item.Product.Image;
-                product.DiscountType = item.DiscountType;
-                product.Amount = item.Amount;
-                product.Title = item.Title;
-                product.ShortTitle = item.Product.ShortTitle;
-                product.DeadLine = item.DeadLine;
+        //public ActionResult DiscountSection()
+        //{
+        //    var discountItems = _discountRepo.GetProductsWithDiscount();
+        //    var products = new List<DiscountProductViewModel>();
+        //    foreach(var item in discountItems)
+        //    {
+        //        var product = new DiscountProductViewModel();
+        //        product.Price = _productService.GetProductPrice(item.Product);
+        //        product.PriceAfterDiscount = _productService.GetProductPriceAfterDiscount(item.Product);
+        //        product.ProductId = item.ProductId.Value;
+        //        product.Image = item.Product.Image;
+        //        product.DiscountType = item.DiscountType;
+        //        product.Amount = item.Amount;
+        //        product.Title = item.Title;
+        //        product.ShortTitle = item.Product.ShortTitle;
+        //        product.DeadLine = item.DeadLine;
 
-                products.Add(product);
-            }
+        //        products.Add(product);
+        //    }
 
-            return PartialView(products);
-        }
+        //    return PartialView(products);
+        //}
 
         [Route("Faq")]
         public ActionResult Faq()
@@ -364,13 +411,13 @@ namespace SPAWedding.Web.Controllers
             var email = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Email);
             var address = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Address);
             var vm = new ContactUsViewModel()
-            { 
+            {
                 Map = map,
                 Phone = phone,
                 Email = email,
                 Address = address
             };
-            
+
             ViewBag.ContactUs = _staticContentRepo.GetStaticContentDetail((int)StaticContents.ContactUs);
 
             return View(vm);
@@ -477,7 +524,7 @@ namespace SPAWedding.Web.Controllers
                 isValid = false;
             }
 
-            if(isValid)
+            if (isValid)
             {
                 EmailSubscription emailSubscription = new EmailSubscription();
                 emailSubscription.Email = email;
