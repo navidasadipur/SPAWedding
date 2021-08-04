@@ -112,51 +112,56 @@ namespace SPAWedding.Web.Controllers
 
             ViewBag.HeaderImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HeaderBackGroundImage).Image;
 
+            ViewBag.MakeupInstitute = _staticContentRepo.GetStaticContentDetail((int)StaticContents.MakeupInstitute);
+
             return PartialView(/*allMainGroups*/);
         }
 
-        public ActionResult MobileHeaderSection()
-        {
+        //public ActionResult MobileHeaderSection()
+        //{
 
-            var allMainGroups = _productGroupRepo.GetMainProductGroups();
+        //    var allMainGroups = _productGroupRepo.GetMainProductGroups();
 
-            foreach (var group in allMainGroups)
-            {
-                group.Children = _productGroupRepo.GetChildrenProductGroups(group.Id);
-            }
+        //    foreach (var group in allMainGroups)
+        //    {
+        //        group.Children = _productGroupRepo.GetChildrenProductGroups(group.Id);
+        //    }
 
-            ViewBag.LogoImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Logo).Image;
+        //    ViewBag.LogoImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Logo).Image;
 
-            var wishListModel = new WishListModel();
+        //    var wishListModel = new WishListModel();
 
-            HttpCookie cartCookie = Request.Cookies["wishList"] ?? new HttpCookie("wishList");
+        //    HttpCookie cartCookie = Request.Cookies["wishList"] ?? new HttpCookie("wishList");
 
-            if (!string.IsNullOrEmpty(cartCookie.Values["wishList"]))
-            {
-                string cartJsonStr = cartCookie.Values["wishList"];
-                wishListModel = new WishListModel(cartJsonStr);
-            }
+        //    if (!string.IsNullOrEmpty(cartCookie.Values["wishList"]))
+        //    {
+        //        string cartJsonStr = cartCookie.Values["wishList"];
+        //        wishListModel = new WishListModel(cartJsonStr);
+        //    }
 
-            if (wishListModel.WishListItems != null)
-            {
-                ViewBag.WishListCount = wishListModel.WishListItems.Count();
-            }
+        //    if (wishListModel.WishListItems != null)
+        //    {
+        //        ViewBag.WishListCount = wishListModel.WishListItems.Count();
+        //    }
 
-            return PartialView(allMainGroups);
-        }
+        //    return PartialView(allMainGroups);
+        //}
 
-        public ActionResult FooterTopSection()
-        {
-            return PartialView();
-        }
+        //public ActionResult FooterTopSection()
+        //{
+        //    return PartialView();
+        //}
 
         public ActionResult FooterSection()
         {
             var vm = new FooterViewModel()
             {
+                Address = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Address),
+                Email = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Email),
                 Phone = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Phone),
-                Logo = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Logo),
+                Logo = _staticContentRepo.GetStaticContentDetail((int)StaticContents.MakeupInstitute),
                 Facebook = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Facebook),
+                LinkedIn = _staticContentRepo.GetStaticContentDetail((int)StaticContents.LinkedIn),
                 Twitter = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Twitter),
                 Instagram = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Instagram),
                 Youtube = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Youtube),

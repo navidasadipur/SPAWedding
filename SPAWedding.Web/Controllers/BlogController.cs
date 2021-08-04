@@ -220,7 +220,7 @@ namespace SPAWedding.Web.Controllers
             model.Facebook = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Facebook);
             model.Twitter = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Twitter);
             model.Pinterest = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Pinterest);
-            model.Linkedin = _staticContentRepo.GetStaticContentDetail((int)StaticContents.linkedin);
+            model.Linkedin = _staticContentRepo.GetStaticContentDetail((int)StaticContents.LinkedIn);
 
             return PartialView(model);
         }

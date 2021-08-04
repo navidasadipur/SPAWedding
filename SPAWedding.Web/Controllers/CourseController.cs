@@ -183,20 +183,22 @@ namespace SPAWedding.Web.Controllers
 
             courseDetailsVm.Previous = previousCourse;
 
-            var banner = "";
-            try
-            {
-                banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ وسلاس").Image;
-                banner = "/Files/StaticContentImages/Image/" + banner;
-            }
-            catch
-            {
+            //var banner = "";
+            //try
+            //{
+            //    banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ وسلاس").Image;
+            //    banner = "/Files/StaticContentImages/Image/" + banner;
+            //}
+            //catch
+            //{
 
-            }
+            //}
 
-            ViewBag.banner = banner;
+            //ViewBag.banner = banner;
 
-            ViewBag.BanerImage = _staticContentRepo.GetStaticContentDetail(13).Image;
+            //ViewBag.BanerImage = _staticContentRepo.GetStaticContentDetail(13).Image;
+
+            ViewBag.Phone = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Phone).ShortDescription;
 
             return View(courseDetailsVm);
         }
@@ -227,7 +229,7 @@ namespace SPAWedding.Web.Controllers
             model.Facebook = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Facebook);
             model.Twitter = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Twitter);
             model.Pinterest = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Pinterest);
-            model.Linkedin = _staticContentRepo.GetStaticContentDetail((int)StaticContents.linkedin);
+            model.Linkedin = _staticContentRepo.GetStaticContentDetail((int)StaticContents.LinkedIn);
 
             return PartialView(model);
         }

@@ -28,7 +28,7 @@ namespace SPAWedding.Core.Utility
         Twitter = 27,
         Pinterest = 30,
         Facebook = 26,
-        linkedin = 33,
+        LinkedIn = 33,
         BlogImage = 1013,
         ContactInfo = 1014,
         companyServices = 3003,
@@ -46,7 +46,7 @@ namespace SPAWedding.Core.Utility
 
         DiscountNews = 5027,
 
-        Logo = 14,
+        MakeupInstitute = 14,
         HeaderBackGroundImage = 13,
         NewsBackImage = 8,
 
