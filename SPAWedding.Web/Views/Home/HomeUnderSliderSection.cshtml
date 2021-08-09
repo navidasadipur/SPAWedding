@@ -8,8 +8,8 @@
                 <div class="col-md-offset-2 col-md-8">
                     <div class="text-center animate" data-animation="fadeIn" data-timeout="200">
                         <div class="section-title">
-                            <h3>به سالن زیبایی خوش آمدید</h3>
-                            <p>لورم ایپسوم متن ساختگی با تولید </p>
+                            <h3>@ViewBag.HomeUnderSliderTitle.Title</h3>
+                            <p>@ViewBag.HomeUnderSliderTitle.ShortDescription </p>
                         </div>
                     </div>
                     <div class="white-space"></div>
@@ -29,12 +29,10 @@
                         </div>
                         <div class="icon-text-left-content">
                             <div class="icon-text-title">
-                                <h6>مشاهده پکیج </h6>
+                                <h6>@Model[0].Title </h6>
                             </div>
                             <div class="icon-text-description">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-                                فعلی تکنولوژی مورد نیاز، و کاربردهای آن
+                                @Model[0].ShortDescription
                             </div>
                         </div>
                     </div>
@@ -52,12 +50,10 @@
                         </div>
                         <div class="icon-text-left-content">
                             <div class="icon-text-title">
-                                <h6>انتخاب پکیج</h6>
+                                <h6>@Model[1].Title</h6>
                             </div>
                             <div class="icon-text-description">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-                                فعلی تکنولوژی مورد نیاز، و کاربردهای آن
+                                @Model[1].ShortDescription
                             </div>
                         </div>
                     </div>
@@ -75,12 +71,10 @@
                         </div>
                         <div class="icon-text-left-content">
                             <div class="icon-text-title">
-                                <h6>رزرو پکیج</h6>
+                                <h6>@Model[2].Title</h6>
                             </div>
                             <div class="icon-text-description">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-                                فعلی تکنولوژی مورد نیاز، و کاربردهای آن
+                                @Model[2].ShortDescription
                             </div>
                         </div>
                     </div>

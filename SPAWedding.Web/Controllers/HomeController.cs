@@ -211,25 +211,39 @@ namespace SPAWedding.Web.Controllers
 
         public ActionResult HomeUnderSliderSection()
         {
-            var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
-            return PartialView();
+            var content = new List<StaticContentDetail>();
+
+            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeOurServicesUnderSlieder);
+
+            ViewBag.HomeUnderSliderTitle = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HomeUnderSliderTitle);
+
+            return PartialView(content);
         }
 
         public ActionResult HomeAboutFounderSection()
         {
-            var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            var content = new List<StaticContentDetail>();
+
+            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+
             return PartialView();
         }
 
         public ActionResult HomeCounterSection()
         {
-            var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            var content = new List<StaticContentDetail>();
+
+            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+
             return PartialView();
         }
 
         public ActionResult HomeCourseProperties()
         {
-            var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            var content = new List<StaticContentDetail>();
+
+            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+
             return PartialView();
         }
 
@@ -560,13 +574,6 @@ namespace SPAWedding.Web.Controllers
             ViewBag.Gallery = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Gallery);
 
             return View(AllImages);
-        }
-
-        public ActionResult ServicesSection()
-        {
-            var model = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.OurServices);
-
-            return PartialView(model);
         }
     }
 }
