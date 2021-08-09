@@ -45,14 +45,13 @@ namespace SPAWedding.Core.Utility
         Gallery = 17,
         HomeUnderSliderTitle = 1037,
         HomeAbout = 2,
+        HomeCounterBackGroundImage = 3,
 
         DiscountNews = 5027,
 
         MakeupInstitute = 14,
         HeaderBackGroundImage = 13,
         NewsBackImage = 8,
-
-  
 
         BlogAd = 32,
     }
@@ -62,7 +61,7 @@ namespace SPAWedding.Core.Utility
         HeaderFooter = 9,
         About = 13,
         HomeCourseProperties = 5,
-
+        HomeCounters = 18,
 
         HomeTopSlider = 17,
         Contact = 2,

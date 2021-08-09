@@ -5,39 +5,22 @@
 <div class="content-section">
 
     <div class="block-parallax bg-main font-wht text-center"
-         style="background-image: url('/content/client/img/new/bs\ \(5\).jpg')">
+         style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.BackGroundImage')">
         <div class="overlay-parallax counter-parallax">
             <div class="container">
 
                 <div class="row" id="counter">
-
-                    <div class="col-md-3">
-                        <div class="counter-item text-center">
-                            <div class="counter-value" data-count="129">0</div>
-                            <div class="counter-text">مشتریان راضی</div>
+                    @foreach (var item in Model)
+                    {
+                        int intCounter = 0;
+                        int.TryParse(item.ShortDescription, out intCounter);
+                        <div class="col-md-3">
+                            <div class="counter-item text-center">
+                                <div class="counter-value" data-count="@intCounter "></div>
+                                <div class="counter-text">@item.Title</div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="counter-item text-center">
-                            <div class="counter-value" data-count="400">100</div>
-                            <div class="counter-text">کاربران سایت</div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="counter-item text-center">
-                            <div class="counter-value" data-count="4">0</div>
-                            <div class="counter-text">خریداران پکیج</div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="counter-item text-center">
-                            <div class="counter-value" data-count="300">0</div>
-                            <div class="counter-text">مشتریان</div>
-                        </div>
-                    </div>
+                    }
 
                 </div>
             </div>

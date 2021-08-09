@@ -233,9 +233,11 @@ namespace SPAWedding.Web.Controllers
         {
             var content = new List<StaticContentDetail>();
 
-            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeCounters);
 
-            return PartialView();
+            ViewBag.BackGroundImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HomeCounterBackGroundImage).Image;
+
+            return PartialView(content);
         }
 
         public ActionResult HomeCourseProperties()
