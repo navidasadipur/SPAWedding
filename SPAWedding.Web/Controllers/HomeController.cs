@@ -202,8 +202,11 @@ namespace SPAWedding.Web.Controllers
 
         public ActionResult HomeTopSliderSection()
         {
-            var content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
-            return PartialView();
+            var content = new List<StaticContentDetail>();
+
+            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+
+            return PartialView(content);
         }
 
         public ActionResult HomeUnderSliderSection()

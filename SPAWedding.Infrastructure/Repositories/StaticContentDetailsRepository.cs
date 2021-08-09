@@ -39,7 +39,7 @@ namespace SPAWedding.Infrastructure.Repositories
         }
         public List<StaticContentDetail> GetContentByTypeId(int id)
         {
-            return _context.StaticContentDetails.Where(e => e.IsDeleted == false && e.StaticContentTypeId == id).Include(a => a.StaticContentType).ToList();
+            return _context.StaticContentDetails.Where(e => e.IsDeleted == false && e.StaticContentTypeId == id).OrderByDescending(e => e.Id).Include(a => a.StaticContentType).ToList();
         }
         public StaticContentDetail GetSingleContentByTypeId(int id)
         {
