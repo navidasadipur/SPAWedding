@@ -222,11 +222,11 @@ namespace SPAWedding.Web.Controllers
 
         public ActionResult HomeAboutFounderSection()
         {
-            var content = new List<StaticContentDetail>();
+            var content = new StaticContentDetail();
 
-            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            content = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HomeAbout);
 
-            return PartialView();
+            return PartialView(content);
         }
 
         public ActionResult HomeCounterSection()

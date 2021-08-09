@@ -44,6 +44,7 @@ namespace SPAWedding.Core.Utility
         certificate = 25,
         Gallery = 17,
         HomeUnderSliderTitle = 1037,
+        HomeAbout = 2,
 
         DiscountNews = 5027,
 
