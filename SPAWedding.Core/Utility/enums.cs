@@ -61,7 +61,8 @@ namespace SPAWedding.Core.Utility
     {
         HeaderFooter = 9,
         About = 13,
-        AboutProperties,
+        HomeCourseProperties = 5,
+
 
         HomeTopSlider = 17,
         Contact = 2,

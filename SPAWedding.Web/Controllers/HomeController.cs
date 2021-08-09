@@ -242,9 +242,9 @@ namespace SPAWedding.Web.Controllers
         {
             var content = new List<StaticContentDetail>();
 
-            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeTopSlider);
+            content = _staticContentRepo.GetContentByTypeId((int)StaticContentTypes.HomeCourseProperties);
 
-            return PartialView();
+            return PartialView(content);
         }
 
         public ActionResult HomePopularCoursesSection(int take)
