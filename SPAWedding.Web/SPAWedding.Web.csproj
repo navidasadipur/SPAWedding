@@ -4912,7 +4912,7 @@
     <Content Include="Views\Home\OffersSection.cshtml" />
     <Content Include="Views\Home\TopSoldProductsSection.cshtml" />
     <Content Include="Views\Home\TestimonialsSection.cshtml" />
-    <Content Include="Views\Home\HomePopularCoursesSection.cshtml" />
+    <Content Include="Views\Home\HomeNewCoursesSection.cshtml" />
     <Content Include="Views\Home\PartnersSection.cshtml" />
     <Content Include="Views\Home\LatestArticlesSection.cshtml" />
     <Content Include="Views\Home\ContactUsForm.cshtml" />
@@ -4946,7 +4946,7 @@
     <Content Include="Views\Home\FooterSection.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\OurTeamsSection.cshtml" />
-    <Content Include="Views\Home\NewClassesSection.cshtml" />
+    <Content Include="Views\Home\AboutNewClassesSection.cshtml" />
     <Content Include="Views\Home\ContactSocialsSection.cshtml" />
     <Content Include="Views\Home\Certificate.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
@@ -4970,7 +4970,7 @@
     <Content Include="Views\Home\HomeCounterSection.cshtml" />
     <Content Include="Views\Home\HomeCourseProperties.cshtml" />
     <Content Include="Views\Home\HomeGallerySection.cshtml" />
-    <Content Include="Views\Home\HomeNewCoursesSection.cshtml" />
+    <Content Include="Views\Home\HomeNewArticlesSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
