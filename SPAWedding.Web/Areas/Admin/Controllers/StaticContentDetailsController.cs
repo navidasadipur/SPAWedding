@@ -55,8 +55,8 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                     // Resizing Image
                     ImageResizer image = new ImageResizer();
                     if (staticContentDetail.StaticContentTypeId == (int)StaticContentTypes.HomeTopSlider)
-                        image = new ImageResizer(1413, 600, true);
-                    if(staticContentDetail.StaticContentTypeId == (int)StaticContentTypes.PageBanner)
+                        image = new ImageResizer(2000, 1000, true);
+                    if (staticContentDetail.StaticContentTypeId == (int)StaticContentTypes.PageBanner)
                         image = new ImageResizer(1450, 250, true);
                     if (staticContentDetail.StaticContentTypeId == (int)StaticContentTypes.About)
                         image = new ImageResizer(1450, 600, true);
@@ -68,6 +68,10 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                         image = new ImageResizer(280, 280, true);
                     if (staticContentDetail.Id == (int)StaticContents.NewsBackImage)
                         image = new ImageResizer(2000, 2500, true);
+                    if (staticContentDetail.Id == (int)StaticContents.HomeCounterBackGroundImage)
+                        image = new ImageResizer(2000, 1000, true);
+                    if (staticContentDetail.Id == (int)StaticContents.HomeContactUs)
+                        image = new ImageResizer(2000, 1000, true);
 
                     image.Resize(Server.MapPath("/Files/StaticContentImages/Temp/" + newFileName),
                         Server.MapPath("/Files/StaticContentImages/Image/" + newFileName));
@@ -122,7 +126,7 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                     // Resizing Image
                     ImageResizer image = new ImageResizer();
                     if (staticContentDetail.StaticContentTypeId == (int)StaticContentTypes.HomeTopSlider)
-                        image = new ImageResizer(1413, 600, true);
+                        image = new ImageResizer(2000, 1000, true);
                     if (staticContentDetail.StaticContentTypeId == (int)StaticContentTypes.PageBanner)
                         image = new ImageResizer(1450, 250, true);
                     if (staticContentDetail.StaticContentTypeId == (int)StaticContentTypes.About)
@@ -135,6 +139,10 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
                         image = new ImageResizer(280, 280, true);
                     if (staticContentDetail.Id == (int)StaticContents.NewsBackImage)
                         image = new ImageResizer(2000, 2500, true);
+                    if (staticContentDetail.Id == (int)StaticContents.HomeCounterBackGroundImage)
+                        image = new ImageResizer(2000, 1000, true);
+                    if (staticContentDetail.Id == (int)StaticContents.HomeContactUs)
+                        image = new ImageResizer(2000, 1000, true);
 
                     image.Resize(Server.MapPath("/Files/StaticContentImages/Temp/" + newFileName),
                         Server.MapPath("/Files/StaticContentImages/Image/" + newFileName));
