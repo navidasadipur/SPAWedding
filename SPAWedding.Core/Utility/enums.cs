@@ -32,7 +32,6 @@ namespace SPAWedding.Core.Utility
         BlogImage = 1013,
         ContactInfo = 1014,
         companyServices = 3003,
-        CopyRight = 3004,
         ImplementaitonService = 3005,
 
         Address = 5,
@@ -46,8 +45,9 @@ namespace SPAWedding.Core.Utility
         HomeUnderSliderTitle = 1037,
         HomeAbout = 2,
         HomeCounterBackGroundImage = 3,
-
-        DiscountNews = 5027,
+        HomeContactUs = 15,
+        HomeNewCourses = 1046,
+        HomeNewArticles = 1047,
 
         MakeupInstitute = 14,
         HeaderBackGroundImage = 13,

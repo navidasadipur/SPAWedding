@@ -75,9 +75,7 @@ namespace SPAWedding.Web.Controllers
 
             var popup = _staticContentRepo.GetSingleContentByTypeId((int)StaticContentTypes.Popup);
 
-            ViewBag.NewsBackImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.NewsBackImage).Image;
-            ViewBag.NewsTitle = _staticContentRepo.GetStaticContentDetail((int)StaticContents.NewsBackImage).Title;
-            ViewBag.NewsShorDescription = _staticContentRepo.GetStaticContentDetail((int)StaticContents.NewsBackImage).ShortDescription;
+            ViewBag.ContactUs = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HomeContactUs);
 
             return View(popup);
         }
@@ -249,9 +247,11 @@ namespace SPAWedding.Web.Controllers
             return PartialView(content);
         }
 
-        public ActionResult HomePopularCoursesSection(int take)
+        public ActionResult HomeNewCoursesSection(int take)
         {
             var model = _coursesRepo.GetLatestCourses(take);
+
+            ViewBag.HomeNewCourses = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HomeNewCourses);
 
             return PartialView(model);
         }
@@ -265,9 +265,11 @@ namespace SPAWedding.Web.Controllers
             return PartialView(AllImages);
         }
 
-        public ActionResult HomeNewCoursesSection(int take)
+        public ActionResult HomeNewArticlesSection(int take)
         {
-            var model = _coursesRepo.GetLatestCourses(take);
+            var model = _articlesRepo.GetLatestArticles(take);
+
+            ViewBag.HomeNewArticles = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HomeNewArticles);
 
             return PartialView(model);
         }
@@ -402,7 +404,7 @@ namespace SPAWedding.Web.Controllers
             return View(model);
         }
 
-        public ActionResult NewClassesSection(int take)
+        public ActionResult AboutNewClassesSection(int take)
         {
             var model = _coursesRepo.GetLatestCourses(take);
 

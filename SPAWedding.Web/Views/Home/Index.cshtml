@@ -35,7 +35,7 @@
 
                 @Html.Action("HomeCourseProperties", "Home")
 
-                @Html.Action("HomePopularCoursesSection", "Home", new { take = 6 } )
+                @Html.Action("HomeNewCoursesSection", "Home", new { take = 6 } )
 
             </div>
             <!-- / .container -->
@@ -45,15 +45,15 @@
         @Html.Action("HomeGallerySection", "Home")
 
         <div class="block-parallax bg-main blend-bg font-wht text-center "
-             style="background-image: url('/content/client/img/new/bs\ \(6\).jpg')">
+             style="background-image: url('/Files/StaticContentImages/Image/@ViewBag.ContactUs.Image')">
             <div class="overlay-parallax call-to-acton-parallax">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="animate" data-animation="fadeIn" data-timeout="200">
-                                <h2>تماس با ما</h2>
+                                <h2>@ViewBag.ContactUs.Title</h2>
                                 <div class="white-space"></div>
-                                <h6>شما می توانید در هر ساعت از شبانه روز با ما در ارتباط باشید</h6>
+                                <h6>@ViewBag.ContactUs.ShortDescription</h6>
                             </div>
                             <div class="animate" data-animation="fadeIn" data-timeout="200">
                                 <div class="white-space"></div>
@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        @Html.Action("HomeNewCoursesSection", "Home", new { take = 6 })
+        @Html.Action("HomeNewArticlesSection", "Home", new { take = 6 })
 
         <!-- CALL TO ACTION ELEMENT -->
         <!-- / CALL TO ACTION ELEMENT -->

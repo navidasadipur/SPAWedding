@@ -1,0 +1,90 @@
+﻿@model List<SPAWedding.Core.Models.Article>
+
+
+<div class="content-section mt-0 pb-3">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="text-center animate" data-animation="fadeIn" data-timeout="200">
+                    <div class="section-title">
+                        <h3>@ViewBag.HomeNewArticles.Title</h3>
+                        <p>@ViewBag.HomeNewArticles.ShortDescription</p>
+                    </div>
+                    <div class="section-description">
+                        @Html.Raw(ViewBag.HomeNewArticles.Description)
+                    </div>
+                </div>
+                <div class="white-space"></div>
+            </div>
+        </div>
+
+        <section id="gallery">
+            <div class="row">
+
+                <div class="owl-carousel" id="gallery-carousel">
+                    @foreach (var item in Model)
+                    {
+                        <!-- IMAGE ITEM ELEMENT -->
+                        <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
+                            <a href="/Blog/Article/@item.Id/@item.Title.Replace(' ', '-')">
+                                <img src="~/Files/ArticleImages/Thumb/@item.Image" alt="@item.Title-img">
+                            </a>
+                            <div class="blog-info text-center">
+                                <h6>@item.Title</h6>
+                                <p>
+                                    @Html.Raw(item.ShortDescription)
+                                </p>
+                                <a class="btn btn-small btn-clr-reverse" href="/Blog/Article/@item.Id/@item.Title.Replace(' ', '-')">بیشتر</a>
+                            </div>
+                        </div>
+                        <!-- / IMAGE ITEM ELEMENT -->
+                    }
+                </div>
+                <!-- / .owl-carousel -->
+            </div>
+            <!-- / .row -->
+        </section>
+    </div>
+    <!-- / .container -->
+
+</div>
+
+
+
+
+@*<div class="col-md-12 mt-3">
+        <div class="text-center">
+            <div class="separator-medium"></div>
+            <h3>جدیدترین کلاس ها</h3>
+            <div class="white-space"></div>
+        </div>
+
+        <div class="wrapper-content">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4">
+                            <!-- BLOG ITEM -->
+                            <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
+                                <a href="/Course/CourseDetails/@item.Id/@item.Title.Replace(' ', '-')">
+                                    <img src="~/Files/CourseImages/Thumb/@item.Image" alt="class-@item.Title">
+                                </a>
+                                <div class="blog-info text-center">
+                                    <h6>@item.Title</h6>
+                                    <p>
+                                        @item.ShortDescription
+                                    </p>
+                                    <a class="btn btn-small btn-clr-reverse" href="/Course/CourseDetails/@item.Id/@item.Title.Replace(' ', '-')">بیشتر</a>
+                                </div>
+                            </div>
+                            <!-- / BLOG ITEM -->
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>*@
