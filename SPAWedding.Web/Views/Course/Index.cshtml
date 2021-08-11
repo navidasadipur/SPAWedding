@@ -32,27 +32,27 @@
             <div class="col-sm-12 col-md-9 mb-sm-2 ">
                 @foreach (var article in Model)
                 {
-                    <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-4">
 
-                        <!-- BLOG ITEM -->
+                    <!-- COURSE ITEM -->
 
-                        <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
-                            <a href="/Course/CourseDetails/@article.Id/@article.Title.Replace(' ', '-')">
-                                <img width="100%" height="300px" src="~/Files/CourseImages/Thumb/@article.Image" alt="@article.Title">
-                            </a>
-                            <div class="blog-info text-center">
-                                <h6>@article.Title</h6>
-                                <p>
-                                    @article.ShortDescription
-                                    ...
-                                </p>
-                                <a class="btn btn-small btn-clr-reverse" href="/Course/CourseDetails/@article.Id/@article.Title.Replace(' ', '-')">بیشتر</a>
-                            </div>
+                    <div class="blog-item animate" data-animation="fadeIn" data-timeout="200">
+                        <a href="/Course/CourseDetails/@article.Id/@article.Title.Replace(' ', '-')">
+                            <img width="100%" height="300px" src="~/Files/CourseImages/Thumb/@article.Image" alt="@article.Title">
+                        </a>
+                        <div class="blog-info text-center">
+                            <h6>@article.Title</h6>
+                            <p>
+                                @article.ShortDescription
+                                ...
+                            </p>
+                            <a class="btn btn-small btn-clr-reverse" href="/Course/CourseDetails/@article.Id/@article.Title.Replace(' ', '-')">بیشتر</a>
                         </div>
-
-                        <!-- / BLOG ITEM -->
-
                     </div>
+
+                    <!-- / COURSE ITEM -->
+
+                </div>
                 }
 
                     <div class="col-md-12">

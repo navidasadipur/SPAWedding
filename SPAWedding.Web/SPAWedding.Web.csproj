@@ -2351,8 +2351,6 @@
     <Content Include="Files\ArticleImages\Thumb\67b82616-1101-4cb9-96ec-ac40a019795b.png" />
     <Content Include="Files\ArticleImages\Thumb\c2e50ba8-473a-4a90-9f1b-a72827a89bcd.jpg" />
     <Content Include="Files\BrandsImages\112fb6a6-f658-44e5-b4bb-67ab393d49a3.jpg" />
-    <Content Include="Files\GalleryImages\30430c5d-3c94-4837-b55d-02f94c9d1856.jpg" />
-    <Content Include="Files\GalleryImages\5e15f24a-0f87-470f-bcda-1ad269195bf8.png" />
     <Content Include="Files\OurTeamImages\4d9a209d-f720-495a-b084-762464257766.png" />
     <Content Include="Files\PartnersImages\1491125a-3cfd-42e0-a915-ef30c9084a29.png" />
     <Content Include="Files\PartnersImages\8b7cf755-145e-4974-a427-7af5f78538d9.png" />
@@ -4976,6 +4974,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Files\ArticleImages\Temp\" />
     <Folder Include="Files\BrandsImages\Temp\" />
+    <Folder Include="Files\GalleryImages\" />
     <Folder Include="Files\OffersImages\Temp\" />
     <Folder Include="Files\PartnersImages\Temp\" />
     <Folder Include="Files\PerfumeNotes\Images\" />
