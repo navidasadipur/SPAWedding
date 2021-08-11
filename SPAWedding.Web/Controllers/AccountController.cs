@@ -425,7 +425,7 @@ namespace SPAWedding.Web.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("AccountLogin", "Account");
+            return RedirectToAction("Login", "Account");
         }
         public ActionResult Login2()
         {
