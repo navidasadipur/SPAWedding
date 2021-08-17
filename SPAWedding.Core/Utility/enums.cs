@@ -49,7 +49,7 @@ namespace SPAWedding.Core.Utility
         HomeNewCourses = 1046,
         HomeNewArticles = 1047,
 
-        MakeupInstitute = 14,
+        MainTitleDescriptionHeaderFooter = 14,
         HeaderBackGroundImage = 13,
         NewsBackImage = 8,
 

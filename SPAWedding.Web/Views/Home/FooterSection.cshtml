@@ -8,10 +8,10 @@
 
                     <div class="footer-text">
                         <div class="site-logo animate animated fadeIn" data-animation="fadeIn" data-timeout="100">
-                            @Model.Logo.Title
+                            @ViewBag.MainTitle.ShortDescription
                         </div>
                         <p>
-                            @Model.Logo.ShortDescription
+                            @Html.Raw(ViewBag.MainTitle.Description)
                         </p>
                         <p>©طراحی شده توسط <a href="https://www.spad.co/">اسپاد</a></p>
                     </div>

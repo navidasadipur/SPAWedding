@@ -9,47 +9,49 @@
     <meta name="author" content="">
 
     <!-- Document Title  -->
-    <title>آموزشگاه زیبایی | @ViewData["Title"]</title>
+    <title>
+        @ViewData["Title"] | @Html.Action("MainTitleSection", "Home", new { area = "" })
+    </title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+              integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="shortcut icon" href="img/favicon.ico" type="/content/client/image/x-icon">
-    <link rel="apple-touch-icon" sizes="57x57" href="/content/client/img/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/content/client/img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/content/client/img/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/content/client/img/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/content/client/img/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/content/client/img/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/content/client/img/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/content/client/img/apple-touch-icon-180x180.png">
+        <link rel="shortcut icon" href="img/favicon.ico" type="/content/client/image/x-icon">
+        <link rel="apple-touch-icon" sizes="57x57" href="/content/client/img/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/content/client/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/content/client/img/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/content/client/img/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/content/client/img/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/content/client/img/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/content/client/img/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/content/client/img/apple-touch-icon-180x180.png">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/content/client/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/content/client/css/fancyBox.css">
-    <link rel="stylesheet" href="/content/client/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/content/client/css/animate.css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="/content/client/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/content/client/css/fancyBox.css">
+        <link rel="stylesheet" href="/content/client/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/content/client/css/animate.css">
 
-    <link rel="stylesheet" href="/content/client/css/options-menu.css">
+        <link rel="stylesheet" href="/content/client/css/options-menu.css">
 
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="/content/client/css/main.css" type="text/css">
-    <!-- Color CSS -->
-    <link rel="stylesheet" href="/content/client/css/color/magical.css" type="text/css">
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="/content/client/css/main.css" type="text/css">
+        <!-- Color CSS -->
+        <link rel="stylesheet" href="/content/client/css/color/magical.css" type="text/css">
 
-    <!--Aditional-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
+        <!--Aditional-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
 
-    <!--cetificates page-->
-    <style>
-        .gallery-section .gallery-box {
-            grid-auto-rows: auto;
-        }
-    </style>
+        <!--cetificates page-->
+        <style>
+            .gallery-section .gallery-box {
+                grid-auto-rows: auto;
+            }
+        </style>
 
 </head>
 <body class="">

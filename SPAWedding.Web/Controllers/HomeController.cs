@@ -80,6 +80,13 @@ namespace SPAWedding.Web.Controllers
             return View(popup);
         }
 
+        public ActionResult MainTitleSection()
+        {
+            ViewBag.MainTitle = _staticContentRepo.GetStaticContentDetail((int)StaticContents.MainTitleDescriptionHeaderFooter).ShortDescription;
+
+            return PartialView();
+        }
+
         public ActionResult HeaderSection()
         {
 
@@ -108,9 +115,9 @@ namespace SPAWedding.Web.Controllers
             //    ViewBag.WishListCount = wishListModel.WishListItems.Count();
             //}
 
-            ViewBag.HeaderImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HeaderBackGroundImage).Image;
+            ViewBag.MainTitle = _staticContentRepo.GetStaticContentDetail((int)StaticContents.MainTitleDescriptionHeaderFooter).ShortDescription;
 
-            ViewBag.MakeupInstitute = _staticContentRepo.GetStaticContentDetail((int)StaticContents.MakeupInstitute);
+            ViewBag.HeaderImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HeaderBackGroundImage).Image;
 
             return PartialView(/*allMainGroups*/);
         }
@@ -157,7 +164,6 @@ namespace SPAWedding.Web.Controllers
                 Address = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Address),
                 Email = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Email),
                 Phone = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Phone),
-                Logo = _staticContentRepo.GetStaticContentDetail((int)StaticContents.MakeupInstitute),
                 Facebook = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Facebook),
                 LinkedIn = _staticContentRepo.GetStaticContentDetail((int)StaticContents.LinkedIn),
                 Twitter = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Twitter),
@@ -165,6 +171,8 @@ namespace SPAWedding.Web.Controllers
                 Youtube = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Youtube),
                 Pinterest = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Pinterest),
             };
+
+            ViewBag.MainTitle = _staticContentRepo.GetStaticContentDetail((int)StaticContents.MainTitleDescriptionHeaderFooter);
 
             return PartialView(vm);
         }

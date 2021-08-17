@@ -4969,6 +4969,7 @@
     <Content Include="Views\Home\HomeCourseProperties.cshtml" />
     <Content Include="Views\Home\HomeGallerySection.cshtml" />
     <Content Include="Views\Home\HomeNewArticlesSection.cshtml" />
+    <Content Include="Views\Shared\MainTitleSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
