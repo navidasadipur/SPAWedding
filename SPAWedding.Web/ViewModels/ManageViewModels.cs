@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace SPAWedding.Web.ViewModels
+namespace MaryamRahimiFard.Web.ViewModels
 {
     public class IndexViewModel
     {

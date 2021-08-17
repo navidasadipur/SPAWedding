@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SPAWedding.Core
+namespace MaryamRahimiFard.Core
 {
     public interface IBaseEntity
     {

@@ -1,4 +1,4 @@
-﻿//using SPAWedding.Core.Models;
+﻿//using MaryamRahimiFard.Core.Models;
 //using System;
 //using System.Collections.Generic;
 //using System.Data.Entity;
@@ -7,7 +7,7 @@
 //using System.Text;
 //using System.Threading.Tasks;
 
-//namespace SPAWedding.Infrastructure.Repositories
+//namespace MaryamRahimiFard.Infrastructure.Repositories
 //{
 //   public class StaticContentsRepository : BaseRepository<StaticContentType, MyDbContext>
 //    {

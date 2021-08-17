@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SPAWedding.Core.Utility
+namespace MaryamRahimiFard.Core.Utility
 {
     public enum DiscountType
     {

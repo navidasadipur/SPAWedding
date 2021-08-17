@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SPAWedding.Core.Models;
+using MaryamRahimiFard.Core.Models;
 
-namespace SPAWedding.Infrastructure.Helpers
+namespace MaryamRahimiFard.Infrastructure.Helpers
 {
     public static class HierarchyLoop
     {

@@ -1,4 +1,4 @@
-﻿using SPAWedding.Core.Models;
+﻿using MaryamRahimiFard.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.AspNet.Identity;
-using SPAWedding.Infrastructure.Filters;
+using MaryamRahimiFard.Infrastructure.Filters;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Net.Mail;
-using SPAWedding.Infrastructure;
+using MaryamRahimiFard.Infrastructure;
 
-namespace SPAWedding.Infratructure.Repositories
+namespace MaryamRahimiFard.Infratructure.Repositories
 {
     public class EmailSubscriptionRepository : IDisposable
     {

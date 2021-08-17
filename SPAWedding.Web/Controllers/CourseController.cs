@@ -1,14 +1,14 @@
-﻿using SPAWedding.Core.Models;
-using SPAWedding.Core.Utility;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Web.ViewModels;
+﻿using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Core.Utility;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SPAWedding.Web.Controllers
+namespace MaryamRahimiFard.Web.Controllers
 {
     public class CourseController : Controller
     {

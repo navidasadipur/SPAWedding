@@ -1,4 +1,4 @@
-﻿using SPAWedding.Core.Models;
+﻿using MaryamRahimiFard.Core.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace SPAWedding.Infrastructure.Repositories
+namespace MaryamRahimiFard.Infrastructure.Repositories
 {
     public class LogsRepository
     {

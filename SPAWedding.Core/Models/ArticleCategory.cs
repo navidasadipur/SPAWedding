@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace SPAWedding.Core.Models
+namespace MaryamRahimiFard.Core.Models
 {
     public class ArticleCategory : IBaseEntity
     {

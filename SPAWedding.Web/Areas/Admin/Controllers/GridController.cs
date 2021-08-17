@@ -8,10 +8,10 @@ using System.Web;
 using System.Web.Mvc;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
-using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class GridController : Controller

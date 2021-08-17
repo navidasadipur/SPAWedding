@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Text;
-using SPAWedding.Core.Models;
+using MaryamRahimiFard.Core.Models;
 
-namespace SPAWedding.Infrastructure
+namespace MaryamRahimiFard.Infrastructure
 {
     public class MyDbContext : IdentityDbContext<User>
     {

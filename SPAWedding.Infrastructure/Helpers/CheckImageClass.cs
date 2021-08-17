@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace SPAWedding.Infrastructure.Helpers
+namespace MaryamRahimiFard.Infrastructure.Helpers
 {
     public static class CheckImageClass
     {

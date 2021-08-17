@@ -1,4 +1,4 @@
-﻿using SPAWedding.Core.Utility;
+﻿using MaryamRahimiFard.Core.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SPAWedding.Infratructure.Dtos.Product
+namespace MaryamRahimiFard.Infratructure.Dtos.Product
 {
     public class ProductGridDto
     {

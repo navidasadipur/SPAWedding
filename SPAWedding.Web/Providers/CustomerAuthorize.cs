@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using SPAWedding.Core.Models;
-using SPAWedding.Web.Models;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Web.Models;
 using Microsoft.AspNet.Identity;
 
-namespace SPAWedding.Web.Providers
+namespace MaryamRahimiFard.Web.Providers
 {
     public class CustomerAuthorize : AuthorizeAttribute
     {

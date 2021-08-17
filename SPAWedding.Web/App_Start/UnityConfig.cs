@@ -1,12 +1,12 @@
 using System.Web.Mvc;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Web.Areas.Customer.Controllers;
-using SPAWedding.Web.Controllers;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Web.Areas.Customer.Controllers;
+using MaryamRahimiFard.Web.Controllers;
 using Unity;
 using Unity.Injection;
 using Unity.Mvc5;
 
-namespace SPAWedding.Web
+namespace MaryamRahimiFard.Web
 {
     public static class UnityConfig
     {

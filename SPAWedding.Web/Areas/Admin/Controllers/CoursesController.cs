@@ -7,13 +7,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure;
-using SPAWedding.Infrastructure.Helpers;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Web.ViewModels;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure;
+using MaryamRahimiFard.Infrastructure.Helpers;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Web.ViewModels;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class CoursesController : Controller

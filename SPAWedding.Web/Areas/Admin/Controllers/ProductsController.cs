@@ -7,13 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Kendo.Mvc;
-using SPAWedding.Core.Models;
-using SPAWedding.Core.Utility;
-using SPAWedding.Infrastructure.Helpers;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Web.ViewModels;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Core.Utility;
+using MaryamRahimiFard.Infrastructure.Helpers;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Web.ViewModels;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     public class ProductsController : Controller
     {

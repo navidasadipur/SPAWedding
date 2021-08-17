@@ -1,12 +1,12 @@
-﻿using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure;
-using SPAWedding.Infrastructure.Repositories;
+﻿using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure;
+using MaryamRahimiFard.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SPAWedding.Infrastructure.Repositories
+namespace MaryamRahimiFard.Infrastructure.Repositories
 {
     public class OurTeamRepository : BaseRepository<OurTeam, MyDbContext>
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 
-namespace SPAWedding.Infrastructure.Helpers
+namespace MaryamRahimiFard.Infrastructure.Helpers
 {
 
     public class PersianCulture : CultureInfo

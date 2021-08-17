@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Web.Mvc;
 
-namespace SPAWedding.Core.Models
+namespace MaryamRahimiFard.Core.Models
 {
     public class Course : IBaseEntity
     {

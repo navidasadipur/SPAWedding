@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace SPAWedding.Web.Areas.Admin
+namespace MaryamRahimiFard.Web.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {

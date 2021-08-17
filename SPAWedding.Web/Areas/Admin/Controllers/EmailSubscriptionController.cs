@@ -1,11 +1,11 @@
-﻿using SPAWedding.Infratructure.Repositories;
+﻿using MaryamRahimiFard.Infratructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     public class EmailSubscriptionController : Controller
     {

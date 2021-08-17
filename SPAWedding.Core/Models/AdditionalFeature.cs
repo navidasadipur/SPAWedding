@@ -1,4 +1,4 @@
-﻿using SPAWedding.Core.Utility;
+﻿using MaryamRahimiFard.Core.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SPAWedding.Core.Models
+namespace MaryamRahimiFard.Core.Models
 {
     public class AdditionalFeature : IBaseEntity
     {

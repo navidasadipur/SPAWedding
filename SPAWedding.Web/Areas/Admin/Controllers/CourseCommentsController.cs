@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Core.Models;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Core.Models;
 using System.Net;
-using SPAWedding.Web.ViewModels;
+using MaryamRahimiFard.Web.ViewModels;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class CourseCommentsController : Controller

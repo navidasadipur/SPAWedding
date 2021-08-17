@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SPAWedding.Infrastructure.Filters
+namespace MaryamRahimiFard.Infrastructure.Filters
 {
     public class PaginationFilter
     {

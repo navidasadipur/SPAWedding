@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Net;
 using System.Web.Mvc;
-using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure.Repositories;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure.Repositories;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class FaqController : Controller

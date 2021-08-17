@@ -1,11 +1,11 @@
-﻿using SPAWedding.Infrastructure;
+﻿using MaryamRahimiFard.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace SPAWedding.Web.Providers
+namespace MaryamRahimiFard.Web.Providers
 {
     public class MyRoleProvider : RoleProvider
     {

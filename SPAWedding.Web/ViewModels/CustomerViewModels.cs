@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using SPAWedding.Core.Models;
+using MaryamRahimiFard.Core.Models;
 
-namespace SPAWedding.Web.ViewModels
+namespace MaryamRahimiFard.Web.ViewModels
 {
     public class CustomerDashboardViewModel
     {

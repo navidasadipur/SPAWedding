@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
-using SPAWedding.Core.Models;
+using MaryamRahimiFard.Core.Models;
 
-namespace SPAWedding.Infrastructure.Repositories
+namespace MaryamRahimiFard.Infrastructure.Repositories
 {
     public class InvoicesRepository : BaseRepository<Invoice, MyDbContext>
     {

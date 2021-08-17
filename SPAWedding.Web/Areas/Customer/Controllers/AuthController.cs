@@ -7,13 +7,13 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using SPAWedding.Core.Models;
-using SPAWedding.Core.Utility;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Web.Controllers;
-using SPAWedding.Web.ViewModels;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Core.Utility;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Web.Controllers;
+using MaryamRahimiFard.Web.ViewModels;
 
-namespace SPAWedding.Web.Areas.Customer.Controllers
+namespace MaryamRahimiFard.Web.Areas.Customer.Controllers
 {
     [Authorize]
     public class AuthController : Controller

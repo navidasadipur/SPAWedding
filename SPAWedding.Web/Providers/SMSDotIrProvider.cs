@@ -1,4 +1,4 @@
-﻿using SPAWedding.Core.Models;
+﻿using MaryamRahimiFard.Core.Models;
 using SmsIrRestful;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace SPAWedding.Web.Providers
+namespace MaryamRahimiFard.Web.Providers
 {
     public class SMSDotIrProvider:ISMSProvider
     {

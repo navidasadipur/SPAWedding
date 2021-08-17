@@ -1,7 +1,7 @@
-﻿using SPAWedding.Core;
-using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure.Filters;
-using SPAWedding.Infrastructure.Repositories;
+﻿using MaryamRahimiFard.Core;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure.Filters;
+using MaryamRahimiFard.Infrastructure.Repositories;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace SPAWedding.Infrastructure
+namespace MaryamRahimiFard.Infrastructure
 {
     public interface IBaseRepository<T> where T : class, IBaseEntity
     {

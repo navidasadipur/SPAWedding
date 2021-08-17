@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SPAWedding.Infrastructure.Extensions
+namespace MaryamRahimiFard.Infrastructure.Extensions
 {
     public static class DistinctByExtension
     {

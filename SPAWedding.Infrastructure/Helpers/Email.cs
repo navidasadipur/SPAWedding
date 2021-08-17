@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 
 
-namespace SPAWedding.Infrastructure.Helpers
+namespace MaryamRahimiFard.Infrastructure.Helpers
 {
     public class Email
     {

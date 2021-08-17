@@ -4,13 +4,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SPAWedding.Core.Models;
-using SPAWedding.Core.Utility;
-using SPAWedding.Infrastructure;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Infratructure.Dtos.Product;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Core.Utility;
+using MaryamRahimiFard.Infrastructure;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Infratructure.Dtos.Product;
 
-namespace SPAWedding.Infratructure.Services
+namespace MaryamRahimiFard.Infratructure.Services
 {
     public class ProductService
     {

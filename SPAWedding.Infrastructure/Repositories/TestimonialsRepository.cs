@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure;
-using SPAWedding.Infrastructure.Repositories;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure;
+using MaryamRahimiFard.Infrastructure.Repositories;
 
-namespace SPAWedding.Infratructure.Repositories
+namespace MaryamRahimiFard.Infratructure.Repositories
 {
     public class TestimonialsRepository : BaseRepository<Testimonial, MyDbContext>
     {

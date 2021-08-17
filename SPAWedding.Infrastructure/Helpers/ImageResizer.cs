@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace SPAWedding.Infrastructure.Helpers
+namespace MaryamRahimiFard.Infrastructure.Helpers
 {
     public class ImageResizer
     {

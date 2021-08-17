@@ -6,7 +6,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SPAWedding.Core.Models
+namespace MaryamRahimiFard.Core.Models
 {
     public class EPaymentLog : IBaseEntity
     {

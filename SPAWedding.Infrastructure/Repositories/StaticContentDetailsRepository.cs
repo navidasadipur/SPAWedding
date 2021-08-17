@@ -1,5 +1,5 @@
-﻿using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure.Filters;
+﻿using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure.Filters;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.Identity;
 
-namespace SPAWedding.Infrastructure.Repositories
+namespace MaryamRahimiFard.Infrastructure.Repositories
 {
     public class StaticContentDetailsRepository : BaseRepository<StaticContentDetail, MyDbContext>
     {

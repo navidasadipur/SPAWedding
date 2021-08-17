@@ -5,11 +5,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure.Helpers;
-using SPAWedding.Infratructure.Repositories;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure.Helpers;
+using MaryamRahimiFard.Infratructure.Repositories;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class TestimonialController : Controller

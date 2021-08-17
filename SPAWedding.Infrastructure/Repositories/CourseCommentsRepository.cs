@@ -1,4 +1,4 @@
-﻿using SPAWedding.Core.Models;
+﻿using MaryamRahimiFard.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Web;
 using Microsoft.AspNet.Identity;
 using System.Data.Entity;
 
-namespace SPAWedding.Infrastructure.Repositories
+namespace MaryamRahimiFard.Infrastructure.Repositories
 {
     public class CourseCommentsRepository : BaseRepository<CourseComment, MyDbContext>
     {

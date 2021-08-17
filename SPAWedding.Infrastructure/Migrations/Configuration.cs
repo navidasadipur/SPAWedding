@@ -1,18 +1,18 @@
-namespace SPAWedding.Infratructure.Migrations
+namespace MaryamRahimiFard.Infratructure.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SPAWedding.Infrastructure.MyDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MaryamRahimiFard.Infrastructure.MyDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SPAWedding.Infrastructure.MyDbContext context)
+        protected override void Seed(MaryamRahimiFard.Infrastructure.MyDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -1,5 +1,5 @@
-﻿using SPAWedding.Infrastructure;
-using SPAWedding.Infrastructure.Repositories;
+﻿using MaryamRahimiFard.Infrastructure;
+using MaryamRahimiFard.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace SPAWedding.Web
+namespace MaryamRahimiFard.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {

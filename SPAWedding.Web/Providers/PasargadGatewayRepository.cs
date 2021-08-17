@@ -1,6 +1,6 @@
-﻿using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure;
-using SPAWedding.Infrastructure.Repositories;
+﻿using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure;
+using MaryamRahimiFard.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -12,7 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
-namespace SPAWedding.Web.Providers
+namespace MaryamRahimiFard.Web.Providers
 {
     public class PasargadGatewayRepository : IBankGatewayRepository
     {

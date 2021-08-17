@@ -1,11 +1,11 @@
-﻿using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure.Repositories;
+﻿using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SPAWedding.Web.ViewModels
+namespace MaryamRahimiFard.Web.ViewModels
 {
     public class DiscountCodeResponseViewModel
     {

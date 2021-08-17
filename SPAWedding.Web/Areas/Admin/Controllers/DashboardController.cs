@@ -1,5 +1,5 @@
-﻿using SPAWedding.Infrastructure;
-using SPAWedding.Infrastructure.Helpers;
+﻿using MaryamRahimiFard.Infrastructure;
+using MaryamRahimiFard.Infrastructure.Helpers;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,9 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SPAWedding.Web.ViewModels;
+using MaryamRahimiFard.Web.ViewModels;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class DashboardController : Controller

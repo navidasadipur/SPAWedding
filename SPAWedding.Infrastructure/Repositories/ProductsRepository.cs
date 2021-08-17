@@ -4,10 +4,10 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SPAWedding.Core.Models;
-using SPAWedding.Core.Utility;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Core.Utility;
 
-namespace SPAWedding.Infrastructure.Repositories
+namespace MaryamRahimiFard.Infrastructure.Repositories
 {
     public class ProductsRepository : BaseRepository<Product, MyDbContext>
     {

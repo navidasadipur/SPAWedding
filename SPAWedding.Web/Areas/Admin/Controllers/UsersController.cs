@@ -8,16 +8,16 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure;
-using SPAWedding.Infrastructure.Helpers;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Web.ViewModels;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure;
+using MaryamRahimiFard.Infrastructure.Helpers;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Web.ViewModels;
 using Kendo.Mvc.UI;
 using Microsoft.AspNet.Identity;
-using SPAWedding.Core.Utility;
+using MaryamRahimiFard.Core.Utility;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class UsersController : Controller

@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using SPAWedding.Web.ViewModels;
+using MaryamRahimiFard.Web.ViewModels;
 
-namespace SPAWedding.Web.Controllers
+namespace MaryamRahimiFard.Web.Controllers
 {
     [Authorize]
     public class ManageController : Controller

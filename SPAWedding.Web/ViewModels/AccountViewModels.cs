@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace SPAWedding.Web.ViewModels
+namespace MaryamRahimiFard.Web.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Net;
 using System.Web.Mvc;
-using SPAWedding.Core.Models;
-using SPAWedding.Infrastructure.Repositories;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Infrastructure.Repositories;
 using System.Web;
 using System.IO;
-using SPAWedding.Infrastructure.Helpers;
+using MaryamRahimiFard.Infrastructure.Helpers;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class GalleryController : Controller

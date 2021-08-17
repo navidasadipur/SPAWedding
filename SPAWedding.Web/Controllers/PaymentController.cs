@@ -1,9 +1,9 @@
-﻿using SPAWedding.Core.Models;
-using SPAWedding.Core.Utility;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Infratructure.Services;
-using SPAWedding.Web.Providers;
-using SPAWedding.Web.ViewModels;
+﻿using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Core.Utility;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Infratructure.Services;
+using MaryamRahimiFard.Web.Providers;
+using MaryamRahimiFard.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SPAWedding.Web.Controllers
+namespace MaryamRahimiFard.Web.Controllers
 {
     public class PaymentController : Controller
     {

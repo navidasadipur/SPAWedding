@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Core.Models;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Core.Models;
 using System.Net;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class CourseHeadLinesController : Controller

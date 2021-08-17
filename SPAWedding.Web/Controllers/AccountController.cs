@@ -8,13 +8,13 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using SPAWedding.Web.ViewModels;
-using SPAWedding.Infrastructure.Helpers;
-using SPAWedding.Infrastructure.Repositories;
+using MaryamRahimiFard.Web.ViewModels;
+using MaryamRahimiFard.Infrastructure.Helpers;
+using MaryamRahimiFard.Infrastructure.Repositories;
 
 
 
-namespace SPAWedding.Web.Controllers
+namespace MaryamRahimiFard.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -170,7 +170,7 @@ namespace SPAWedding.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new SPAWedding.Web.Models.ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new MaryamRahimiFard.Web.Models.ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -241,8 +241,8 @@ namespace SPAWedding.Web.Controllers
                    protocol: Request.Url.Scheme);
                 var emailForm = new Email.EmailFormModel
                 {
-                    FromName = "SPAWedding Way Team",
-                    FromEmail = "SPAWeddingWayTeam@gmail.com",
+                    FromName = "MaryamRahimiFard Way Team",
+                    FromEmail = "MaryamRahimiFardWayTeam@gmail.com",
                     ToEmail = user.Email,
                     Subject = "بروز رسانی رمز عبور",
                     Message = "با استفاده از این <a href=\"" + callbackUrl + "\">لینک</a> میتوانید رمز عبور خود را بروز رسانی کنید"
@@ -401,7 +401,7 @@ namespace SPAWedding.Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new SPAWedding.Web.Models.ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new MaryamRahimiFard.Web.Models.ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

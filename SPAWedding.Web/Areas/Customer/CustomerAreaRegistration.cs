@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace SPAWedding.Web.Areas.Customer
+namespace MaryamRahimiFard.Web.Areas.Customer
 {
     public class CustomerAreaRegistration : AreaRegistration 
     {

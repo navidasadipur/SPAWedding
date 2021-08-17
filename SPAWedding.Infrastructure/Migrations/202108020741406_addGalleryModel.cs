@@ -1,4 +1,4 @@
-namespace SPAWedding.Infratructure.Migrations
+namespace MaryamRahimiFard.Infratructure.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using SPAWedding.Core.Models;
-using SPAWedding.Core.Utility;
-using SPAWedding.Infratructure.Dtos.Product;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Core.Utility;
+using MaryamRahimiFard.Infratructure.Dtos.Product;
 
-namespace SPAWedding.Web.ViewModels
+namespace MaryamRahimiFard.Web.ViewModels
 {
     public class NewProductViewModel
     {

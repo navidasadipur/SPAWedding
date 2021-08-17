@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace SPAWedding.Web
+namespace MaryamRahimiFard.Web
 {
     public class BundleConfig
     {

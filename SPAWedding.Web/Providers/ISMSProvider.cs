@@ -1,10 +1,10 @@
-﻿using SPAWedding.Core.Models;
+﻿using MaryamRahimiFard.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SPAWedding.Web.Providers
+namespace MaryamRahimiFard.Web.Providers
 {
     public interface ISMSProvider
     {

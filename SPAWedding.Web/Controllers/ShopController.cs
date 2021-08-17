@@ -6,16 +6,16 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json.Linq;
-using SPAWedding.Core.Models;
-using SPAWedding.Core.Utility;
-using SPAWedding.Infrastructure.Repositories;
-using SPAWedding.Infratructure.Dtos.Product;
-using SPAWedding.Infratructure.Repositories;
-using SPAWedding.Infratructure.Services;
-using SPAWedding.Web.Providers;
-using SPAWedding.Web.ViewModels;
+using MaryamRahimiFard.Core.Models;
+using MaryamRahimiFard.Core.Utility;
+using MaryamRahimiFard.Infrastructure.Repositories;
+using MaryamRahimiFard.Infratructure.Dtos.Product;
+using MaryamRahimiFard.Infratructure.Repositories;
+using MaryamRahimiFard.Infratructure.Services;
+using MaryamRahimiFard.Web.Providers;
+using MaryamRahimiFard.Web.ViewModels;
 
-namespace SPAWedding.Web.Controllers
+namespace MaryamRahimiFard.Web.Controllers
 {
     public class ShopController : Controller
     {

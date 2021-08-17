@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using SPAWedding.Infrastructure;
+using MaryamRahimiFard.Infrastructure;
 using Kendo.Mvc.UI;
-using SPAWedding.Web.ViewModels;
-using SPAWedding.Core.Models;
+using MaryamRahimiFard.Web.ViewModels;
+using MaryamRahimiFard.Core.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace SPAWedding.Web.Areas.Admin.Controllers
+namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class RolesController : Controller

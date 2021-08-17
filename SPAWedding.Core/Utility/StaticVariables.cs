@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SPAWedding.Core.Utility
+namespace MaryamRahimiFard.Core.Utility
 {
     public static class StaticVariables
     {

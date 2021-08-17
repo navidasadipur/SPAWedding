@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Routing;
 
 
-namespace SPAWedding.Infrastructure.Helpers
+namespace MaryamRahimiFard.Infrastructure.Helpers
 {
     public class CheckPermission
     {
