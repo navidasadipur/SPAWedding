@@ -35,7 +35,8 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
         // GET: Admin/StaticContentDetails/Create
         public ActionResult Create()
         {
-            ViewBag.StaticContentTypeId = new SelectList(_repo.GetStaticContentTypes(), "Id", "Name");
+            ViewBag.StaticContentTypeId = new SelectList(_repo.GetStaticContentTypes().Where(a => a.Id == (int)StaticContentTypes.HomeTopSlider), "Id", "Name");
+
             return View();
         }
 
@@ -103,7 +104,9 @@ namespace SPAWedding.Web.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StaticContentTypeId = new SelectList(_repo.GetStaticContentTypes(), "Id", "Name", staticContentDetail.StaticContentTypeId);
+
+            ViewBag.StaticContentTypeId = new SelectList(_repo.GetStaticContentTypes().Where(a => a.Id == staticContentDetail.StaticContentTypeId), "Id", "Name", staticContentDetail.StaticContentTypeId);
+
             return View(staticContentDetail);
         }
 
