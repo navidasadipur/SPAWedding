@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Content/logo.png">
-    <title>@ViewBag.Title - SPAWedding Gallery</title>
+    <title>@ViewBag.Title - آموزشگاه مریم رحیمی فرد</title>
     @*@Styles.Render("~/Content/css")*@
     @*@Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/jquery")*@
@@ -77,9 +77,9 @@
     <div id="kt_header_mobile"
          class="header-mobile align-items-center header-mobile-fixed">
         <!--begin::Logo-->
-        <a href="/Admin/Dashboard">
+        @*<a href="/Admin/Dashboard">
             <img alt="Logo" src="~/Content/logo.png" width="40" />
-        </a>
+        </a>*@
         <!--end::Logo-->
         <!--begin::Toolbar-->
         <div class="d-flex align-items-center">
@@ -127,8 +127,8 @@
                 <div class="brand flex-column-auto" id="kt_brand">
                     <!--begin::Logo-->
                     <a href="/Admin/Dashboard" class="brand-logo" style="align-items:center">
-                        <img alt="Logo" src="~/Content/logo.png" width="50" />
-                        <h4 style="color:white; padding-right: 7px; padding-top: 7px; overflow:hidden">Spad Co</h4>
+                        @*<img alt="Logo" src="~/Content/logo.png" width="50" />*@
+                        <h4 style="color:white; padding-right: 7px; padding-top: 7px; overflow:hidden; font-size: medium">آموزشگاه مریم رحیمی فرد</h4>
                     </a>
                     <!--end::Logo-->
                     <!--begin::Toggle-->
@@ -196,10 +196,6 @@
                                         </svg><!--end::Svg Icon-->
                                     </span><span class="menu-text">داشبورد</span>
                                 </a>
-                            </li>
-                            <li class="menu-section">
-                                <h4 class="menu-text">دسته بندی</h4>
-                                <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                             </li>
                             @*<li class="menu-item menu-item-submenu"
             id="nav_product_control"
