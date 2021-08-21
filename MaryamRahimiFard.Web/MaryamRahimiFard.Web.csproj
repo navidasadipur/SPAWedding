@@ -5008,13 +5008,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SPAWedding.Core\SPAWedding.Core.csproj">
+    <ProjectReference Include="..\MaryamRahimiFard.Core\MaryamRahimiFard.Core.csproj">
       <Project>{c9289f3f-fb24-495e-a361-11d0f3c81456}</Project>
-      <Name>SPAWedding.Core</Name>
+      <Name>MaryamRahimiFard.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SPAWedding.Infrastructure\SPAWedding.Infrastructure.csproj">
+    <ProjectReference Include="..\MaryamRahimiFard.Infrastructure\MaryamRahimiFard.Infrastructure.csproj">
       <Project>{0d2ff993-9241-444d-8bb7-44b31ccd4165}</Project>
-      <Name>SPAWedding.Infrastructure</Name>
+      <Name>MaryamRahimiFard.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

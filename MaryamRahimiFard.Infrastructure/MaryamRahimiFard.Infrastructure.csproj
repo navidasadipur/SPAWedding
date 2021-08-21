@@ -220,9 +220,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SPAWedding.Core\SPAWedding.Core.csproj">
+    <ProjectReference Include="..\MaryamRahimiFard.Core\MaryamRahimiFard.Core.csproj">
       <Project>{c9289f3f-fb24-495e-a361-11d0f3c81456}</Project>
-      <Name>SPAWedding.Core</Name>
+      <Name>MaryamRahimiFard.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
