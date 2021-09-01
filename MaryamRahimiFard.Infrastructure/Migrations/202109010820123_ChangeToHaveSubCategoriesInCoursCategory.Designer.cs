@@ -7,13 +7,13 @@ namespace MaryamRahimiFard.Infratructure.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addGalleryModel : IMigrationMetadata
+    public sealed partial class ChangeToHaveSubCategoriesInCoursCategory : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addGalleryModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeToHaveSubCategoriesInCoursCategory));
         
         string IMigrationMetadata.Id
         {
-            get { return "202108020741406_addGalleryModel"; }
+            get { return "202109010820123_ChangeToHaveSubCategoriesInCoursCategory"; }
         }
         
         string IMigrationMetadata.Source

@@ -13,6 +13,11 @@ namespace MaryamRahimiFard.Core.Models
         [Required(ErrorMessage = "لطفا نام دسته را وارد کنید")]
         public string Title { get; set; }
         public ICollection<Course> Courses { get; set; }
+
+        public int? ParentId { get; set; }
+        public virtual CourseCategory Parent { get; set; }
+        public virtual ICollection<CourseCategory> Children { get; set; }
+
         public string InsertUser { get; set; }
         public DateTime? InsertDate { get; set; }
         public string UpdateUser { get; set; }
