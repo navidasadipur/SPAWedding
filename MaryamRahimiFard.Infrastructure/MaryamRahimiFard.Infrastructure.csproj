@@ -127,9 +127,9 @@
     <Compile Include="Migrations\202107311322493_makeDurationAndSessionsNumberNullable.Designer.cs">
       <DependentUpon>202107311322493_makeDurationAndSessionsNumberNullable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108020741406_addGalleryModel.cs" />
-    <Compile Include="Migrations\202108020741406_addGalleryModel.Designer.cs">
-      <DependentUpon>202108020741406_addGalleryModel.cs</DependentUpon>
+    <Compile Include="Migrations\202109010820123_ChangeToHaveSubCategoriesInCoursCategory.cs" />
+    <Compile Include="Migrations\202109010820123_ChangeToHaveSubCategoriesInCoursCategory.Designer.cs">
+      <DependentUpon>202109010820123_ChangeToHaveSubCategoriesInCoursCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
@@ -215,8 +215,8 @@
     <EmbeddedResource Include="Migrations\202107311322493_makeDurationAndSessionsNumberNullable.resx">
       <DependentUpon>202107311322493_makeDurationAndSessionsNumberNullable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108020741406_addGalleryModel.resx">
-      <DependentUpon>202108020741406_addGalleryModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109010820123_ChangeToHaveSubCategoriesInCoursCategory.resx">
+      <DependentUpon>202109010820123_ChangeToHaveSubCategoriesInCoursCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
