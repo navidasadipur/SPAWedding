@@ -20,11 +20,11 @@ namespace MaryamRahimiFard.Infrastructure.Repositories
 
         public List<CourseCategory> GetCourseCategoryTable()
         {
-            var allGroups = _context.CourseCategories.Where(c => c.ParentId == null && c.IsDeleted == false).Include(c => c.Children).ToList();
+            var allCategories = _context.CourseCategories.Where(c => c.ParentId == null && c.IsDeleted == false).Include(c => c.Children).ToList();
 
             var removableListIds = new List<int>();
 
-            foreach (var item in allGroups)
+            foreach (var item in allCategories)
             {
                 foreach (var child in item.Children)
                 {
@@ -33,19 +33,19 @@ namespace MaryamRahimiFard.Infrastructure.Repositories
                 }
             }
 
-            allGroups.RemoveAll(g => removableListIds.Contains(g.Id));
+            allCategories.RemoveAll(g => removableListIds.Contains(g.Id));
 
-            return allGroups;
+            return allCategories;
         }
         public List<CourseCategory> GetCourseCategoryTable(int id)
         {
-            var allGroups = _context.CourseCategories.Where(c => c.ParentId == id && c.IsDeleted == false).Include(c => c.Children).ToList();
+            var allCategories = _context.CourseCategories.Where(c => c.ParentId == id && c.IsDeleted == false).Include(c => c.Children).ToList();
 
             var removableListIds = new List<int>();
 
             var removeableChild = new CourseCategory();
 
-            foreach (var item in allGroups)
+            foreach (var item in allCategories)
             {
                 foreach (var child in item.Children)
                 {
@@ -56,9 +56,9 @@ namespace MaryamRahimiFard.Infrastructure.Repositories
                 item.Children.Remove(removeableChild);
             }
 
-            allGroups.RemoveAll(g => removableListIds.Contains(g.Id));
+            allCategories.RemoveAll(g => removableListIds.Contains(g.Id));
 
-            return allGroups;
+            return allCategories;
         }
         public CourseCategory GetCourseCategory(int id)
         {
@@ -93,29 +93,29 @@ namespace MaryamRahimiFard.Infrastructure.Repositories
 
         public CourseCategory AddNewCourseCategory(int parentId, string title)
         {
-            var productGroup = new CourseCategory();
+            var courseCategory = new CourseCategory();
 
             var user = GetCurrentUser();
-            productGroup.InsertDate = DateTime.Now;
-            productGroup.InsertUser = user.UserName;
+            courseCategory.InsertDate = DateTime.Now;
+            courseCategory.InsertUser = user.UserName;
 
-            #region Adding Product Group
-            productGroup.Title = title;
+            #region Adding Course Category
+            courseCategory.Title = title;
             if (parentId != 0)
-                productGroup.ParentId = parentId;
-            _context.CourseCategories.Add(productGroup);
+                courseCategory.ParentId = parentId;
+            _context.CourseCategories.Add(courseCategory);
             _context.SaveChanges();
-            _logger.LogEvent(productGroup.GetType().Name, productGroup.Id, "Add");
+            _logger.LogEvent(courseCategory.GetType().Name, courseCategory.Id, "Add");
             #endregion
 
-            //#region Adding Product Group Brands
+            //#region Adding Course Category Brands
 
             //foreach (var brandId in brandIds)
             //{
-            //    var productGroupBrand = new CourseCategoryBrand();
-            //    productGroupBrand.CourseCategoryId = productGroup.Id;
-            //    productGroupBrand.BrandId = brandId;
-            //    _context.CourseCategoryBrands.Add(productGroupBrand);
+            //    var courseCategoryBrand = new CourseCategoryBrand();
+            //    courseCategoryBrand.CourseCategoryId = courseCategory.Id;
+            //    courseCategoryBrand.BrandId = brandId;
+            //    _context.CourseCategoryBrands.Add(courseCategoryBrand);
             //}
             //_context.SaveChanges();
 
@@ -123,41 +123,41 @@ namespace MaryamRahimiFard.Infrastructure.Repositories
             //#region Adding product Group Features
             //foreach (var featureId in featureIds)
             //{
-            //    var productGroupFeature = new CourseCategoryFeature();
-            //    productGroupFeature.CourseCategoryId = productGroup.Id;
-            //    productGroupFeature.FeatureId = featureId;
-            //    _context.CourseCategoryFeatures.Add(productGroupFeature);
+            //    var courseCategoryFeature = new CourseCategoryFeature();
+            //    courseCategoryFeature.CourseCategoryId = courseCategory.Id;
+            //    courseCategoryFeature.FeatureId = featureId;
+            //    _context.CourseCategoryFeatures.Add(courseCategoryFeature);
             //}
 
             //_context.SaveChanges();
             //#endregion
 
-            return productGroup;
+            return courseCategory;
         }
 
-        public CourseCategory UpdateCourseCategory(int parentId, int productGroupId, string title)
+        public CourseCategory UpdateCourseCategory(int parentId, int courseCategoryId, string title)
         {
-            var productGroup = Get(productGroupId);
+            var courseCategory = Get(courseCategoryId);
             var user = GetCurrentUser();
-            productGroup.UpdateDate = DateTime.Now;
-            productGroup.UpdateUser = user.UserName;
+            courseCategory.UpdateDate = DateTime.Now;
+            courseCategory.UpdateUser = user.UserName;
 
-            #region Adding Product Group
-            productGroup.Title = title;
+            #region Adding Course Category
+            courseCategory.Title = title;
             if (parentId != 0)
-                productGroup.ParentId = parentId;
+                courseCategory.ParentId = parentId;
             else
-                productGroup.ParentId = null;
-            Update(productGroup);
-            _logger.LogEvent(productGroup.GetType().Name, productGroup.Id, "Update");
+                courseCategory.ParentId = null;
+            Update(courseCategory);
+            _logger.LogEvent(courseCategory.GetType().Name, courseCategory.Id, "Update");
             #endregion
 
-            //#region Product Group Brands
+            //#region Course Category Brands
 
             //// Removing Previous Group Brands
-            //var productGroupBrands = _context.CourseCategoryBrands
-            //    .Where(b => b.IsDeleted == false & b.CourseCategoryId == productGroup.Id).ToList();
-            //foreach (var item in productGroupBrands)
+            //var courseCategoryBrands = _context.CourseCategoryBrands
+            //    .Where(b => b.IsDeleted == false & b.CourseCategoryId == courseCategory.Id).ToList();
+            //foreach (var item in courseCategoryBrands)
             //{
             //    item.IsDeleted = true;
             //    _context.Entry(item).State = EntityState.Modified;
@@ -166,20 +166,20 @@ namespace MaryamRahimiFard.Infrastructure.Repositories
             //// Adding new Group Brands
             //foreach (var brandId in brandIds)
             //{
-            //    var productGroupBrand = new CourseCategoryBrand();
-            //    productGroupBrand.CourseCategoryId = productGroup.Id;
-            //    productGroupBrand.BrandId = brandId;
-            //    _context.CourseCategoryBrands.Add(productGroupBrand);
+            //    var courseCategoryBrand = new CourseCategoryBrand();
+            //    courseCategoryBrand.CourseCategoryId = courseCategory.Id;
+            //    courseCategoryBrand.BrandId = brandId;
+            //    _context.CourseCategoryBrands.Add(courseCategoryBrand);
             //}
             //_context.SaveChanges();
 
             //#endregion
 
             //#region product Group Features
-            //var productGroupFeatures = _context.CourseCategoryFeatures
-            //    .Where(b => b.IsDeleted == false & b.CourseCategoryId == productGroup.Id).ToList();
+            //var courseCategoryFeatures = _context.CourseCategoryFeatures
+            //    .Where(b => b.IsDeleted == false & b.CourseCategoryId == courseCategory.Id).ToList();
             //// Removing Previous Group Features
-            //foreach (var item in productGroupFeatures)
+            //foreach (var item in courseCategoryFeatures)
             //{
             //    item.IsDeleted = true;
             //    _context.Entry(item).State = EntityState.Modified;
@@ -188,34 +188,34 @@ namespace MaryamRahimiFard.Infrastructure.Repositories
             //// Adding New Group Features
             //foreach (var featureId in featureIds)
             //{
-            //    var productGroupFeature = new CourseCategoryFeature();
-            //    productGroupFeature.CourseCategoryId = productGroup.Id;
-            //    productGroupFeature.FeatureId = featureId;
-            //    _context.CourseCategoryFeatures.Add(productGroupFeature);
+            //    var courseCategoryFeature = new CourseCategoryFeature();
+            //    courseCategoryFeature.CourseCategoryId = courseCategory.Id;
+            //    courseCategoryFeature.FeatureId = featureId;
+            //    _context.CourseCategoryFeatures.Add(courseCategoryFeature);
             //}
             //_context.SaveChanges();
             //#endregion
 
-            return productGroup;
+            return courseCategory;
         }
 
         public List<CourseCategory> GetChildrenCourseCategories(int? parentId = null)
         {
-            var groups = new List<CourseCategory>();
+            var allCategories = new List<CourseCategory>();
             if (parentId == null)
-                groups = _context.CourseCategories.Where(p => p.IsDeleted == false && p.ParentId == null).Include(p => p.Children).ToList();
+                allCategories = _context.CourseCategories.Where(p => p.IsDeleted == false && p.ParentId == null).Include(p => p.Children).ToList();
             else
-                groups = _context.CourseCategories.Where(p => p.IsDeleted == false && p.ParentId == parentId).Include(p => p.Children).ToList();
-            return groups;
+                allCategories = _context.CourseCategories.Where(p => p.IsDeleted == false && p.ParentId == parentId).Include(p => p.Children).ToList();
+            return allCategories;
         }
 
         public List<CourseCategory> GetMainCourseCategories()
         {
-            var groups = new List<CourseCategory>();
+            var allCategories = new List<CourseCategory>();
 
-            groups = _context.CourseCategories.Where(p => p.IsDeleted == false && p.ParentId == null).Include(p => p.Children).ToList();
+            allCategories = _context.CourseCategories.Where(p => p.IsDeleted == false && p.ParentId == null).Include(p => p.Children).ToList();
 
-            return groups;
+            return allCategories;
         }
 
         //public CourseCategory GetGroupByProductId(int productId)

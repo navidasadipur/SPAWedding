@@ -22,6 +22,18 @@ namespace MaryamRahimiFard.Web.ViewModels
         public List<int> ProductGroupFeatureIds { get; set; }
     }
 
+    public class NewCourseCategoryViewModel
+    {
+        public string Title { get; set; }
+        public int ParentCategoryId { get; set; }
+    }
+    public class UpdateCourseCategoryViewModel
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public int ParentCategoryId { get; set; }
+    }
+
     public class FeaturesObjViewModel
     {
         public int Id { get; set; }
