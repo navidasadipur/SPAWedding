@@ -2716,10 +2716,10 @@
     <Content Include="Content\client\fonts\iransans\woff\IRANSansWeb_Light.woff" />
     <Content Include="Content\client\fonts\iransans\woff\IRANSansWeb_Medium.woff" />
     <Content Include="Content\client\fonts\iransans\woff\IRANSansWeb_UltraLight.woff" />
-    <Content Include="Areas\Admin\Views\CourseCategories\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\CourseCategories\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\CourseCategories\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\CourseCategories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CourseCategories-old\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CourseCategories-old\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CourseCategories-old\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CourseCategories-old\Index.cshtml" />
     <Content Include="Areas\Admin\Views\CourseComments\AnswerComment.cshtml" />
     <Content Include="Areas\Admin\Views\CourseComments\Create.cshtml" />
     <Content Include="Areas\Admin\Views\CourseComments\Delete.cshtml" />
@@ -2741,6 +2741,10 @@
     <Content Include="Areas\Admin\Views\Gallery\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Gallery\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Gallery\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CourseCategories\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CourseCategories\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CourseCategories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CourseCategories\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
