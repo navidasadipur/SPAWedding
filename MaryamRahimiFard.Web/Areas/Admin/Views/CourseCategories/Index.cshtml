@@ -1,8 +1,8 @@
-﻿@model List<MaryamRahimiFard.Core.Models.ProductGroup>
+﻿@model List<MaryamRahimiFard.Core.Models.CourseCategory>
     @using Kendo.Mvc.UI
     @using MaryamRahimiFard.Infrastructure.Helpers;
     @{
-        ViewBag.Title = "دسته بندی محصولات";
+        ViewBag.Title = "دسته بندی  کلاس ها";
     }
     <input type="hidden" id="nav_active" value="product_control">
     <input type="hidden" id="nav_item_active" value="product_groups">
@@ -25,12 +25,12 @@
             <div class="card-toolbar">
                 @if (ViewBag.ParentId != null)
                 {
-                    <a href="/Admin/ProductGroups@(ViewBag.PrevParent != null?$"?parentId={ViewBag.PrevParent}":"")" class="btn btn-light-success" style="margin-left:20px">
+                    <a href="/Admin/CourseCategories@(ViewBag.PrevParent != null?$"?parentId={ViewBag.PrevParent}":"")" class="btn btn-light-success" style="margin-left:20px">
                         <i class="flaticon2-arrow"></i> بازگشت
                     </a>
                 }
                 <!--begin::Button-->
-                <a href="/Admin/ProductGroups/Create" class="btn btn-primary font-weight-bolder">
+                <a href="/Admin/CourseCategories/Create" class="btn btn-primary font-weight-bolder">
                     <span class="svg-icon svg-icon-md">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -54,7 +54,7 @@
                 columns.Bound(model => model.Title);
                 columns.Bound(item => @item.InsertDate).IncludeInMenu(false).Sortable(false).Title("دستورات").Filterable(false).Groupable(false).Template(
                     @<text>
-                        <a class='btn btn-sm btn-clean btn-icon mr-2' href="/Admin/ProductGroups/Edit/@item.Id"><i class='far fa-edit text-primary'></i></a>
+                        <a class='btn btn-sm btn-clean btn-icon mr-2' href="/Admin/CourseCategories/Edit/@item.Id"><i class='far fa-edit text-primary'></i></a>
                         @if(item.Id!=75)
                         {
                             <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("productgroupsdelete") ? $"btnDelete({item.Id})" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
@@ -62,7 +62,7 @@
                         
                         @if (item.Children.Any())
                         {
-                            @Html.ActionLink("زیر دسته ها", "Index", "ProductGroups", new { parentId = @item.Id }, new { @class = "btn btn-primary btn-sm ml-2" })
+                            @Html.ActionLink("زیر دسته ها", "Index", "CourseCategories", new { parentId = @item.Id }, new { @class = "btn btn-primary btn-sm ml-2" })
                         }
                     </text>
                     ).Width(300);
@@ -125,7 +125,7 @@
         </script>
         <script>
             function btnDelete(id) {
-                $.get("/Admin/ProductGroups/Delete/" + id, function (result) {
+                $.get("/Admin/CourseCategories/Delete/" + id, function (result) {
                     $("#myModal").modal();
                     $("#myModalLabel").html("حذف دسته");
                     $("#myModalHeader");

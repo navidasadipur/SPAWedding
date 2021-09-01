@@ -41,11 +41,11 @@ namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public int? Create(NewCourseCategoryViewModel CourseCategory)
+        public int? Create(NewCourseCategoryViewModel courseCategory)
         {
             if (ModelState.IsValid)
             {
-                var product = _repo.AddNewCourseCategory(CourseCategory.ParentCategoryId, CourseCategory.Title);
+                var product = _repo.AddNewCourseCategory(courseCategory.ParentCategoryId, courseCategory.Title);
                 return product.Id;
             }
 
