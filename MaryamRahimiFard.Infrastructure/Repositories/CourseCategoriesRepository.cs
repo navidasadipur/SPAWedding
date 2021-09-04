@@ -209,6 +209,13 @@ namespace MaryamRahimiFard.Infrastructure.Repositories
             return allCategories;
         }
 
+        public List<CourseCategory> GetAllChildrenCourseCategories()
+        {
+            var allChildCategories = _context.CourseCategories.Where(p => p.IsDeleted == false && p.ParentId.HasValue).Include(p => p.Children).ToList();
+
+            return allChildCategories;
+        }
+
         public List<CourseCategory> GetMainCourseCategories()
         {
             var allCategories = new List<CourseCategory>();

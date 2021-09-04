@@ -19,9 +19,12 @@ namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
     public class CoursesController : Controller
     {
         private readonly CoursesRepository _repo;
-        public CoursesController(CoursesRepository repo)
+        private readonly CourseCategoriesRepository _courseCategoriesRepository;
+
+        public CoursesController(CoursesRepository repo, CourseCategoriesRepository courseCategoriesRepository)
         {
             _repo = repo;
+            _courseCategoriesRepository = courseCategoriesRepository;
         }
         // GET: Admin/Courses
         public ActionResult Index()
@@ -38,7 +41,7 @@ namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
         // GET: Admin/Courses/Create
         public ActionResult Create()
         {
-            ViewBag.CourseCategoryId = new SelectList(_repo.GetCourseCategories(), "Id", "Title");
+            ViewBag.CourseCategoryId = new SelectList(_courseCategoriesRepository.GetAllChildrenCourseCategories(), "Id", "Title");
 
             ViewBag.CourseAuthorId = new SelectList(_repo.GetCourseAuthors(), "Id", "LastName");
 
@@ -90,7 +93,8 @@ namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Tags = Tags;
-            ViewBag.CourseCategoryId = new SelectList(_repo.GetCourseCategories(), "Id", "Title", course.CourseCategoryId);
+
+            ViewBag.CourseCategoryId = new SelectList(_courseCategoriesRepository.GetAllChildrenCourseCategories(), "Id", "Title", course.CourseCategoryId);
 
             ViewBag.CourseAuthorId = new SelectList(_repo.GetCourseAuthors(), "Id", "LastName", course.CourseAuthorId);
 
@@ -113,7 +117,7 @@ namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
 
             //ViewBag.Tags = _repo.GetCourseTagsStr(id.Value);
 
-            ViewBag.CourseCategoryId = new SelectList(_repo.GetCourseCategories(), "Id", "Title", course.CourseCategoryId);
+            ViewBag.CourseCategoryId = new SelectList(_courseCategoriesRepository.GetAllChildrenCourseCategories(), "Id", "Title", course.CourseCategoryId);
 
             ViewBag.CourseAuthorId = new SelectList(_repo.GetCourseAuthors(), "Id", "LastName", course.CourseAuthorId);
 
@@ -163,7 +167,7 @@ namespace MaryamRahimiFard.Web.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Tags = Tags;
-            ViewBag.CourseCategoryId = new SelectList(_repo.GetCourseCategories(), "Id", "Title", course.CourseCategoryId);
+            ViewBag.CourseCategoryId = new SelectList(_courseCategoriesRepository.GetAllChildrenCourseCategories(), "Id", "Title", course.CourseCategoryId);
 
             ViewBag.CourseAuthorId = new SelectList(_repo.GetCourseAuthors(), "Id", "LastName", course.CourseAuthorId);
 
