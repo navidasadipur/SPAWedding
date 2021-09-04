@@ -48,7 +48,30 @@
                                         var shortDescription = "";
                                         if (!string.IsNullOrWhiteSpace(article.ShortDescription))
                                         {
-                                            shortDescription = article.ShortDescription.Substring(0, 250);
+                                            //if (article.ShortDescription.Length < 200)
+                                            //{
+                                            //    shortDescription = article.ShortDescription;
+
+                                            //    shortDescription += new string('.', 10);
+
+                                            //    //for (int i = 0; i < 200 - article.ShortDescription.Length; i++)
+                                            //    //{
+                                            //    //    shortDescription += shortDescription.Append('.').ToString();
+                                            //    //}
+                                            //}
+                                            //else
+                                            //{
+                                            //    shortDescription = article.ShortDescription.Substring(0, 200);
+                                            //}
+
+                                            if (article.ShortDescription.Length > 200)
+                                            {
+                                                shortDescription = article.ShortDescription.Substring(0, 200);
+                                            }
+                                            else
+                                            {
+                                                shortDescription = article.ShortDescription.Substring(0, article.ShortDescription.Length);
+                                            }
 
                                             var words = shortDescription.Split(' ');
 

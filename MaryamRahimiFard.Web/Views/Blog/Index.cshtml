@@ -47,7 +47,14 @@
                                         var shortDescription = "";
                                         if (!string.IsNullOrWhiteSpace(article.ShortDescription))
                                         {
-                                            shortDescription = article.ShortDescription.Substring(0, 250);
+                                            if (article.ShortDescription.Length > 200)
+                                            {
+                                                shortDescription = article.ShortDescription.Substring(0, 200);
+                                            }
+                                            else
+                                            {
+                                                shortDescription = article.ShortDescription.Substring(0, article.ShortDescription.Length);
+                                            }
 
                                             var words = shortDescription.Split(' ');
 
