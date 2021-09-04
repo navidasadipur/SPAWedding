@@ -43,7 +43,19 @@
                             <div class="blog-info text-center">
                                 <h6>@article.Title</h6>
                                 <p>
-                                    @article.ShortDescription
+                                    @{
+                                        var shortDescription = "";
+                                        if (!string.IsNullOrWhiteSpace(article.ShortDescription))
+                                        {
+                                            shortDescription = article.ShortDescription.Substring(0, 250);
+
+                                            var words = shortDescription.Split(' ');
+
+                                            shortDescription = string.Join(" ", words.Take(words.Length - 1));
+                                        }
+                                    }
+
+                                    @shortDescription
                                     ...
                                 </p>
                                 <a class="btn btn-small btn-clr-reverse" href="/Blog/Article/@article.Id/@article.Title.Replace(' ', '-')">بیشتر</a>

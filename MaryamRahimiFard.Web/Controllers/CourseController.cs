@@ -90,20 +90,22 @@ namespace MaryamRahimiFard.Web.Controllers
         }
         public ActionResult CourseCategoriesSection()
         {
-            var categories = _coursesRepo.GetCourseCategories();
+            //var categories = _coursesRepo.GetCourseCategories();
 
-            var courseCategoriesVm = new List<CourseCategoriesViewModel>();
+            //var courseCategoriesVm = new List<CourseCategoriesViewModel>();
 
-            foreach (var item in categories)
-            {
-                var vm = new CourseCategoriesViewModel();
-                vm.Id = item.Id;
-                vm.Title = item.Title;
-                vm.CourseCount = _coursesRepo.GetCoursesCount(item.Id);
-                courseCategoriesVm.Add(vm);
-            }
+            //foreach (var item in categories)
+            //{
+            //    var vm = new CourseCategoriesViewModel();
+            //    vm.Id = item.Id;
+            //    vm.Title = item.Title;
+            //    vm.CourseCount = _coursesRepo.GetCoursesCount(item.Id);
+            //    courseCategoriesVm.Add(vm);
+            //}
 
-            return PartialView(courseCategoriesVm);
+            var model = _courseCategoriesRepo.GetCourseCategoryTable();
+
+            return PartialView(model);
         }
         public ActionResult TopCoursesSection(int take)
         {
