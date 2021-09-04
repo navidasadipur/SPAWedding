@@ -27,7 +27,7 @@
         </div>
         @using (Html.BeginForm("Edit", "CourseCategories", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
         {
-            <input type="hidden" name="Id" id="Id" value="Model.Id">
+            <input type="hidden" name="Id" id="Id" value="@Model.Id">
             <div class="card-body">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="row">
@@ -176,6 +176,7 @@
             e.preventDefault();
             if ($("#form").valid()) {
                 var Title = $("#Title").val();
+                var Id = $("#Id").val();
                 var ParentGroupId = 0;
                 var selectedGroup = $("#ParentGroupId").jstree().get_selected()[0]; // ["pg_id"]
                 if (selectedGroup != null || selectedGroup != undefined) {
@@ -184,6 +185,7 @@
                 }
 
                 var courseCategory = {
+                    Id: Id,
                     Title: Title,
                     ParentCategoryId: ParentGroupId,
                 }
