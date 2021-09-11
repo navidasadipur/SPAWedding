@@ -31,6 +31,7 @@ namespace MaryamRahimiFard.Web.Controllers
         private readonly CertificatesRepository _certificatesRepo;
         private readonly CoursesRepository _coursesRepo;
         private readonly GalleriesRepository _galleryRepo;
+        private readonly CourseCategoriesRepository _courseCategoriesRepo;
         private readonly ProductsRepository _productsRepo;
 
         public HomeController(
@@ -50,6 +51,7 @@ namespace MaryamRahimiFard.Web.Controllers
             , CertificatesRepository certificatesRepo
             , CoursesRepository coursesRepo
             , GalleriesRepository galleryRepo
+            , CourseCategoriesRepository courseCategoriesRepo
             )
         {
             _discountRepo = discountsRepo;
@@ -67,6 +69,7 @@ namespace MaryamRahimiFard.Web.Controllers
             _certificatesRepo = certificatesRepo;
             _coursesRepo = coursesRepo;
             _galleryRepo = galleryRepo;
+            _courseCategoriesRepo = courseCategoriesRepo;
             _productsRepo = productsRepo;
         }
 
@@ -119,7 +122,9 @@ namespace MaryamRahimiFard.Web.Controllers
 
             ViewBag.HeaderImage = _staticContentRepo.GetStaticContentDetail((int)StaticContents.HeaderBackGroundImage).Image;
 
-            return PartialView(/*allMainGroups*/);
+            var model = _courseCategoriesRepo.GetCourseCategoryTable();
+
+            return PartialView(model);
         }
 
         //public ActionResult MobileHeaderSection()

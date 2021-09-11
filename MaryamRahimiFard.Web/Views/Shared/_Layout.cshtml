@@ -419,6 +419,26 @@
     @RenderSection("LoadingOverlay", required: false)
 
     <script>
+        $(document).ready(function () {
+            // Menu init with superfish plugin
+            if ($.fn.superfish) {
+                $('.menu, .menu-vertical').superfish({
+                    popUpSelector: 'ul, .megamenu',
+                    hoverClass: 'show',
+                    delay: 0,
+                    speed: 80,
+                    speedOut: 80,
+                    autoArrows: true
+                });
+            }
+
+            var $megamenu = $('.megamenu-container .sf-with-ul');
+            $megamenu.hover(function () {
+                $('.demo-item.show').addClass('hidden');
+                $('.demo-item.show').removeClass('show');
+                $viewAll.removeClass('disabled-hidden');
+            });
+        }
 
         //$(".spn-product-code").hover(function (e) {
         //    e.stopPropagation();

@@ -90,18 +90,6 @@ namespace MaryamRahimiFard.Web.Controllers
         }
         public ActionResult CourseCategoriesSection()
         {
-            //var categories = _coursesRepo.GetCourseCategories();
-
-            //var courseCategoriesVm = new List<CourseCategoriesViewModel>();
-
-            //foreach (var item in categories)
-            //{
-            //    var vm = new CourseCategoriesViewModel();
-            //    vm.Id = item.Id;
-            //    vm.Title = item.Title;
-            //    vm.CourseCount = _coursesRepo.GetCoursesCount(item.Id);
-            //    courseCategoriesVm.Add(vm);
-            //}
 
             var model = _courseCategoriesRepo.GetCourseCategoryTable();
 
@@ -184,21 +172,6 @@ namespace MaryamRahimiFard.Web.Controllers
             }
 
             courseDetailsVm.Previous = previousCourse;
-
-            //var banner = "";
-            //try
-            //{
-            //    banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ وسلاس").Image;
-            //    banner = "/Files/StaticContentImages/Image/" + banner;
-            //}
-            //catch
-            //{
-
-            //}
-
-            //ViewBag.banner = banner;
-
-            //ViewBag.BanerImage = _staticContentRepo.GetStaticContentDetail(13).Image;
 
             ViewBag.Phone = _staticContentRepo.GetStaticContentDetail((int)StaticContents.Phone).ShortDescription;
 
