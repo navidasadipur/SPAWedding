@@ -5,6 +5,7 @@ using MaryamRahimiFard.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -71,18 +72,18 @@ namespace MaryamRahimiFard.Web.Controllers
             foreach (var item in courses)
                 vm.Add(new LatestCoursesViewModel(item));
 
-            var banner = "";
-            try
-            {
-                banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ کلاس").Image;
-                banner = "/Files/StaticContentImages/Image/" + banner;
-            }
-            catch
-            {
+            //var banner = "";
+            //try
+            //{
+            //    banner = _staticContentRepo.GetSingleContentDetailByTitle("سربرگ کلاس").Image;
+            //    banner = "/Files/StaticContentImages/Image/" + banner;
+            //}
+            //catch
+            //{
 
-            }
+            //}
 
-            ViewBag.banner = banner;
+            //ViewBag.banner = banner;
 
             ViewBag.BanerImage = _staticContentRepo.GetStaticContentDetail(13).Image;
 
@@ -90,7 +91,6 @@ namespace MaryamRahimiFard.Web.Controllers
         }
         public ActionResult CourseCategoriesSection()
         {
-
             var model = _courseCategoriesRepo.GetCourseCategoryTable();
 
             return PartialView(model);

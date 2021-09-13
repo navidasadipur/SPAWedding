@@ -20,43 +20,31 @@ namespace MaryamRahimiFard.Infrastructure.Repositories
 
         public List<CourseCategory> GetCourseCategoryTable()
         {
-            var allCategories = _context.CourseCategories.Where(c => c.ParentId == null && c.IsDeleted == false).Include(c => c.Children).ToList();
 
-            var removableListIds = new List<int>();
+            var allCategories = _context.CourseCategories.Where(c => c.IsDeleted == false).ToList();
 
-            foreach (var item in allCategories)
+            var allMainCategories = allCategories.Where(c => c.ParentId == null).ToList();
+
+            var childs = new List<CourseCategory>();
+
+            foreach (var item in allMainCategories)
             {
-                foreach (var child in item.Children)
-                {
-                    if (child.IsDeleted == true)
-                        removableListIds.Add(child.Id);
-                }
+                childs = allCategories.Where(c => c.ParentId == item.Id).ToList();
+
+                item.Children = childs;
             }
 
-            allCategories.RemoveAll(g => removableListIds.Contains(g.Id));
-
-            return allCategories;
+            return allMainCategories;
         }
+
         public List<CourseCategory> GetCourseCategoryTable(int id)
         {
-            var allCategories = _context.CourseCategories.Where(c => c.ParentId == id && c.IsDeleted == false).Include(c => c.Children).ToList();
-
-            var removableListIds = new List<int>();
-
-            var removeableChild = new CourseCategory();
+            var allCategories = _context.CourseCategories.Where(c => c.ParentId == id && c.IsDeleted == false).ToList();
 
             foreach (var item in allCategories)
             {
-                foreach (var child in item.Children)
-                {
-                    if (child.IsDeleted == true)
-                        removeableChild = child;
-                }
-
-                item.Children.Remove(removeableChild);
+                item.Children = _context.CourseCategories.Where(c => c.IsDeleted == false && c.ParentId == item.Id).ToList();
             }
-
-            allCategories.RemoveAll(g => removableListIds.Contains(g.Id));
 
             return allCategories;
         }

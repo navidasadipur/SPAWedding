@@ -1,4 +1,5 @@
 ﻿@model List<MaryamRahimiFard.Web.ViewModels.LatestCoursesViewModel>
+    @using System.Threading.Tasks;
 
 @{
     ViewBag.Title = "کلاس ها";
@@ -26,7 +27,6 @@
 <div class="wrapper-content">
     <div class="container">
         <div class="row">
-
             @Html.Action("CourseCategoriesSection", "Course")
 
             <div class="col-sm-12 col-md-9 mb-sm-2 ">

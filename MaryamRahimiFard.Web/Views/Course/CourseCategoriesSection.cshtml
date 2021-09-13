@@ -39,11 +39,10 @@
 
                             @foreach (var subItem in item.Children)
                             {
-                                if (subItem.IsDeleted)
+                                if (subItem.IsDeleted == true)
                                 {
                                     continue;
                                 }
-
                                 <a href="/Course?category=@subItem.Id">@subItem.Title@*<span>(@subItem.CourseCount)</span>*@</a>
                             }
 
